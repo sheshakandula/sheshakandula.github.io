@@ -9,4 +9,5 @@ group :jekyll_plugins do
   gem 'jekyll-include-cache', '~> 0.2.1'
   gem 'jekyll-remote-theme', '~> 0.4.3'
   gem 'jekyll-seo-tag'
+  gem 'jekyll-github-metadata'
 end
