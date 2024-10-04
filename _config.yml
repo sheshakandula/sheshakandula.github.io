@@ -69,7 +69,11 @@ locale: en-US
 minimal_mistakes_skin: default
 
 remote_theme: mmistakes/minimal-mistakes@4.26.2
-
+#troubleshooting
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-github-metadata
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-repository
 repository: sheshakandula/sheshakandula.github.io # FIXME Add your GitHub repository full name (e.g. gwenneg/blog-jekyll-asciidoc-template).
 

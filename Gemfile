@@ -1,11 +1,7 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'jekyll', '~> 4.3.4'
+gem "github-pages", group: :jekyll_plugins  # This will include the necessary Jekyll version and plugins
+gem "jekyll-remote-theme"  # Ensure you're using the remote theme feature
+gem "jekyll-seo-tag"  # Include any additional plugins you need
+gem "jekyll-github-metadata"
 
-# The plugins order matters! See https://github.com/asciidoctor/jekyll-asciidoc?tab=readme-ov-file#plugin-ordering
-group :jekyll_plugins do
-  gem 'jekyll-asciidoc', '~> 3.0.1'
-  gem 'jekyll-feed', '~> 0.17.0'
-  gem 'jekyll-include-cache', '~> 0.2.1'
-  gem 'jekyll-remote-theme', '~> 0.4.3'
-end
