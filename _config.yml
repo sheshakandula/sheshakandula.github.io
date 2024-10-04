@@ -74,6 +74,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-github-metadata
+  - jekyll-include-cache
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-repository
 repository: sheshakandula/sheshakandula.github.io # FIXME Add your GitHub repository full name (e.g. gwenneg/blog-jekyll-asciidoc-template).
 
