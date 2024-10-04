@@ -90,3 +90,4 @@ tag_archive:
 title: AppSec Mastery with Sheshananda # FIXME Replace with your blog title.
 
 url: https://sheshakandula.github.io # FIXME Add your blog URL (e.g. https://gwenneg.github.io).
+baseurl: "/sheshakandula.github.io"
