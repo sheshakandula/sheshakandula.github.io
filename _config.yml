@@ -12,11 +12,11 @@ asciidoctor:
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-author
 author:
   avatar: /assets/images/avatar.png # FIXME Replace with your avatar.
-  bio: I are programmer. I make computer beep boop beep beep boop. # FIXME Replace with your bio.
-  github: # FIXME Add your GitHub username or remove this line.
-  linkedin: # FIXME Add your Linkedin username or remove this line.
-  location: Earth, Milky Way # FIXME Replace with your location or remove this line.
-  name: John Doe # FIXME Replace with your name.
+  bio: With 15 years of experience in **Application Security**, focusing on **web, mobile**, and **APIs**, I have developed deep expertise in identifying and mitigating vulnerabilities, particularly in alignment with the **OWASP Top 10** for both web and mobile security. Throughout my career, I’ve gained hands-on experience addressing real-world security challenges and hold certifications such as **OSWE**, **OSCP**, and **CISSP**, which further validate my skills. Having benefited significantly from the security community over the years, I now want to give back by publishing a course on **Android Application Security**. This course is designed specifically for beginners, with the aim of helping them build a strong foundation in mobile app security. By sharing my knowledge and practical insights, I hope to empower the next generation of security professionals and foster a more secure mobile ecosystem. # FIXME Replace with your bio.
+  github: https://github.com/sheshakandula  # FIXME Add your GitHub username or remove this line.
+  linkedin: https://www.linkedin.com/in/sheshanandak/ # FIXME Add your Linkedin username or remove this line.
+  location: NY/NJ # FIXME Replace with your location or remove this line.
+  name: Sheshananda Reddy Kandula # FIXME Replace with your name.
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#giscus-comments
 comments:
@@ -29,7 +29,7 @@ comments:
     theme: light
   provider: giscus
 
-copyright: John Doe # FIXME Replace with your name or anything that makes sense. This will appear in the blog footer.
+copyright: Sheshananda Reddy Kandula # FIXME Replace with your name or anything that makes sense. This will appear in the blog footer.
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#front-matter-defaults
 defaults:
@@ -45,7 +45,7 @@ defaults:
       share: true
       show_date: true
 
-description: John Doe's blog # FIXME Replace with your blog description. This is only used in the blog HTML meta tags.
+description: AppSec Mastery with Sheshananda # FIXME Replace with your blog description. This is only used in the blog HTML meta tags.
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#code-block-copy-button
 enable_copy_code_button: true
@@ -57,10 +57,10 @@ footer:
   links:
     - label: GitHub
       icon: fab fa-fw fa-github
-      url: https://github.com/ # FIXME Replace with a link pointing to your GitHub profile (e.g. https://github.com/gwenneg) or remove this item.
+      url: https://github.com/sheshakandula # FIXME Replace with a link pointing to your GitHub profile (e.g. https://github.com/gwenneg) or remove this item.
     - label: Linkedin
       icon: fab fa-fw fa-linkedin
-      url: https://www.linkedin.com/in/ # FIXME Replace with a link pointing to your Linkedin profile (e.g. https://www.linkedin.com/in/gwenneg) or remove this item.
+      url: https://www.linkedin.com/in/sheshanandak/ # FIXME Replace with a link pointing to your Linkedin profile (e.g. https://www.linkedin.com/in/gwenneg) or remove this item.
 
 locale: en-US
 
@@ -70,7 +70,7 @@ minimal_mistakes_skin: default
 remote_theme: mmistakes/minimal-mistakes@4.26.2
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-repository
-repository: # FIXME Add your GitHub repository full name (e.g. gwenneg/blog-jekyll-asciidoc-template).
+repository: sheshakandula/sheshakandula.github.io # FIXME Add your GitHub repository full name (e.g. gwenneg/blog-jekyll-asciidoc-template).
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-search
 search: true
@@ -86,6 +86,6 @@ tag_archive:
   path: /tags/
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-title
-title: John Doe's blog # FIXME Replace with your blog title.
+title: AppSec Mastery with Sheshananda # FIXME Replace with your blog title.
 
-url: # FIXME Add your blog URL (e.g. https://gwenneg.github.io).
+url: https://sheshakandula.github.io # FIXME Add your blog URL (e.g. https://gwenneg.github.io).
