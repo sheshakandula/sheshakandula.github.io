@@ -1,0 +1,6 @@
+= Draft post
+:page-excerpt: This post hasn't been published yet.
+:page-published: false
+:revdate: 2024-08-08
+
+This post demonstrates how the `:page-published: false` header can be used to prevent it from being published.

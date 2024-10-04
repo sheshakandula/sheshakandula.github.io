@@ -1,0 +1,65 @@
+= First post
+:imagesdir: /assets/images/posts/first-post
+:page-excerpt: This is the very first post of this blog!
+:page-tags: [asciidoc, demo]
+:revdate: 2024-08-05
+
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Including an image
+
+image:first-post.png[First post!]
+
+== Showing code
+
+The code can be included as an inline snippet such as `this`.
+
+Code blocks are also available:
+
+[source,java,title=This is an optional code block title]
+----
+package org.acme;
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); // <1>
+    }
+}
+----
+<1> https://docs.asciidoctor.org/asciidoc/latest/verbatim/callouts/[Callouts^] can be used to provide additional information about a specific line of code.
+
+[NOTE]
+====
+Did you notice the `Copy to clipboard` button in the top-right corner of the code block?
+That feature is provided by the blog theme, https://mmistakes.github.io/minimal-mistakes/docs/configuration/#code-block-copy-button[Minimal Mistakes^].
+====
+
+== Drawing the reader's attention with admonitions
+
+[NOTE]
+====
+This is a `NOTE` admonition.
+====
+
+[TIP]
+====
+This is a `TIP` admonition.
+====
+
+[WARNING]
+====
+This is a `WARNING` admonition.
+====
+
+[IMPORTANT]
+====
+This is an `IMPORTANT` admonition.
+====
+
+[CAUTION]
+====
+This is a `CAUTION` admonition.
+====
+
+Learn more about admonitions in https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[Asciidoctor Docs^].

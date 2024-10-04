@@ -1,0 +1,4 @@
+:page-classes: wide
+:page-layout: single
+
+Write something about yourself here!
