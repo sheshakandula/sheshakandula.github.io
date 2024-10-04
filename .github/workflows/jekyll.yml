@@ -56,7 +56,7 @@ jobs:
 
   # Deployment job
   deploy:
-    if: false # Remove this line when you're ready to deploy your blog
+   # if: false # Remove this line when you're ready to deploy your blog
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
