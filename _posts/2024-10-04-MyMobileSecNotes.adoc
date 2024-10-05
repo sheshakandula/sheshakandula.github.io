@@ -1,12 +1,12 @@
-= Mobile Penetration Testing Notes
+= Android Applications Penetration Testing Notes
 :imagesdir: /assets/images/posts/first-post
 :page-excerpt: This is the very first post of this blog!!!!
-:page-tags: [Android, iOS, Pen Testing, Notes]
+:page-tags: [Android, Pen Testing, Notes]
 :revdate: 2024-10-04
 //:page-published: false
 :toc: auto
 
-This is my notes that I use during my Mobile (Android or iOS) Penetration Testing. 
+This is my notes that I use during my Android Application Penetration Testing. 
 // Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 //== Including an image
@@ -15,28 +15,47 @@ This is my notes that I use during my Mobile (Android or iOS) Penetration Testin
 
 == ADB Commands
 
-These are the few handy commands I use during the Android Testing with device/emulator.
+=== Basic Commands
 
-//The code can be included as an inline snippet such as `this`.
+These are regular commands to interact with Android rooted device
 
-//Code blocks are also available:
+[source,bash]
+----
+#basic commands
+adb devices
+adb shell 
+adb push ./file /sdcard/
+adb pull /sdcard/file . 
+adb install file.apk
 
-[source,bash,title=To take screenshots/screenrecord for quick PoC]
+# Looking for the application and it's path 
+adb shell pm list packages
+adb shell pm list packages -3
+adb shell dumpsys package <package-name>
+adb shell pm path <package-name>
+
+# logcat
+adb logcat "MainActivity:V *:S"
+adb logcat -v "brief"
+
 ----
 
+=== Take screenshots/screenrecord for PoC
+
+[source,bash]
+----
 adb exec-out screencap -p > screenshot.png
 adb shell screencap /sdcard/screencap.png
 adb shell screenrecord /sdcard/screenrecord.mp4
-
 ----
 
-== Start the Activity
+=== Start the Activity
 With ADB, we can start the exported activity. Below commands help with the syntax. 
-
 [source,bash]
 ----
 adb shell am start -n com.example.app/.ExportedActivity
 adb shell am start -n com.example.app/com.example.app.ExportedActivity
+adb shell am start -n com.example.app/.activities.Activity1 -a "android.intent.action.VIEW" -d "https://www.google.com" 
 ----
 
 Explanation: 
@@ -48,10 +67,36 @@ Explanation:
 * -d data URI
 * -t mime type
 
+link:https://developer.android.com/tools/adb#am[Android Debug Bridge (adb) Activity Manager doc]
+
+Convert above adb shell commands into an app and interact with our app. (Create a malicious app and interact with vulnerable app)
+
+[source,kotlin]
+----
+Intent intent=new Intent("android.intent.action.VIEW");
+intent.setComponent(new ComponentName("com.example.app","com.example.app/.activities.Activity1"));
+String url="https://www.google.com";
+intent.setData(Uri.parse(uri));
+startActivity(intent);
+#if we need extras, use putExtra
+intent.putExtra("key",value);
+
+----
+
 == ADB Over Wi-Fi
 For some reasons if you are using Docker container to test the Android apps and your host machine (Mac/Windows) don't have required mobile tools. You can pull a docker image and run the required tools inside the docker container. In such scenarios, connecting the device over USB won't be successful. That may be limitations with Docker. 
 In this scenario, we can use ADB Over Wi-Fi.
 
+link:https://forums.docker.com/t/unable-to-access-android-usb-device-from-docker-container/21781[Docker Forum Discussion]
+
+Steps to configure the ADB over Wi-Fi
+
+* Connect the device and the computer to the same Wi-Fi network
+* Plug the device to the computer with a USB Cable to configure the connectoin
+* On terminal : `adb tcpip 5555`
+* On terminal : `adb shell ip addr show wlan0` and copy the IP Address after the "inet" until the "/". You can also find inside the Settings of the device. 
+* On terminal : `adb connect ip-address-of-device:5555`
+* Disconnect the USB cable, but still you can see the device with `adb devices` command.
 
 
 // <1> https://docs.asciidoctor.org/asciidoc/latest/verbatim/callouts/[Callouts^] can be used to provide additional information about a specific line of code.
