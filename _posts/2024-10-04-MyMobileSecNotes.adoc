@@ -49,13 +49,16 @@ adb shell screencap /sdcard/screencap.png
 adb shell screenrecord /sdcard/screenrecord.mp4
 ----
 
-=== Start the Activity
-With ADB, we can start the exported activity. Below commands help with the syntax. 
+=== Start an Activity or Broadcast
+With ADB, we can start the exported activity or broadcasts. Below commands help with the syntax. 
 [source,bash]
 ----
 adb shell am start -n com.example.app/.ExportedActivity
 adb shell am start -n com.example.app/com.example.app.ExportedActivity
 adb shell am start -n com.example.app/.activities.Activity1 -a "android.intent.action.VIEW" -d "https://www.google.com" 
+adb shell am start -n com.example.app/.Activity2 -a "android.intent.action.SEND" --eu android.intent.extra.STREAM content://sdcard/Download/Test.pdf 
+adb shell am start -n com.example.app/.Activity2 -a "android.intent.action.SEND" --eu android.intent.extra.STREAM file:///sdcard/Download/Test.pdf 
+# Observe extra / for the file
 ----
 
 Explanation: 
@@ -78,9 +81,42 @@ intent.setComponent(new ComponentName("com.example.app","com.example.app/.activi
 String url="https://www.google.com";
 intent.setData(Uri.parse(uri));
 startActivity(intent);
-#if we need extras, use putExtra
+//if we need extras, use putExtra
 intent.putExtra("key",value);
 
+----
+
+== Drozer
+Drozer is little bit old and it's rewritten recently with Python3 support. 
+link:https://github.com/WithSecureLabs/drozer[Drozer]
+[source,bash]
+----
+adb forward tcp:31415 tcp:31415
+docker run --net host -it withsecurelabs/drozer console connect --server <phones IP address>
+dz>run app.package.list -f <packagename>
+dz>
+----
+link:https://book.hacktricks.xyz/mobile-pentesting/android-app-pentesting/drozer-tutorial[Drozer Tutorial]
+
+== Rooting Pixel 5A device
+I used below post and followed the steps to root the Pixel 5A. 
+link:https://www.naldotech.com/root-pixel-5a-5g-magisk/[Reference]
+
+Below are some notes during the process:
+From Google website, download the "Link", not "Flash"
+link:https://developers.google.com/android/images#barbet[AndroidImages]
+
+Look for "boot.img" file, not "bootxxxxxxx.img". Extract all zip files in the folder. 
+Commands used during this process
+[source,bash]
+----
+fastboot flash boot "boot.img"
+adb reboot-fastboot
+adb pull /sdcard/Download/magisk_patched-263000_xyzabc.img
+adb reboot-fastboot
+fastboot flash boot "magisk_pathed-263000_xyzabc.img"
+adb devices
+adb shell
 ----
 
 == ADB Over Wi-Fi
