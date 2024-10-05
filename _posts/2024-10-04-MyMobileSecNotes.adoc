@@ -1,0 +1,92 @@
+= Mobile Penetration Testing Notes
+:imagesdir: /assets/images/posts/first-post
+:page-excerpt: This is the very first post of this blog!!!!
+:page-tags: [Android, iOS, Pen Testing, Notes]
+:revdate: 2024-10-04
+//:page-published: false
+:toc: auto
+
+This is my notes that I use during my Mobile (Android or iOS) Penetration Testing. 
+// Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+//== Including an image
+
+//image:first-post.png[First post!]
+
+== ADB Commands
+
+These are the few handy commands I use during the Android Testing with device/emulator.
+
+//The code can be included as an inline snippet such as `this`.
+
+//Code blocks are also available:
+
+[source,bash,title=To take screenshots/screenrecord for quick PoC]
+----
+
+adb exec-out screencap -p > screenshot.png
+adb shell screencap /sdcard/screencap.png
+adb shell screenrecord /sdcard/screenrecord.mp4
+
+----
+
+== Start the Activity
+With ADB, we can start the exported activity. Below commands help with the syntax. 
+
+[source,bash]
+----
+adb shell am start -n com.example.app/.ExportedActivity
+adb shell am start -n com.example.app/com.example.app.ExportedActivity
+----
+
+Explanation: 
+
+* -a intent action like VIEW/SEND
+* -n component name like activity name
+* -c category intent like LAUNCHER
+* -eu extra URI
+* -d data URI
+* -t mime type
+
+== ADB Over Wi-Fi
+For some reasons if you are using Docker container to test the Android apps and your host machine (Mac/Windows) don't have required mobile tools. You can pull a docker image and run the required tools inside the docker container. In such scenarios, connecting the device over USB won't be successful. That may be limitations with Docker. 
+In this scenario, we can use ADB Over Wi-Fi.
+
+
+
+// <1> https://docs.asciidoctor.org/asciidoc/latest/verbatim/callouts/[Callouts^] can be used to provide additional information about a specific line of code.
+
+// [NOTE]
+// ====
+// Did you notice the `Copy to clipboard` button in the top-right corner of the code block?
+// That feature is provided by the blog theme, https://mmistakes.github.io/minimal-mistakes/docs/configuration/#code-block-copy-button[Minimal Mistakes^].
+// ====
+
+// == Drawing the reader's attention with admonitions
+
+// [NOTE]
+// ====
+// This is a `NOTE` admonition.
+// ====
+
+// [TIP]
+// ====
+// This is a `TIP` admonition.
+// ====
+
+// [WARNING]
+// ====
+// This is a `WARNING` admonition.
+// ====
+
+// [IMPORTANT]
+// ====
+// This is an `IMPORTANT` admonition.
+// ====
+
+// [CAUTION]
+// ====
+// This is a `CAUTION` admonition.
+// ====
+
+// Learn more about admonitions in https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[Asciidoctor Docs^].

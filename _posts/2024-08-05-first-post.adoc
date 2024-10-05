@@ -3,7 +3,7 @@
 :page-excerpt: This is the very first post of this blog!!!!
 :page-tags: [asciidoc, demo]
 :revdate: 2024-08-05
-
+:page-published: false
 Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Including an image
