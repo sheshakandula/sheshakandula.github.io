@@ -1,0 +1,91 @@
+= iOS Applications Penetration Testing Notes
+:imagesdir: /assets/images/posts/first-post
+:page-excerpt: This is the very first post of this blog!!!!
+:page-tags: [iOS, Pen Testing, Notes]
+:revdate: 2024-10-05
+//:page-published: false
+:toc: auto
+
+
+This is my notes that I took during my iOS Application Penetration Testing over the years.
+// Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+//== Including an image
+//image:first-post.png[First post!]
+
+== Jailbreaking
+With checkm8 hardware jailbreak solution, we can jailbreak the iPhones till iPhone X. But time is running out, as Apple support for the latest version of OS on iPhone X. 
+Successor to the checkra1n is palera1n. 
+
+link:https://checkra.in/[checkra1n]
+
+link:https://palera.in/[palera1n]
+
+=== SSH to Jailbroken device (iPhone X)
+
+* First SSH as Mobile user (ssh as root user is not working anymore and it throws error like UNIX Authentication is not enabled)
+    - `ssh mobile@ipaddress-of-iPhone`
+* Then run as root user with sudo
+    - `sudo -i -u root`
+
+For some reason, SSH is not working means, reinstall `system-cmds, libpam2 and libpam-modules` from Sileo.
+
+In worst case, install NewTerm app on the device and use the terminal on device.
+
+== Few Helpful Commands
+
+Find the path of the application : `ps -ef | grep -i <appname>`
+
+These are regular commands to interact with Android rooted device
+
+While testing to find the newly created or modified files `find . -cmin -5` This gives the files in the last 5 minutes.
+
+== To start the iPhone forcefully
+Sometimes during jailbreak if the device become unresponsive and not starting means. 
+
+* Press the "up" volume button and quickly release
+* Press the "down" volumen button and quickly release
+* Hold in the lock button on the right side of the phone for about 5 seconds (or until the apple logo appears)
+
+== Burp Proxy
+Keep the proxy in Settings
+
+* Go to Safari and visit http://burp (on Chrome it didn't work for some reasons)
+* First install the burp certificate. Then go to General -> About -> Certificate Trust Settings -> Enable full trust for certificates enable that. 
+
+
+// <1> https://docs.asciidoctor.org/asciidoc/latest/verbatim/callouts/[Callouts^] can be used to provide additional information about a specific line of code.
+
+// [NOTE]
+// ====
+// Did you notice the `Copy to clipboard` button in the top-right corner of the code block?
+// That feature is provided by the blog theme, https://mmistakes.github.io/minimal-mistakes/docs/configuration/#code-block-copy-button[Minimal Mistakes^].
+// ====
+
+// == Drawing the reader's attention with admonitions
+
+// [NOTE]
+// ====
+// This is a `NOTE` admonition.
+// ====
+
+// [TIP]
+// ====
+// This is a `TIP` admonition.
+// ====
+
+// [WARNING]
+// ====
+// This is a `WARNING` admonition.
+// ====
+
+// [IMPORTANT]
+// ====
+// This is an `IMPORTANT` admonition.
+// ====
+
+// [CAUTION]
+// ====
+// This is a `CAUTION` admonition.
+// ====
+
+// Learn more about admonitions in https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[Asciidoctor Docs^].

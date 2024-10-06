@@ -6,11 +6,10 @@
 //:page-published: false
 :toc: auto
 
-This is my notes that I use during my Android Application Penetration Testing. 
+
+This is my notes that I took during my Android Application Penetration Testing. 
 // Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
-
 //== Including an image
-
 //image:first-post.png[First post!]
 
 == ADB Commands
@@ -118,6 +117,26 @@ fastboot flash boot "magisk_pathed-263000_xyzabc.img"
 adb devices
 adb shell
 ----
+
+== Burp Proxy
+From Android Nougat(7), the MiTM with burp is become harder and harder. Android implementing several changes to the way it evaluates the certificates of User and System. 
+Below commands will be handy to quickly set up burp proxy
+
+----
+adb push 9a5ba757.0 /sdcard/
+adb shell
+mv /sdcard/9a5ba757.0 /system/etc/security/cacerts/
+chmod 644 /system/etc/security/cacerts/9a5ba757.0
+adb reboot
+----
+link:https://blog.ropnop.com/configuring-burp-suite-with-android-nougat[Reference]
+
+After Android 14, there are few more changes happened. Due to that, we see few more issues. 
+
+link:https://www.g1a55er.net/Android-14-Still-Allows-Modification-of-System-Certificates[Reference]
+
+link:https://httptoolkit.com/blog/android-14-install-system-ca-certificate/[Reference1]
+
 
 == ADB Over Wi-Fi
 For some reasons if you are using Docker container to test the Android apps and your host machine (Mac/Windows) don't have required mobile tools. You can pull a docker image and run the required tools inside the docker container. In such scenarios, connecting the device over USB won't be successful. That may be limitations with Docker. 
