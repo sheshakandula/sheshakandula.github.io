@@ -35,9 +35,13 @@ In worst case, install NewTerm app on the device and use the terminal on device.
 
 Find the path of the application : `ps -ef | grep -i <appname>`
 
-These are regular commands to interact with Android rooted device
+Copying all files from the application folder: 
+
+`scp -r mobile@ipaddressOfiDevice:/var/containers/Bundle/Application/<appid>/ /<DirectoryOnLaptop>`
+
 
 While testing to find the newly created or modified files `find . -cmin -5` This gives the files in the last 5 minutes.
+
 
 == To start the iPhone forcefully
 Sometimes during jailbreak if the device become unresponsive and not starting means. 

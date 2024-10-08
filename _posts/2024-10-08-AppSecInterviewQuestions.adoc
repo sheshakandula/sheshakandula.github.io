@@ -1,0 +1,123 @@
+= AppSec Interview Questions Notes
+:imagesdir: /assets/images/posts/first-post
+:page-excerpt: These are few questions/notes, I took during my interviews preparation in 2021 !!!! 
+:page-tags: [AppSec, Interview, Notes]
+:revdate: 2024-10-08
+//:page-published: false
+:toc: auto
+
+
+This is my notes that I took during my interview preparation over the years. These are not the questions asked by interviewers ;)
+// Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+//== Including an image
+//image:first-post.png[First post!]
+
+== Basic Questions
+
+
+=== XSS
+
+* What is XSS and different types of XSSes
+* * How do you explain XSS to Developer and explain/convince the impact? 
+* How do you prevent XSS?
+* What is DOM Based XSS and how it differs?
+* What is CSP (Content Security Policy)
+
+=== SQL Injection
+
+* What is SQL Injection
+* How do you prevent? 
+* How do you explain SQL Injection to Developer? 
+* Why Prepared Statements prevent SQLi? 
+* Blind SQLi how do you evaluate ? and confirm and extract the data? 
+* 
+
+=== CSRF 
+* What is CSRF?
+* How do you prevent? 
+* If CSRF Token usage is not possible per each session, what's the solution? 
+* Login CSRF 
+* SOP vs CSRF
+
+=== Cryptography 
+
+* Symmetric and Asymmetric
+* in HTTPS which one is used? 
+* What is PKI? 
+* What are the certificates?
+* How SSH Works ? explain in detail with A to B 
+* How HTTPS works? link:https://www.moserware.com/2009/06/first-few-milliseconds-of-https.html[link]
+* Encryption, Authentication, Authrozation
+* Encryption, hashing, encoding
+
+=== Password Storage
+
+* How to store passwords securely?
+* What are rainbow tables?
+* What is the use of Salting? 
+* What are rainbow tables? 
+* will salting helps? 
+* is there any impact on performance with different algorthms? 
+
+=== Generic Questions
+
+* What happens when you type google.com in browser? 
+* How DNS work?
+
+
+=== System Design
+
+* Design a password manager
+* Design a file uploading to the server
+
+
+
+
+== References
+
+* link:https://www.interviewhelp.io/blog/posts/google-security-engineer-interview-questions-and-preparation-guide/[GoogleSecurityEnginner]
+
+* link:https://www.teamblind.com/post/Google-Information-Security-Interviews-for-Security-Engineer-PHqR3KHZ[Blind: Google Security]
+
+* link:https://www.quora.com/How-do-I-prepare-for-a-security-engineer-interview-in-a-tech-company-Amazon-Google-What-skills-are-required-for-the-above-roles[Quora: How-do-I-prepare-for-a-security-engineer-interview-in-a-tech-company-Amazon-Google-What-skills-are-required-for-the-above-roles]
+
+* link:https://haiderm.com/my-experience-with-google-interview-for-information-security-engineer/[Blog]
+
+* link:https://github.com/security-prince/Application-Security-Engineer-Interview-Questions[GitHub]
+
+// <1> https://docs.asciidoctor.org/asciidoc/latest/verbatim/callouts/[Callouts^] can be used to provide additional information about a specific line of code.
+
+// [NOTE]
+// ====
+// Did you notice the `Copy to clipboard` button in the top-right corner of the code block?
+// That feature is provided by the blog theme, https://mmistakes.github.io/minimal-mistakes/docs/configuration/#code-block-copy-button[Minimal Mistakes^].
+// ====
+
+// == Drawing the reader's attention with admonitions
+
+// [NOTE]
+// ====
+// This is a `NOTE` admonition.
+// ====
+
+// [TIP]
+// ====
+// This is a `TIP` admonition.
+// ====
+
+// [WARNING]
+// ====
+// This is a `WARNING` admonition.
+// ====
+
+// [IMPORTANT]
+// ====
+// This is an `IMPORTANT` admonition.
+// ====
+
+// [CAUTION]
+// ====
+// This is a `CAUTION` admonition.
+// ====
+
+// Learn more about admonitions in https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[Asciidoctor Docs^].
