@@ -1,4 +1,4 @@
-= AppSec Interview Questions Notes
+= Application Security (AppSec) Interview Questions Notes
 :imagesdir: /assets/images/posts/first-post
 :page-excerpt: These are few questions/notes, I took during my interviews preparation in 2021 !!!! 
 :page-tags: [AppSec, Interview, Notes]
@@ -6,19 +6,19 @@
 //:page-published: false
 :toc: auto
 
-
+++++
+<br>
+++++
 This is my notes that I took during my interview preparation over the years. These are not the questions asked by interviewers ;)
 // Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 //== Including an image
 //image:first-post.png[First post!]
 
 == Basic Questions
-
-
 === XSS
 
 * What is XSS and different types of XSSes
-* * How do you explain XSS to Developer and explain/convince the impact? 
+* How do you explain XSS to Developer and explain/convince the impact? 
 * How do you prevent XSS?
 * What is DOM Based XSS and how it differs?
 * What is CSP (Content Security Policy)
@@ -29,8 +29,7 @@ This is my notes that I took during my interview preparation over the years. The
 * How do you prevent? 
 * How do you explain SQL Injection to Developer? 
 * Why Prepared Statements prevent SQLi? 
-* Blind SQLi how do you evaluate ? and confirm and extract the data? 
-* 
+* Blind SQLi how do you evaluate ? and confirm and extract the data?  
 
 === CSRF 
 * What is CSRF?
@@ -69,11 +68,17 @@ This is my notes that I took during my interview preparation over the years. The
 
 * Design a password manager
 * Design a file uploading to the server
+* Website withDB console access: How do you protect. 
+* Login functionality how do you design
+
+=== Coding
+
+* ROTN function. Similar to ROT13.
+* Base64 encoded string. It's kind of JSON output after base64 decode.  Extract different values
+* Parsing webserver logs. Return 200 status code or 404. Downloading files. 
 
 
-
-
-== References
+== Further Reading
 
 * link:https://www.interviewhelp.io/blog/posts/google-security-engineer-interview-questions-and-preparation-guide/[GoogleSecurityEnginner]
 
