@@ -95,17 +95,14 @@ Page Views: <span id="page-counter">Loading...</span>
 
 
 ++++
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9PPPWLW9ZR"></script>
 <script>
-  var pageKey = '{{ page.url | slugify }}';
-  fetch(`https://api.countapi.xyz/hit/sheshakandula.github.io/${pageKey}`)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('page-counter').innerText = data.value;
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      document.getElementById('page-counter').innerText = "Error loading count";
-    });
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9PPPWLW9ZR');
 </script>
 ++++
 
