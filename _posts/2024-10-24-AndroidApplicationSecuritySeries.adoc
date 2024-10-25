@@ -1,0 +1,40 @@
+= Android Application Security Series
+:imagesdir: /assets/images/posts/first-post
+:page-excerpt: This is series of articles about Android Application Security !!!! 
+:page-tags: [Android, Security, Series]
+:revdate: 2024-10-24
+//:page-published: false
+:toc: auto
+
+++++
+<br>
+++++
+
+In this series of articles, we are going to learn about the Android Application Security. Before begin the security aspects of Android Apps, below are few reasons to learn about the Android AppSec as Android Developer or as a regular user of Android phones. 
+
+The global smartphone landscape has evolved significantly over the past decade. With Android holding around 70% of the market share globally and iOS capturing the rest, mobile devices have become essential in our daily lives. Here are some notable trends and statistics:
+
+* Growth in Mobile Device Usage
+	• Increased Ownership: Smartphone adoption has surged. While global penetration was roughly 10% in 2010, today, over 85% of people worldwide own a smartphone.
+	• Daily Screen Time: People now spend an average of over 4 hours each day on their smartphones, with younger users often exceeding this time. Activities range from social networking and streaming to gaming, messaging, and productivity.
+	• Expansion in Emerging Markets: Smartphone usage has particularly increased in emerging markets. Android’s affordability and broad functionality have made it popular in regions where it has become an accessible and essential tool.
+* App Usage and Installations
+	• Number of Apps on Phones: The average user has between 60 and 90 apps installed, though they typically use around 30 regularly. Popular apps include essentials like messaging, social media, and streaming services.
+
+At its core, the operating system is known as the Android Open Source Project (AOSP) and is free and open-source software (FOSS) primarily licensed under the Apache License. https://en.wikipedia.org/wiki/Android_(operating_system)
+
+Google acquired Android in 2005 and open sourced it. Then lot of manufactures started using it. Android is based on Linux Kernel. Mobile devices have dependency on battery, network, screen size. Realtime user will expects similar performance of desktop/laptop on the mobile devices as well. By keeping all these in mind, Android OS changed several key features.
+
+All the changes/details are out of scope for this series. We will concentrate on Android Applications and their security aspects. 
+
+As of now, the structure of the series is going to be:
+
+* Android Application Architecture
+* Components of Android app
+* Security Controls available in the Android Operating System (OS) to protect the apps
+* Developing our first Hello World App
+* Tools to test/look into the app and testing types (SAST and DAST)
+* Open Source Tools installation and using
+* Looking into Damn Vulnerable Apps (Intentional vulnerable apps)
+	
+Mostly the series going to be similar, based on how the outcome is coming for each article. Will split/merge the topics. There are several free/paid courses available in the internet. This one is going to be beginner friendly. 
