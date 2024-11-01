@@ -1,0 +1,48 @@
+= Andriod App Architecture and Reverse Engineering of App
+:imagesdir: /assets/images/posts/AndroidAppArch
+:page-excerpt: This is series of articles about Android Application Security !!!! 
+:page-tags: [Android, Security, Series]
+:revdate: 2024-10-24
+//:page-published: false
+:toc: auto
+
+++++
+<br>
+++++
+
+== Android Platform Architecture
+
+The Android Platform Architecture is layered to manage hardware interactions indirectly, providing both efficiency and security. At the foundation is the Linux Kernel, which ensures hardware resources are managed securely. However, hardware communication for components like Audio, Bluetooth, USB, Camera, and WiFi doesn’t happen directly with the kernel. Instead, it flows through multiple layers, each adding abstraction, as follows:
+
+image:android-stack.png[AndroidPlatformArchitecture]
+
+* *Linux Kernel Layer*
+
+The Linux kernel is the base of the Android OS, managing core system services like memory, process management, networking, and security.
+It also includes drivers for device hardware, abstracting the details of hardware interaction and providing interfaces for higher-level components.
+
+* *Hardware Abstraction Layer (HAL)*
+
+The HAL serves as an intermediary, allowing the Android system to interact with device hardware without knowing hardware specifics.
+For each hardware type (such as Bluetooth or WiFi), there’s a corresponding HAL module, enabling Android’s high-level APIs to perform operations regardless of device manufacturer specifics.
+
+* *Android Runtime (ART)*
+
+Android Runtime is where Android applications run. Each app operates in its own ART instance, providing isolation, security, and optimized performance.
+
+* *Native C/C++ Libraries*
+
+Android includes a set of core libraries written in C/C++ that handle essential functions such as graphics rendering, media playback, and database management.
+
+* *Java API Framework*
+
+The Java API Framework is the core of Android app development. It provides high-level services and is organized into components like:
+Activities and Fragments: For UI and lifecycle management.
+Content Providers: To manage data sharing between applications.
+Services: For background processing.
+Broadcast Receivers: For handling system-wide broadcast announcements.
+Resource Manager: Manages app resources like strings, layouts, and drawable assets.
+
+* *System Apps*
+
+System apps provide essential functionality and include apps like the dialer, SMS, and email client. These interact with the Java API Framework and provide standardized features users expect from Android devices.
