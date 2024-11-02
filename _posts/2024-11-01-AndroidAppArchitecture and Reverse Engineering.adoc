@@ -2,7 +2,7 @@
 :imagesdir: /assets/images/posts/AndroidAppArch
 :page-excerpt: This is series of articles about Android Application Security !!!! 
 :page-tags: [Android, Security, Series]
-:revdate: 2024-10-24
+:revdate: 2024-11-01
 //:page-published: false
 :toc: auto
 
@@ -37,12 +37,195 @@ Android includes a set of core libraries written in C/C++ that handle essential 
 * *Java API Framework*
 
 The Java API Framework is the core of Android app development. It provides high-level services and is organized into components like:
-Activities and Fragments: For UI and lifecycle management.
-Content Providers: To manage data sharing between applications.
-Services: For background processing.
-Broadcast Receivers: For handling system-wide broadcast announcements.
-Resource Manager: Manages app resources like strings, layouts, and drawable assets.
+
+* Activities and Fragments: For UI and lifecycle management.
+* Content Providers: To manage data sharing between applications.
+* Services: For background processing.
+*   Broadcast Receivers: For handling system-wide broadcast announcements.
+* Resource Manager: Manages app resources like strings, layouts, and drawable assets.
 
 * *System Apps*
 
 System apps provide essential functionality and include apps like the dialer, SMS, and email client. These interact with the Java API Framework and provide standardized features users expect from Android devices.
+
+This layered architecture ensures:
+
+Security: By isolating each layer and limiting direct hardware access.
+Compatibility: Allowing Android apps to function consistently across various hardware.
+Modularity: Simplifying upgrades and enabling flexibility in adding new features or hardware capabilities.
+
+== Android Application File Structure
+
+Since we understood how Android Platform Architecture little bit (It's not required to understand in depth as well). But we need to understand the Android Application Architecture in detail then it makes easy to secure the application. 
+
+We use Android Studio to develop the Android applications as a primary IDE. Android studio bundle all the required information into APK file. APK file is a simple ZIP file which contains several Android Application related files. 
+
+An example of file command on an APK file. 
+
+`file InsecureBankv2.apk` 
+
+`InsecureBankv2.apk: Java archive data (JAR)`
+
+image:ApkFile.jpeg[ApkFile]
+
+It's JAR File similar to any Java Application. We can rename it as ZIP and extract the contents of the APK file easily.
+
+image:ZipFileExtraction.jpeg[APKExtraction]
+
+There are several image files, xml files. But the source code of the Android application will be bundled and packed as Dex file. We can find that as well in this extraction as classes.dex file.
+
+image:DexFile.jpeg[DexFile]
+
+As we discussed earlier, Android application developed by keeping the Mobile device in mind. This Dex file is constructed in a way that helps the mobile devices compared to Jar file. We will discuss more about this in Reverse Engineering of Android Application Post. 
+
+This is the overall structure of Android application. But Android application will have different components which are crucial in interaction with user and performing different tasks.
+
+## Android Application Architecture in Detail
+
+Android apps are built on a structured architecture that consists of layers and components designed to handle UI, data, and business logic separately. This organized structure helps ensure the application is secure, maintainable, and performant.
+
+### Primary Components of an Android Application
+
+* Activities: The entry points for user interactions, managing individual screens within the app.
+* Services: Background tasks, such as playing music or fetching data, without a direct UI.
+* Broadcast Receivers: Handle system-wide broadcast announcements, like battery low alerts, network changes, etc.
+* Content Providers: Enable data sharing between applications securely, allowing controlled access to structured data.
+
+These components interact through a well-defined Android Component Lifecycle, which helps manage resources and enhances security, especially around permissions and access control.
+
+Next We will create a simple Hello World Android application with the help of Android Studio.
+
+#### Hello World with Android Studio
+
+We can use any IDE to create Android Applications, but Android Studio is the recommended one since it has all the required tools to develop, build, bundle, compile, package the code into a proper release application. 
+
+Use below URL to download the required package that matches your OS. 
+https://developer.android.com/studio
+
+After installation, you can open the Android Studio to get started to create your first app. 
+
+Click on "Start a new Android Studio project" then Empty Activity in the window of Create New Project. Then Provide details like Name, Package Name, Language (keep Java for now) then click "Finish".
+
+image:HelloWorldApp.jpeg[HelloWorldAppCreation]
+
+It will take few minutes to build and pull the required info. Once everything loaded, you can click on "Run" Button in the menu to push your app onto Device/emulator. In the below screenshot, we can see the Hello World app installed onto the Emulator.
+
+image:HelloWorldApponEmulator.jpeg[ApponEmualtor]
+
+There is a complete tutorial from Android to get started with Android development. You can start learning from it more, but it's better to do few levels in that course. So you get some understading in the android development which is going to help in Security as well. 
+
+https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app#0
+
+This installed application will be there in /data/app/ folder of Android device/emualtor. Usually, Android OS will keep restrictions for accessing. But with rooting we can access the files on the device. 
+
+Below is location of our app on the device. 
+`/data/app/~~atRscmYr-Kvc_yK65rt1-Q==/com.example.myapplication-_Gg47qOt2dTPI3KgbERKuw==`
+
+To navigate to the folder, we use adb utility/tool. adb will come as part of Platform-tools. Android documentation about the adb will help to deep dive into details.
+
+[sourec,bash]
+----
+adb shell
+barbet:/ $ su
+barbet:/ # cd /data/app
+barbet:/data/app # ls
+~~-rqmW-D3jLv6Unt7mmY1NQ==  ~~En-qhd9ZYwBn2WR5JTYBcg==  ~~P3F95WUpMy39FcKO7eU03Q==  ~~_cSSbxrLyLbwHYR6Ksf89A==  ~~j_HCTKzJrbJ7OVjNxm45Dw==  ~~v4O7AepCsIhtVRd5fixRXA==
+~~1nX4hy_FhP0yBMqkZEbLvg==  ~~FJoYOGW-GvPOhDmzvVCD6g==  ~~PJdxNEYsLbwC7lorFMKTrg==  ~~a8g4zDUcy3FKkURT0ykUTA==  ~~kBtnjOPS0xEWY_XlfvLTaA==  ~~vD_rgwS55aJpet3R2BZmPw==
+~~2GwlmPplPlupYx578cZSmA==  ~~GBA13F4IeKV0o6qXCPTI8A==  ~~PvKQU8YpEThBvEXGbsGiUQ==  ~~atRscmYr-Kvc_yK65rt1-Q==  ~~kqjZb9dWNges19EqXSVr3Q==  ~~vM80pt2jacKCCUjiKCh9UA==
+~~2eFNNEK0J5-bfUpxfOnNGw==  ~~GLlG_-fANspcUHyWrrkFFQ==  ~~Q8Q8A8TF7ftxZGmXtJbsfg==  ~~bJmj0-JgGxRBZ1iODG7vUw==  ~~laR5tZJN4MVohgzjWMymJg==  ~~vvRXqZtaVpDagq6KtxMXQg==
+~~3512wiuKuyLlXW5V9BmS8g==  ~~GmHjeZQ1_rb8jMtL0kCF8g==  ~~QOHLg7084hj8rNBvVYHYeg==  ~~cEDCX6WL0sRJaLtmgWl7hA==  ~~lhSezs3nbH70PIeAuAD-eg==  ~~wevBmhHPg6c48ZMT0lLlJg==
+~~4j8mryNrn_BL-goFhz4jDA==  ~~GwXqxlgIdPLNI_7eB8dgrA==  ~~Qdd7zzYfVflMMaAGBQ8ZMw==  ~~dIPaGPNnH8lyO1N9Vtc8QA==  ~~njhSbqT2przJCsa2wUtcTQ==  ~~wrRC-eio-UhI9iShqMiJhA==
+~~526Xh_LWBS8PqYnh5ufGKw==  ~~K1ZiefwUDqHVxXpQWI4JuA==  ~~R6X2QcWawNgijDDi18KlJA==  ~~dxB60eNmVCGZryLNyh9gPQ==  ~~o3qRhMV3nXSq7ODgYML0Dg==  ~~xMY3IOD_zktCOpPPZ-yYfg==
+~~5KxnjIRFeKK_kHZIMBoRcQ==  ~~K54AJWrwOFyTE0DEI7jZTg==  ~~SIh-Q3Vd7J7HIyQzc3KNrA==  ~~eT3Y4fNFWDlrAbvdSIe2vA==  ~~pkWtz4EwF1LrEspjHXTdaQ==  ~~xdYzhm8KB0Ozafv8-IA7Og==
+~~79VpiihF8TC3doHF4maEtA==  ~~LBtCo2pnLZRNu_bG1KmjIQ==  ~~SddUHnfa4Gi7iYGlKhcsxg==  ~~fHP9dScxf6_QCIJCzH-O5A==  ~~q0tc3vnCP5lI_gKjvh4vhA==  ~~xmWPghJbFqJh7Avs_ScrQg==
+~~7YgLrFPweZu0S1qObP0bGg==  ~~M7APp4BSWjwbgg9xliub8A==  ~~TU9zLt0XNPdlo26BAr_aIw==  ~~fK-XM_oEN56YiasPAwALpQ==  ~~r-geYB8DIHRqz1uNSWn1fg==  ~~xtxwpYgzvM7Eq5rh8QG0tQ==
+~~8N6Bf6xjvbx-P6OK1DeDyQ==  ~~MSw6x4JmrypY_E2G71wchw==  ~~U-9BzMakQpXF8fQn7oRyPQ==  ~~gndAwbGNwp0mzMUTP556Sg==  ~~sqZ9r75UA-KLblUwjUMQWg==  ~~zmzsA3nKuagzX2kJ2aoHcg==
+~~AK82hlWJIrFJf2cgbVRR3g==  ~~N49G7i5xxnv8maYh5dC3xQ==  ~~Wv_H-lsX3qm0X8U6rn1F7Q==  ~~hfTx_FzGJ_VJ0ixIGudCZg==  ~~tIU6CE_K1gMAkxGc7TZ-1Q==
+~~AVhLCUnFut_aUgIInmFjgA==  ~~OBMQu8GzOqNe4xU8h5AWuA==  ~~Y2ZhTq-_VcR0uNO0UF1sOQ==  ~~iZPWpc6onxTHPKpBcNXSng==  ~~uT4a003atzz5a0yjqIt-iQ==
+~~CYMvruobvnTWdcu3ngZixQ==  ~~OjyvGDx0SlDou4g1S7NCvg==  ~~ZFaVzX-ty4fCpi7KEsM0Xw==  ~~j1xfzC4nBI5XhxNHOMtE4w==  ~~uX5e3AVDCt_uzVvXqCYAAw==
+~~EPE-bpPb0AIjHi6UCl0SbA==  ~~OlAIzQ4y5WUTXaB4bCzwSw==  ~~_K9L_i0t1sRm54q7MsoS2A==  ~~jMmQ6FtaqWQ_HmLd85T_pQ==  ~~ufGic1Fu6VN7_Ak4kJI5Sw==
+
+barbet:/data/app/~~atRscmYr-Kvc_yK65rt1-Q==/com.example.myapplication-_Gg47qOt2dTPI3KgbERKuw== # ls
+
+base.apk
+----
+
+To understand what's going on here: When installing any application, Android OS will create a folder in the /data/app/ directory with Base64 value to avoid any collisions. To find our app, we can search all the folders with our app name or quick `ls -lR | grep <appname>`
+
+Let's pull our Hello World app and see what's inside. Extract the contents from APK file. 
+
+`adb pull /data/app/~~atRscmYr-Kvc_yK65rt1-Q==/com.example.myapplication-_Gg47qOt2dTPI3KgbERKuw==/base.apk <currentfolder>`
+
+[source,bash]
+----
+cd tmp
+➜  tmp mv base.apk base.zip
+➜  tmp unzip base.zip
+Archive:  base.zip
+  inflating: res/layout/notification_action.xml
+  inflating: res/anim/btn_checkbox_to_unchecked_check_path_merged_animation.xml
+  inflating: res/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml
+ extracting: res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png
+  inflating: res/drawable/btn_radio_on_to_off_mtrl_animation.xml
+  inflating: res/drawable-v21/abc_list_divider_material.xml
+  inflating: kotlin/reflect/reflect.kotlin_builtins
+ extracting: res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
+  inflating: res/layout-v17/select_dialog_singlechoice_material.xml
+ extracting: res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png
+ extracting: res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png
+  inflating: res/color-v23/abc_btn_colored_text_material.xml
+----
+
+Folder structure
+
+image:HelloWorldAPk.jp[HelloWorldAPK]
+
+Even though, we didn't single line of code manually while creating this app, we see bunch files and code. 
+
+It's all handled by Android Studio and do the magic.
+
+## Reverse Engineering the APK
+
+Reverse Engineering Android application is easy compared to iOS application. But if Android app used any obfuscation (Converting human readable code to non-readable format, but machines can understand it) methods, it's not easy to understand what's going on in the code.
+
+Let's consider there is no obfuscation methods used similar to our basic Hello World app, then there are several tools available to get the original code back. 
+
+The detailed build process have several steps is out of scope for this series. But it's good to have high level understanding. This diagram shows the compilation process.
+
+image:android_build_process_1.png[AndroidBuildProcess]
+
+https://singhajit.com/android-build-process/
+
+Now we are at the .apk step and navigating back to the src/MainActivity.java and AndroidManifest.xml etc files. Below tools help in this process. 
+
+APK tool https://apktool.org/
+Jadx-gui  https://github.com/skylot/jadx
+These tools you can directly install with apt-get install/brew install or follow the steps listed in the websites. 
+
+Going forward, we use several tools for testing/analyzing the apps. So, tools installation steps won't be available in these posts. 
+
+Jadx-gui provide easy way of accessing the code by just opening the apk file. Below screenshot provide the overview of our Hello World App.
+
+image:jadx-gui.jpeg[jadx]
+
+APK tool will be from command line.
+
+[source,bash]
+----
+➜  tmp apktool d base.apk
+I: Using Apktool 2.10.0 on base.apk with 12 thread(s).
+I: Baksmaling classes.dex...
+I: Loading resource table...
+I: Decoding file-resources...
+I: Loading resource table from file: /Users/dhanvi/Library/apktool/framework/1.apk
+I: Decoding values */* XMLs...
+I: Decoding AndroidManifest.xml with resources...
+I: Regular manifest package...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+----
+
+Below file structure will be extracted.
+
+image:APKtool.jpeg[APKFileStructure]

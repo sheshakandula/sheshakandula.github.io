@@ -38,3 +38,5 @@ As of now, the structure of the series is going to be:
 * Looking into Damn Vulnerable Apps (Intentional vulnerable apps)
 	
 Mostly the series going to be similar, based on how the outcome is coming for each article. Will split/merge the topics. There are several free/paid courses available in the internet. This one is going to be beginner friendly. 
+
+
