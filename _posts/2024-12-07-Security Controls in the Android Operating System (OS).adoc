@@ -2,7 +2,7 @@
 :imagesdir: /assets/images/posts/AndroidAppArch
 :page-excerpt: This is series of articles about Android Application Security !!!! 
 :page-tags: [Android, Security, Series]
-:revdate: 2024-11-01
+:revdate: 2024-12-07
 //:page-published: false
 :toc: auto
 
