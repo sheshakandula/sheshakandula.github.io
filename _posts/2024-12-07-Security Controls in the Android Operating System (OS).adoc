@@ -1,0 +1,53 @@
+= Security Controls in the Android Operating System (OS) to protect the apps
+:imagesdir: /assets/images/posts/AndroidAppArch
+:page-excerpt: This is series of articles about Android Application Security !!!! 
+:page-tags: [Android, Security, Series]
+:revdate: 2024-11-01
+//:page-published: false
+:toc: auto
+
+++++
+<br>
+++++
+
+== Android OS Security Controls
+
+In this post, we will learn the different security controls provided by Android OS to protect the Apps running on the Device. 
+
+As part of the Android Application Security series, we are going to understand the Security Controls provided by Android OS(Operating System) to protect the applications that are running on the device. Without these security controls in place, the data on the devices or in transit of any app can be easily accessed by other apps/devices in the network. 
+
+Before get started, if you didn't read the first part of this series. I highly recommend to read it here: https://dzone.com/articles/andriod-application-architecture
+
+Before the rise of mobile devices, OS (Operating System) security primarily focused on desktop computers, servers and enterprise systems. Below are few important controls implemented by OS. 
+
+RBAC (Role Based Access Control), Multi User environments
+Network Security to protect against DoS (Denial of Service) attacks, firewalls, antivirus etc
+Memory Protection mechanisms: BoF (Buffer Over Flow) attacks were major attacks. To protect against those, DEP/ASLR (Data Execution Prevention)/(Address Space Layout Randomization) security controls implemented.
+Securing the file systems with File Permissions, File Encryption, Disk Encryption
+Like these, different operating systems (Windows/Linux/Unix/Solaris etc) came up with several protection mechanisms by the time mobile device era started. 
+
+By keeping these security controls mobile operating systems like Android and iOS started building the mobile platforms. But still in the earlier days, these are not many controls available in Android/iOS. They added the required controls pretty fast. 
+
+Android Security followed defense in depth model to protect the confidentiality, integrity and availability (CIA). In the defense in depth approach, they have implemented several controls. Below are important:
+
+* Android Users and Groups
+* SELinux (Security Enhanced Linux)
+* Permissions
+* DEP, ASLR etc
+* SECCOMP
+* App Sandbox
+* Device Encryption
+* Trusted Execution Environment(TEE)
+
+
+Below list shows the improvements :
+
+* Android 4.2 (API level 16) in November 2012 (introduction of SELinux)
+* Android 4.3 (API level 18) in July 2013 (SELinux became enabled by default)
+* Android 4.4 (API level 19) in October 2013 (several new APIs and ART introduced)
+* Android 5.0 (API level 21) in November 2014 (ART used by default and many other features added)
+* Android 6.0 (API level 23) in October 2015 (many new features and improvements, including granting; detailed permissions setup at runtime rather than all or nothing during installation)
+* Android 7.0 (API level 24-25) in August 2016 (new JIT compiler on ART)
+* Android 8.0 (API level 26-27) in August 2017 (a lot of security improvements)
+* Android 9 (API level 28) in August 2018 (restriction of background usage of mic or camera, introduction of lockdown mode, default HTTPS for all apps)
+* Android 10 (API level 29) in September 2019 (access location "only while using the app", device tracking prevention, improve secure external storage,)
