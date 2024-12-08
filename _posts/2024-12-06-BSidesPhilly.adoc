@@ -1,7 +1,7 @@
 = BSides Philly Talk and Slides
 :imagesdir: /assets/images/posts/first-post
-:page-excerpt: This is my Second talk in BSides Philly Security Conference. This post has the slides.
-:page-tags: [Talk, Workshop, BSides, BSidesPhilly, Security]
+:page-excerpt: This is my Second public speaking opportunity and first in BSidesPhilly Security Conference. This post has the slides.
+:page-tags: [Talk, BSides, BSidesPhilly, Security]
 :revdate: 2024-12-06
 // :page-published: false
 Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
@@ -9,5 +9,6 @@ Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 == Talk : Hacking OAuth: An Attacker's View of Your OAuth Flows
 
 This talk title is same as my previous talk at BSides Delaware. But I have revised the slides and content to improve the talk and get the attendees attension. 
+The session was recorded, will update the recording link once it's posted online.
 
 link:https://github.com/sheshakandula/HackingOAuth[Hacking OAuth Slides]

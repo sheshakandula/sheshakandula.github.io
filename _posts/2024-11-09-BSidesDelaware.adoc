@@ -8,8 +8,12 @@ Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Talk : Hacking OAuth: An Attacker's View of Your OAuth Flows
 
+The session was recorded, will update the recording link once it's posted online.
+
 link:https://github.com/sheshakandula/HackingOAuth[Hacking OAuth Slides]
 
 == Workshop/Class : Android Applications Penetration Testing / Hacking - Beginners Version
+
+The workshop was not recorded, planning to create a UDemy course with the same content. Will keep posted here once that's complete.
 
 link:https://github.com/sheshakandula/AndroidApplicationSecurity[Android Application Security]
