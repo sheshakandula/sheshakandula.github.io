@@ -51,3 +51,66 @@ Below list shows the improvements :
 * Android 8.0 (API level 26-27) in August 2017 (a lot of security improvements)
 * Android 9 (API level 28) in August 2018 (restriction of background usage of mic or camera, introduction of lockdown mode, default HTTPS for all apps)
 * Android 10 (API level 29) in September 2019 (access location "only while using the app", device tracking prevention, improve secure external storage,)
+
+Android App Security Features
+Apart from these regular Operating System controls, Android will provide below security controls for an App running on Android OS. 
+
+* App Sandboxing
+* Permissions
+* App Signing
+* Key Store
+
+
+=== App Sandboxing
+
+Application Sandboxing is one of the critical feature provided by Android OS. It allows to keep your data or process in a sandbox environment and won't allow other apps (malicious or normal). This will protect data insider the app. Linux-based security mechanisms, file system permissions, and runtime restrictions to ensure that apps operate independently without unauthorized access to system resources or other apps. As we have seen in the previous article, the application data will be there in /data/data/ folder.
+
+[sourec,bash]
+---- 
+barbet:/data/data # ls
+alpha.mydevices.in                                               com.google.android.apps.internal.betterbug
+android                                                          com.google.android.apps.maps
+android.auto_generated_rro_product__                             com.google.android.apps.messaging
+android.auto_generated_rro_vendor__                              com.google.android.apps.nbu.files
+android.autoinstalls.config.google.nexus                         com.google.android.apps.nexuslauncher
+android.myshop.release                                           com.google.android.apps.photos
+----
+
+While installing the app on device, OS generates a unique code for the app and perform Base64 encode on it. Then create a folder name with that. Before Oreo, Android used normal package name. But after Oreo, to provide better unique names and security, Android started creating unique folder names. 
+
+[sourec,bash]
+---- 
+barbet:/data/data # ls /data/app/
+~~-09YTqMLYcn7FwT_vUBMOA==  ~~AK82hlWJIrFJf2cgbVRR3g==  ~~KvDoAodAiN0LD2UILHaetg==  ~~QOHLg7084hj8rNBvVYHYeg==  ~~gndAwbGNwp0mzMUTP556Sg==  ~~uoiS3mnMS4L3QfsR0uwqPA==
+~~1GBi7xnRkkWDvnnXZaZHPQ==  ~~CeEiKh1AzGKF9Y9x76zs5A==  ~~L6i9NBP_E_AWx0xH9YqlTA==  ~~Qdd7zzYfVflMMaAGBQ8ZMw==  ~~hfTx_FzGJ_VJ0ixIGudCZg==  ~~vD_rgwS55aJpet3R2BZmPw==
+~~21GSMTYpPGbmfo2J0pktSQ==  ~~DBpe3alZqtqzhzbsPsiIMg==  ~~LBtCo2pnLZRNu_bG1KmjIQ==  ~~RBZl37VivVPAu4ovxRpX3Q==  ~~j4XtEDAErb_X2lAXlXgHvA==  ~~vM80pt2jacKCCUjiKCh9UA==
+~~2WLzdU9faNRtTWTH9veuiw==  ~~DbXAPRM1sjmHHYWO4BER0w==  ~~MSw6x4JmrypY_E2G71wchw==  ~~TU9zLt0XNPdlo26BAr_aIw==  ~~jMmQ6FtaqWQ_HmLd85T_pQ==  ~~vqp1MM_cfzUyOEucWflhDg==
+~~2eFNNEK0J5-bfUpxfOnNGw==  ~~DxOUwLmCdEqkM_2UXXDo-g==  ~~Ma7GQ-mgVbviiz1NVUECiQ==  ~~U4EbGiTCND1jmF3wZdkRYw==  ~~j_HCTKzJrbJ7OVjNxm45Dw==  ~~vvRXqZtaVpDagq6KtxMXQg==
+~~2zp6xn7KRnCY7KP-eL1uDw==  ~~En-qhd9ZYwBn2WR5JTYBcg==  ~~MhXEKEfd9PxBFoHtcXMAMA==  ~~WmA6pQdCwVlAa5kxwhRaYA==  ~~kAhQi7P28dfkIgqlK8Ytmw==  ~~wTH3BJqtk3T8SePQmQw3Zg==
+----
+
+=== Permissions
+Android permissions are critical controls that dictate how an app interacts with system resources, such as accessing the internet, reading contacts, or accessing files on the device. Apps must declare required permissions in the AndroidManifest.xml file. Users are informed about the requested permissions during installation (or runtime for dangerous permissions) and can decide whether to grant them, ensuring transparency and control over app behavior.
+
+Install time permissions
+Normal Permissions
+Special Permissions
+Permission groups
+https://developer.android.com/reference/android/Manifest.permission
+
+=== App Signing
+To install any app(APK File) on the device, it has to be digitally signed. Without proper Signature verification, OS won't allow the installation. This helps the user to see authenticity of the developer/organization. 
+
+=== Key Store
+A Keystore in Android is a secure container used to store cryptographic keys and certificates. It plays a vital role in app signing, securing sensitive data, and enabling cryptographic operations like encryption, decryption, and authentication.
+
+We can see how these controls helps the Android Applications to protect from malicious apps in the upcoming posts.
+
+=== References
+https://dzone.com/articles/andriod-application-architecture
+https://en.wikibooks.org/wiki/Evolution_of_Operating_Systems_Designs/Security:_capabilities
+https://mas.owasp.org/MASTG/0x05a-Platform-Overview/#communication-with-the-operating-system
+https://source.android.com/docs/security/features
+https://source.android.com/docs/security/app-sandbox
+https://developer.android.com/guide/topics/permissions/overview
+https://source.android.com/docs/security/features/apksigning
