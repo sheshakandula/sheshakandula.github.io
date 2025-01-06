@@ -1,5 +1,5 @@
 = BSides Delaware Talk and Training Slides
-:imagesdir: /assets/images/posts/first-post
+:imagesdir: /assets/images/posts/BSidesDelaware/
 :page-excerpt: I gave my first talk and training in BSides Delaware. This post has the slides, files related to that
 :page-tags: [Talk, Workshop, BSides, BSidesDelaware, Security]
 :revdate: 2024-11-09
@@ -12,8 +12,20 @@ The session was recorded, will update the recording link once it's posted online
 
 link:https://github.com/sheshakandula/HackingOAuth[Hacking OAuth Slides]
 
+image:1731119427343.jpeg[BSidesDel]
+
+image:1731119427683.jpeg[BSidesDel]
+
+image:1731119428216.jpeg[BSidesDel]
+
 == Workshop/Class : Android Applications Penetration Testing / Hacking - Beginners Version
 
 The workshop was not recorded, planning to create a UDemy course with the same content. Will keep posted here once that's complete.
 
 link:https://github.com/sheshakandula/AndroidApplicationSecurity[Android Application Security]
+
+image:ApkFile.jpeg[ApkFile]
+
+image:ApkFile.jpeg[ApkFile]
+
+image:ApkFile.jpeg[ApkFile]

@@ -1,5 +1,5 @@
 = BSides Philly Talk and Slides
-:imagesdir: /assets/images/posts/first-post
+:imagesdir: /assets/images/posts/BSidesPhilly
 :page-excerpt: This is my Second public speaking opportunity and first in BSidesPhilly Security Conference. This post has the slides.
 :page-tags: [Talk, BSides, BSidesPhilly, Security]
 :revdate: 2024-12-06
@@ -12,3 +12,9 @@ This talk title is same as my previous talk at BSides Delaware. But I have revis
 The session was recorded, will update the recording link once it's posted online.
 
 link:https://github.com/sheshakandula/HackingOAuth[Hacking OAuth Slides]
+
+image:ApkFile.jpeg[ApkFile]
+
+image:ApkFile.jpeg[ApkFile]
+
+image:ApkFile.jpeg[ApkFile]
