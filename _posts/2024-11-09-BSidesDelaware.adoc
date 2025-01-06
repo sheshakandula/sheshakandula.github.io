@@ -24,8 +24,8 @@ The workshop was not recorded, planning to create a UDemy course with the same c
 
 link:https://github.com/sheshakandula/AndroidApplicationSecurity[Android Application Security]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesDel1.jpeg[BSidesDel]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesDel2.jpeg[BSidesDel]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesDel3.jpeg[BSidesDel]

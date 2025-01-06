@@ -13,8 +13,8 @@ The session was recorded, will update the recording link once it's posted online
 
 link:https://github.com/sheshakandula/HackingOAuth[Hacking OAuth Slides]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesPhilly1.jpeg[BSidesPhilly]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesPhilly2.jpeg[BSidesPhilly2]
 
-image:ApkFile.jpeg[ApkFile]
+image:BSidesPhilly3.jpeg[BSidesPhilly3]
