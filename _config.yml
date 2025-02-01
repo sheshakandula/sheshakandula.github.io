@@ -84,7 +84,7 @@ search: true
 show_excerpts: true
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-subtitle
-subtitle: The newest blog ever. # FIXME Replace with your blog subtitle (optional).
+subtitle: Eat, Learn, Sleep and Repeat # FIXME Replace with your blog subtitle (optional).
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#archive-settings
 tag_archive:
