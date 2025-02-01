@@ -1,0 +1,20 @@
+= Conf42 DevOps 2025 Talk and Slides
+:imagesdir: /assets/images/posts/Conf42DevOps2025/
+:page-excerpt: This post has the slides related to my talk in the Conf42 DevOps 2025 Conference
+:page-tags: [Talk, Conf42, DevOps2025, Mobile, Security]
+:revdate: 2025-01-23
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : Mobile Application Security Assessments Automation with MobSF and Jenkins pipeline
+
+This talk provide details how to automate the mobile application security assessments with the help of MobSF and Jenkins tools. I just reused the existing tools and articles for this. 
+
+link:https://www.conf42.com/DevOps_2025_Sheshananda_Reddy_Kandula_mobile_security_automation[Mobile Application Security Assessments Automation with MobSF and Jenkins pipeline]
+link:https://github.com/sheshakandula/Conf42DevOps2025Slides[Slides]
+
+References:
+
+* https://medium.com/@debasishkumardas5/achieving-devsecops-mobile-app-security-integration-using-jenkins-and-mobsf-187568f74d4c
+* https://github.com/MobSF/Mobile-Security-Framework-MobSF
+* https://mobsf.live/api_docs
