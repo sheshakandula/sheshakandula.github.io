@@ -1,0 +1,16 @@
+= IEEE ISEC 2025 Talk and Slides
+:imagesdir: /assets/images/posts/IEEEISEC/
+:page-excerpt: This post has the slides related to my talk in the 2025 IEEE Integrated STEM Education Conference (ISEC) Conference
+:page-tags: [Talk, IEEE, ICS, SCADA, Security]
+:revdate: 2025-03-12
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : Building Secure Applications
+
+link:Building-Secure-ApplicationsV1.0.pdf[Slides]
+
+image:IMG_2395.png[NJWEA]
+
+image:IMG_2397.png[NJWEA]
+

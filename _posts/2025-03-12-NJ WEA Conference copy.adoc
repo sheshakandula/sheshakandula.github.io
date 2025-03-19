@@ -1,0 +1,16 @@
+= NJWEA (New Jersey Water Environment Association) 2025 Talk and Slides
+:imagesdir: /assets/images/posts/NJWEA/
+:page-excerpt: This post has the slides related to my talk in the NJWEA Conference
+:page-tags: [Talk, NJWEA, ICS, SCADA, Security]
+:revdate: 2025-03-12
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : Securing Critical Infrastructure: Challenges and Controls
+
+link:Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[Slides]
+
+image:IMG_2375.png[NJWEA]
+
+image:IMG_2381.png[NJWEA]
+
