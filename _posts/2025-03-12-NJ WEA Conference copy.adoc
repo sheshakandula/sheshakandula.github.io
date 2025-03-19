@@ -8,7 +8,7 @@ Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Talk : Securing Critical Infrastructure: Challenges and Controls
 
-link:Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[Slides]
+link:https://github.com/sheshakandula/slides/blob/main/Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[Slides]
 
 image:IMG_2375.png[NJWEA]
 
