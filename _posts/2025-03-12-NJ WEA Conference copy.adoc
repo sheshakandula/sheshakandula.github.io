@@ -8,6 +8,10 @@ Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Talk : Securing Critical Infrastructure: Challenges and Controls
 
+In this talk, I emphasized the critical importance of securing national infrastructure and its role in maintaining economic stability, public safety, and national security. We examined recent devastating attacks on critical infrastructure, highlighting their far-reaching consequences.
+
+I then explored key challenges in Industrial Control Systems (ICS), including vulnerabilities, evolving threat landscapes, and the complexities of securing interconnected systems. Finally, I discussed the responsibilities of every employee in maintaining security, emphasizing the need for awareness, proactive risk management, and a collaborative security-first approach across all levels of an organization.
+
 link:https://github.com/sheshakandula/slides/blob/main/Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[Slides]
 
 image:IMG_2375.png[NJWEA]

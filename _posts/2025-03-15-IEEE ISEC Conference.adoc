@@ -8,6 +8,10 @@ Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Talk : Building Secure Applications
 
+The primary goal of this talk was to encourage students and upcoming developers to prioritize security in their development practices. With LLMs, AI, and ML playing an increasingly significant role in software development, it is crucial for both new and experienced developers to integrate security into their workflows.
+
+I emphasized that while these technologies enhance productivity and innovation, they also introduce new security risks. Ultimately, the responsibility of protecting applications lies with every developer, and writing secure, resilient code is fundamental to safeguarding digital ecosystems. By fostering a security-first mindset, developers can help build a safer technological future.
+
 link:https://github.com/sheshakandula/slides/blob/main/Building-Secure-ApplicationsV1.0.pdf[Slides]
 
 image:IMG_2395.png[NJWEA]
