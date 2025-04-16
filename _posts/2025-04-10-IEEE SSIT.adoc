@@ -1,0 +1,18 @@
+= IEEE SSIT 2025 Talk
+:imagesdir: /assets/images/posts/IEEESSIT/
+:page-excerpt: This post has the slides related to my talk in the 2025 IEEE SSIT vTools
+:page-tags: [Talk, IEEE, AI, CyberSecurity]
+:revdate: 2025-04-10
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : Cybersecurity, AI, and Human Rights: A Societal Perspective
+
+Abstract: 
+
+The rapid evolution of Artificial Intelligence (AI) in cybersecurity is reshaping how digital threats are detected, mitigated, and prevented. AI-driven security solutions enhance threat intelligence, automate responses, and strengthen cyber defense mechanisms. However, as AI becomes more embedded in cybersecurity frameworks, it raises critical concerns about human rights, privacy, and ethical governance. The use of AI in surveillance, data monitoring, and decision-making has sparked debates about its potential to infringe on fundamental freedoms, leading to questions about accountability, fairness, and transparency.
+
+This webinar will explore the intersection of cybersecurity, AI, and human rights, addressing how AI-driven security measures impact digital privacy, freedom of expression, and the ethical responsibilities of organizations and governments. Experts from cybersecurity, law, and ethics will discuss key challenges such as algorithmic bias, the risks of AI-powered surveillance, and the implications of cybersecurity policies on human rights. Additionally, the session will examine regulatory frameworks and best practices to ensure AI technologies are deployed responsibly while upholding democratic values and societal trust.
+
+link:https://github.com/sheshakandula/slides/blob/main/Cybersecurity-AI-and-Human-Rights-A-Societal-Perspective.pdf[Slides]
+

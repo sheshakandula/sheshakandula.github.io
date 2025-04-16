@@ -1,0 +1,22 @@
+= BSidesCharm Web Application Penetration Testing Training
+:imagesdir: /assets/images/posts/BSidesCharm/
+:page-excerpt: This post has the slides related to my Web Application Penetration Testing training slides
+:page-tags: [BSides, BSidesCharm, Training, WebSecurity, OWASP, Security]
+:revdate: 2025-04-13
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Training : Web Application Penetration Testing
+
+This 3-hour Web Application Penetration Testing training covers key security concepts, tools, and techniques. Participants will learn to identify and exploit vulnerabilities like SQL Injection, XSS, and CSRF through hands-on exercises. The session also includes reporting and mitigations offering essential skills for security professionals, developers, and IT admins.
+
+This Web Application Penetration Testing Training Session provides a hands-on introduction to web application security, focusing on identifying and exploiting common vulnerabilities. The session begins with an overview of web application security, highlighting real-world breaches and the OWASP Top 10 threats. Participants will then set up a testing environment and familiarize themselves with essential tools like Burp Suite, SQLMap, and Nmap.
+
+The core of the training covers practical exploitation techniques for vulnerabilities such as SQL Injection, Cross-Site Scripting (XSS), Broken Authentication, Cross-Site Request Forgery (CSRF), and Security Misconfigurations. Each section includes real-world attack scenarios and hands-on exercises to reinforce learning.
+
+Beyond exploitation, the training emphasizes reporting and mitigation strategies, guiding participants on how to document findings, assess risk severity, and recommend security best practices. The session concludes with a Q&A and wrap-up, ensuring participants leave with actionable knowledge and resources for further skill development.
+
+This training is ideal for security professionals, developers, and IT administrators seeking a foundational understanding of web application penetration testing and secure coding practices.
+
+link:https://github.com/sheshakandula/slides/blob/main/Web-Application-Penetration-TestingFinal.pdf[Slides]
+
