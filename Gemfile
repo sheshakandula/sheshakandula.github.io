@@ -10,4 +10,6 @@ group :jekyll_plugins do
   gem 'jekyll-remote-theme', '~> 0.4.3'
   gem 'jekyll-seo-tag'
   gem 'jekyll-github-metadata'
+  gem 'csv'
+  gem 'base64'
 end
