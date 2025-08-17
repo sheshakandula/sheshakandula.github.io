@@ -1,0 +1,18 @@
+= HOPE_16 2025 Conference Slides
+:imagesdir: /assets/images/posts/HOPE_16/
+:page-excerpt: This post has the slides related to my HOPE_16 talk
+:page-tags: [HOPE, HOPE_16, Quantum Computing, AppSec, Cryptography, Security]
+:revdate: 2025-08-17
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : Quantum Computing and AppSec: Preparing for the Post- Quantum Threat
+
+This is the same topic as my previous talk. But I revised the slides and flow a lot to make audience engaging. 
+
+Quantum computing is no longer just theoretical—it’s advancing rapidly, and with it comes a major security disruption. Current encryption methods that secure web applications, APIs, and sensitive data are at risk of becoming obsolete due to quantum attacks. Shor’s Algorithm, for instance, can theoretically break RSA and ECC encryption, which are widely used in authentication, digital signatures, and secure communication.
+
+This talk will explore the real-world implications of quantum computing on AppSec, how soon these threats might become a reality, and what security professionals can do today to prepare. Attendees will gain insights into post-quantum cryptography (PQC), practical mitigation strategies, and how to transition applications to quantum-resistant security models.
+
+link:https://github.com/sheshakandula/slides/blob/main/HOPE_Quantum-Computing-and-AppSec-Preparing-for-the-Post-Quantum-ThreatV1.0.pdf[Slides]
+
