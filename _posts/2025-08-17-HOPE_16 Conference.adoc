@@ -1,4 +1,4 @@
-= HOPE_16 2025 Conference Slides
+= HOPE_16 2025 - Quantum Computing and AppSec: Preparing for the Post- Quantum Threat - 8th Talk
 :imagesdir: /assets/images/posts/HOPE_16/
 :page-excerpt: This post has the slides related to my HOPE_16 talk
 :page-tags: [HOPE, HOPE_16, Quantum Computing, AppSec, Cryptography, Security]

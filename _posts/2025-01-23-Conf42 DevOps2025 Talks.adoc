@@ -1,4 +1,4 @@
-= Conf42 DevOps 2025 Talk and Slides
+= Conf42 DevOps 2025 - Mobile Application Security Assessments Automation with MobSF and Jenkins pipeline - 3rd Talk
 :imagesdir: /assets/images/posts/Conf42DevOps2025/
 :page-excerpt: This post has the slides related to my talk in the Conf42 DevOps 2025 Conference
 :page-tags: [Talk, Conf42, DevOps2025, Mobile, Security]

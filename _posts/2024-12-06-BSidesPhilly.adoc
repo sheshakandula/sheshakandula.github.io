@@ -1,4 +1,4 @@
-= BSides Philly Talk and Slides
+= BSides Philly - Hacking OAuth : An Attacker's View of Your OAuth Flows
 :imagesdir: /assets/images/posts/BSidesPhilly/
 :page-excerpt: This is my Second public speaking opportunity and first in BSidesPhilly Security Conference. This post has the slides.
 :page-tags: [Talk, BSides, BSidesPhilly, Security]

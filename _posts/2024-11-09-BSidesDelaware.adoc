@@ -1,4 +1,4 @@
-= BSides Delaware Talk and Training Slides
+= First Talk - BSides Delaware Talk and Training Slides
 :imagesdir: /assets/images/posts/BSidesDelaware/
 :page-excerpt: I gave my first talk and training in BSides Delaware. This post has the slides, files related to that
 :page-tags: [Talk, Workshop, BSides, BSidesDelaware, Security]

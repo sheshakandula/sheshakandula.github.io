@@ -1,4 +1,4 @@
-= SECON NJ 2025 Conference Slides
+= SECON NJ 2025 - Quantum Computing and AppSec: Preparing for the Post- Quantum Threat - 7th Talk
 :imagesdir: /assets/images/posts/SECON/
 :page-excerpt: This post has the slides related to my SECON NJ 2025
 :page-tags: [SECON, Quantum Computing, AppSec, Cryptography, Security]

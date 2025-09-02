@@ -1,4 +1,4 @@
-= IEEE SSIT 2025 Talk
+= IEEE SSIT 2025 - Cybersecurity, AI, and Human Rights: A Societal Perspective - 6th Talk
 :imagesdir: /assets/images/posts/IEEESSIT/
 :page-excerpt: This post has the slides related to my talk in the 2025 IEEE SSIT vTools
 :page-tags: [Talk, IEEE, AI, CyberSecurity]

@@ -1,4 +1,4 @@
-= IEEE ISEC 2025 Talk and Slides
+= IEEE ISEC 2025 - Building Secure Applications - 5th talk
 :imagesdir: /assets/images/posts/IEEEISEC/
 :page-excerpt: This post has the slides related to my talk in the 2025 IEEE Integrated STEM Education Conference (ISEC) Conference
 :page-tags: [Talk, IEEE, WebSecurity, OWASP, Security]

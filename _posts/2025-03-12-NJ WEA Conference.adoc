@@ -1,4 +1,4 @@
-= NJWEA (New Jersey Water Environment Association) 2025 Talk and Slides
+= NJ WEA 2025  - Securing Critical Infrastructure: Challenges and Controls - 4th talk
 :imagesdir: /assets/images/posts/NJWEA/
 :page-excerpt: This post has the slides related to my talk in the NJWEA Conference
 :page-tags: [Talk, NJWEA, ICS, SCADA, Security]
@@ -7,6 +7,8 @@
 Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
 == Talk : Securing Critical Infrastructure: Challenges and Controls
+
+=== NJWEA (New Jersey Water Environment Association) 2025 Talk 
 
 In this talk, I emphasized the critical importance of securing national infrastructure and its role in maintaining economic stability, public safety, and national security. We examined recent devastating attacks on critical infrastructure, highlighting their far-reaching consequences.
 
