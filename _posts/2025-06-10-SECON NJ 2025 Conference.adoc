@@ -1,7 +1,7 @@
 = SECON NJ 2025 - Quantum Computing and AppSec: Preparing for the Post- Quantum Threat - 7th Talk
 :imagesdir: /assets/images/posts/SECON/
 :page-excerpt: This post has the slides related to my SECON NJ 2025
-:page-tags: [SECON, Quantum Computing, AppSec, Cryptography, Security]
+:page-tags: [Talk, SECON, Quantum Computing, AppSec, Cryptography, Security]
 :revdate: 2025-06-10
 // :page-published: false
 Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].

@@ -1,0 +1,10 @@
+.page__hero {
+  max-height: 125px; /* adjust height */
+  overflow: hidden;
+}
+
+.page__hero img {
+  object-fit: cover;
+  width: 100%;
+  height: 50%;
+}
