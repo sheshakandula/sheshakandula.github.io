@@ -4,3 +4,6 @@
 With 15 years of experience in **Application Security**, focusing on **web, mobile**, and **APIs**, I have developed deep expertise in identifying and mitigating vulnerabilities, particularly in alignment with the **OWASP Top 10** for both web and mobile security. Throughout my career, I’ve gained hands-on experience addressing real-world security challenges and hold certifications such as **OSWE**, **OSCP**, and **CISSP**, which further validate my skills.
 
 Having gained extensive knowledge through real-world security challenges and research, I am passionate about contributing to the security community by sharing insights and advancing best practices in **application security, secure coding, and threat modeling**. Through my experience and leadership, I strive to **empower fellow professionals, foster security awareness, and contribute to building a more resilient digital ecosystem**.
+
+
+image:/assets/images/image2.jpeg[Alt text, width=600, align=center]
