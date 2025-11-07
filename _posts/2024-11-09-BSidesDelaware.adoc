@@ -1,7 +1,7 @@
 = First Talk - BSides Delaware Talk and Training Slides
 :imagesdir: /assets/images/posts/BSidesDelaware/
 :page-excerpt: I gave my first talk and training in BSides Delaware. This post has the slides, files related to that
-:page-tags: [Talk, Workshop, BSides, BSidesDelaware, Security]
+:page-tags: [Talk, Workshop, BSides, BSidesDelaware, Security, Training]
 :revdate: 2024-11-09
 // :page-published: false
 Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].

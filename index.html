@@ -1,0 +1,157 @@
+---
+layout: home
+author_profile: true
+classes: wide
+header:
+  image: /assets/images/image2.jpeg
+  overlay_filter: 0.3
+---
+
+<div class="home-intro">
+  <h1>Application Security Expert & Speaker</h1>
+  <p class="lead">Sharing insights from 15+ years of Application Security experience through conference talks, technical deep-dives, and practical security guidance.</p>
+  <div class="credentials">
+    <span class="badge">OSWE</span>
+    <span class="badge">OSCP</span>
+    <span class="badge">CISSP</span>
+    <span class="badge">15+ Years Experience</span>
+  </div>
+</div>
+
+<!-- Quick Navigation -->
+{% assign talk_posts = site.posts | where_exp: "post", "post.tags contains 'Talk'" %}
+{% assign training_posts = site.posts | where_exp: "post", "post.tags contains 'Training'" %}
+
+<div class="quick-nav">
+  <a href="#talks" class="nav-btn talks-btn">
+    <span class="nav-icon">🎤</span>
+    <span class="nav-text">Talks ({{ talk_posts.size }})</span>
+  </a>
+  <a href="#trainings" class="nav-btn trainings-btn">
+    <span class="nav-icon">🎓</span>
+    <span class="nav-text">Trainings ({{ training_posts.size }})</span>
+  </a>
+  <a href="/" class="nav-btn posts-btn">
+    <span class="nav-icon">📝</span>
+    <span class="nav-text">All Posts ({{ site.posts.size }})</span>
+  </a>
+</div>
+
+<!-- Speaking & Conferences Section -->
+
+{% if talk_posts.size > 0 %}
+<section id="talks" class="speaking-section">
+  <div class="section-header">
+    <h2>🎤 Speaking & Conferences ({{ talk_posts.size }})</h2>
+    <p>Recent talks and presentations at security conferences</p>
+  </div>
+  <div class="talks-grid">
+    {% assign sorted_talks = talk_posts | sort: 'date' | reverse %}
+    {% for post in sorted_talks limit:4 %}
+      <article class="talk-card">
+        {% if post.header.teaser %}
+          <div class="talk-thumbnail">
+            <img src="{{ post.header.teaser }}" alt="{{ post.title }}">
+          </div>
+        {% endif %}
+        <div class="talk-content">
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="talk-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </p>
+          {% if post.excerpt %}
+            <p class="talk-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Featured Series Section -->
+{% assign series_posts = site.posts | where_exp: "post", "post.title contains 'Android Security Series' or post.title contains 'Part'" %}
+
+{% if series_posts.size > 0 %}
+<section class="series-section">
+  <div class="section-header">
+    <h2>📚 Featured: Android Security Series ({{ series_posts.size }})</h2>
+    <p>Comprehensive guide to Android application security</p>
+  </div>
+  <div class="series-grid">
+    {% assign sorted_series = series_posts | sort: 'date' | reverse %}
+    {% for post in sorted_series limit:3 %}
+      <article class="series-card">
+        <div class="series-content">
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="series-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </p>
+          {% if post.excerpt %}
+            <p class="series-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Trainings Section -->
+{% if training_posts.size > 0 %}
+<section id="trainings" class="trainings-section">
+  <div class="section-header">
+    <h2>🎓 Trainings & Courses ({{ training_posts.size }})</h2>
+    <p>Security training materials and educational content</p>
+  </div>
+  <div class="trainings-grid">
+    {% assign sorted_trainings = training_posts | sort: 'date' | reverse %}
+    {% for post in sorted_trainings limit:4 %}
+      <article class="training-card">
+        <div class="training-content">
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="training-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </p>
+          {% if post.excerpt %}
+            <p class="training-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Recent Tutorials & Articles Section -->
+{% assign tutorial_posts = site.posts | where_exp: "post", "post.tags contains 'Tutorial' or post.tags contains 'Guide' or post.categories contains 'Tutorial' or post.title contains 'iOS' or post.title contains 'Introduction'" %}
+
+{% if tutorial_posts.size > 0 %}
+<section class="tutorials-section">
+  <div class="section-header">
+    <h2>💡 Recent Tutorials & Articles ({{ tutorial_posts.size }})</h2>
+    <p>Technical guides and security best practices</p>
+  </div>
+  <div class="tutorials-grid">
+    {% assign sorted_tutorials = tutorial_posts | sort: 'date' | reverse %}
+    {% for post in sorted_tutorials limit:6 %}
+      <article class="tutorial-card">
+        <div class="tutorial-content">
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="tutorial-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </p>
+          {% if post.excerpt %}
+            <p class="tutorial-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- All Posts Link -->
+<div class="view-all-posts">
+  <a href="/" class="btn-view-all">View All Posts ({{ site.posts.size }}) →</a>
+</div>
