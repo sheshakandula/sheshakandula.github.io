@@ -1,7 +1,0 @@
----
-author_profile: true
-classes: wide
-header:
-  image: /assets/images/image2.jpeg
-layout: home
----

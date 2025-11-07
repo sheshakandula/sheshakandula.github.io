@@ -53,6 +53,10 @@ enable_copy_code_button: true
 
 encoding: utf-8
 
+# Pagination settings
+paginate: 9 # Show 9 posts per page (3x3 grid)
+paginate_path: /page:num/
+
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-footer
 footer:
   links:
@@ -75,6 +79,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-include-cache
+  - jekyll-paginate
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-repository
 repository: sheshakandula/sheshakandula.github.io # FIXME Add your GitHub repository full name (e.g. gwenneg/blog-jekyll-asciidoc-template).
 
@@ -95,4 +100,4 @@ tag_archive:
 title: AppSec Mastery with Sheshananda # FIXME Replace with your blog title.
 
 url: https://sheshakandula.github.io # FIXME Add your blog URL (e.g. https://gwenneg.github.io).
-baseurl: "/sheshakandula.github.io"
+baseurl: ""

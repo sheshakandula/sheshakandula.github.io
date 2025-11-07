@@ -1,7 +1,7 @@
 main:
-  - title: Recent posts
-    url: /
-  - title: Posts by tags
-    url: /tags
+  - title: Talks
+    url: /talks/
+  - title: Trainings
+    url: /trainings/
   - title: About
     url: /about

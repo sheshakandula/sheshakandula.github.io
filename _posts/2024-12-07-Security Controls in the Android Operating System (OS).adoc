@@ -65,7 +65,7 @@ Apart from these regular Operating System controls, Android will provide below s
 
 Application Sandboxing is one of the critical feature provided by Android OS. It allows to keep your data or process in a sandbox environment and won't allow other apps (malicious or normal). This will protect data insider the app. Linux-based security mechanisms, file system permissions, and runtime restrictions to ensure that apps operate independently without unauthorized access to system resources or other apps. As we have seen in the previous article, the application data will be there in /data/data/ folder.
 
-[sourec,bash]
+[source,bash]
 ---- 
 barbet:/data/data # ls
 alpha.mydevices.in                                               com.google.android.apps.internal.betterbug
@@ -78,7 +78,7 @@ android.myshop.release                                           com.google.andr
 
 While installing the app on device, OS generates a unique code for the app and perform Base64 encode on it. Then create a folder name with that. Before Oreo, Android used normal package name. But after Oreo, to provide better unique names and security, Android started creating unique folder names. 
 
-[sourec,bash]
+[source,bash]
 ---- 
 barbet:/data/data # ls /data/app/
 ~~-09YTqMLYcn7FwT_vUBMOA==  ~~AK82hlWJIrFJf2cgbVRR3g==  ~~KvDoAodAiN0LD2UILHaetg==  ~~QOHLg7084hj8rNBvVYHYeg==  ~~gndAwbGNwp0mzMUTP556Sg==  ~~uoiS3mnMS4L3QfsR0uwqPA==

@@ -1,0 +1,22 @@
+---
+author_profile: true
+classes: wide
+header:
+  image: /assets/images/image2.jpeg
+  overlay_filter: 0.3
+layout: home
+entries_layout: grid
+---
+
+++++
+<div class="home-intro">
+  <h1>Welcome to AppSec Mastery</h1>
+  <p class="lead">Your hub for Application Security insights, tutorials, and best practices. Featuring deep dives into mobile security, conference talks, and practical guides from 15+ years of AppSec experience.</p>
+  <div class="credentials">
+    <span class="badge">OSWE</span>
+    <span class="badge">OSCP</span>
+    <span class="badge">CISSP</span>
+    <span class="badge">15+ Years Experience</span>
+  </div>
+</div>
+++++

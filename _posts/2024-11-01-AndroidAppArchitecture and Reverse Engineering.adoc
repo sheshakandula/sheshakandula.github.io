@@ -1,4 +1,4 @@
-= Andriod App Architecture and Reverse Engineering of App
+= Android App Architecture and Reverse Engineering of App
 :imagesdir: /assets/images/posts/AndroidAppArch
 :page-excerpt: This is series of articles about Android Application Security !!!! 
 :page-tags: [Android, Security, Series]
@@ -123,7 +123,7 @@ Below is location of our app on the device.
 
 To navigate to the folder, we use adb utility/tool. adb will come as part of Platform-tools. Android documentation about the adb will help to deep dive into details.
 
-[sourec,bash]
+[source,bash]
 ----
 adb shell
 barbet:/ $ su
@@ -178,7 +178,7 @@ Archive:  base.zip
 
 Folder structure
 
-image:HelloWorldAPk.jp[HelloWorldAPK]
+image:HelloWorldAPk.jpg[HelloWorldAPK]
 
 Even though, we didn't single line of code manually while creating this app, we see bunch files and code. 
 
