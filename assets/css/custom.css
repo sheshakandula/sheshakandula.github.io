@@ -169,7 +169,10 @@ body.light-theme .page__inner-wrap {
     color: #1a1a1a !important;
 }
 
-body.light-theme .masthead,
+body.light-theme .masthead {
+    background-color: #ffffff !important;
+}
+
 body.light-theme .page__footer {
     background-color: #f8f9fa !important;
 }
@@ -208,64 +211,64 @@ body.light-theme a:visited {
 
 /* Light theme: Masthead/Navigation */
 body.light-theme .masthead {
-    background-color: #2c3e50 !important;
-    border-bottom: 2px solid #1a252f;
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #e1e4e8;
 }
 
 body.light-theme .greedy-nav {
-    background-color: #2c3e50 !important;
+    background-color: #ffffff !important;
 }
 
 body.light-theme .greedy-nav a,
 body.light-theme .greedy-nav button {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 body.light-theme .greedy-nav a:hover {
-    color: #3498db !important;
+    color: #0056b3 !important;
 }
 
 body.light-theme .site-title {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     font-weight: 600;
 }
 
 body.light-theme .site-subtitle {
-    color: #ecf0f1 !important;
+    color: #495057 !important;
 }
 
 body.light-theme .greedy-nav .visible-links a {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 body.light-theme .greedy-nav .visible-links a:hover {
-    background-color: #34495e !important;
-    color: #3498db !important;
+    background-color: #f8f9fa !important;
+    color: #0056b3 !important;
 }
 
 /* Light theme: Toggle button */
 body.light-theme .theme-toggle {
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    color: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+    color: #1a1a1a !important;
 }
 
 body.light-theme .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.6) !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 body.light-theme .theme-toggle-icon,
 body.light-theme .theme-toggle-text {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 /* Light theme: Search button */
 body.light-theme .search__toggle {
-    color: #ffffff !important;
+    color: #1a1a1a !important;
 }
 
 body.light-theme .search__toggle:hover {
-    color: #3498db !important;
+    color: #0056b3 !important;
 }
 
 /* Light theme: Code blocks */
@@ -336,25 +339,33 @@ body.light-theme .author__urls a {
 
 /* Light theme: Footer */
 body.light-theme .page__footer {
-    background-color: #2c3e50 !important;
-    border-top: 2px solid #1a252f;
-    color: #ecf0f1 !important;
+    background-color: #f8f9fa !important;
+    border-top: 2px solid #e1e4e8;
+    color: #495057 !important;
 }
 
 body.light-theme .page__footer a {
-    color: #3498db !important;
+    color: #0056b3 !important;
 }
 
 body.light-theme .page__footer a:hover {
-    color: #5dade2 !important;
+    color: #003d82 !important;
 }
 
 body.light-theme .page__footer-copyright {
-    color: #bdc3c7 !important;
+    color: #6c757d !important;
 }
 
 body.light-theme .page__footer-follow {
-    color: #ecf0f1 !important;
+    color: #495057 !important;
+}
+
+body.light-theme .page__footer .social-icons a {
+    color: #495057 !important;
+}
+
+body.light-theme .page__footer .social-icons a:hover {
+    color: #0056b3 !important;
 }
 
 /* Light theme: Search */
