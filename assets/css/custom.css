@@ -85,3 +85,235 @@ code {
     color: #5389D0;
     font-size: 1em !important;
 }
+
+/* ============================================
+   Theme Toggle Button Styles
+   ============================================ */
+
+.theme-toggle {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+.theme-toggle-icon {
+    font-size: 1.2em;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+    transform: rotate(20deg);
+}
+
+.theme-toggle-text {
+    font-size: 0.9em;
+}
+
+/* Hide text on mobile screens */
+@media (max-width: 768px) {
+    .visually-hidden-mobile {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+
+    .theme-toggle {
+        padding: 0.5rem;
+    }
+}
+
+/* ============================================
+   Light Theme Styles
+   ============================================ */
+
+body.light-theme {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Light theme: Page backgrounds */
+body.light-theme .page,
+body.light-theme .page__content,
+body.light-theme .masthead,
+body.light-theme .page__footer {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Light theme: Links */
+body.light-theme a {
+    color: #0066cc;
+}
+
+body.light-theme a:hover {
+    color: #0052a3;
+}
+
+/* Light theme: Masthead/Navigation */
+body.light-theme .masthead {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+body.light-theme .greedy-nav a {
+    color: #333333;
+}
+
+body.light-theme .greedy-nav a:hover {
+    color: #0066cc;
+}
+
+body.light-theme .site-title {
+    color: #333333;
+}
+
+body.light-theme .site-subtitle {
+    color: #666666;
+}
+
+/* Light theme: Toggle button */
+body.light-theme .theme-toggle {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme: Code blocks */
+body.light-theme code {
+    background-color: #f6f8fa;
+    color: #0066cc;
+    border: 1px solid #e1e4e8;
+}
+
+body.light-theme pre.highlight {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+}
+
+/* Light theme: Sidebar/Author profile */
+body.light-theme .sidebar,
+body.light-theme .author__avatar,
+body.light-theme .author__content {
+    background-color: #f8f9fa;
+}
+
+body.light-theme .author__name {
+    color: #333333;
+}
+
+body.light-theme .author__bio {
+    color: #666666;
+}
+
+/* Light theme: Footer */
+body.light-theme .page__footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e1e4e8;
+}
+
+body.light-theme .page__footer-copyright {
+    color: #666666;
+}
+
+/* Light theme: Search */
+body.light-theme .search-content {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+}
+
+/* Light theme: Archive items */
+body.light-theme .archive__item-title {
+    color: #333333;
+}
+
+body.light-theme .archive__item-excerpt {
+    color: #666666;
+}
+
+/* Light theme: Buttons */
+body.light-theme .btn,
+body.light-theme button {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e1e4e8;
+}
+
+body.light-theme .btn:hover,
+body.light-theme button:hover {
+    background-color: #f6f8fa;
+}
+
+/* Light theme: Tables */
+body.light-theme table {
+    border-color: #e1e4e8;
+}
+
+body.light-theme th {
+    background-color: #f6f8fa;
+    color: #333333;
+}
+
+body.light-theme td {
+    border-color: #e1e4e8;
+}
+
+/* Light theme: AsciiDoc admonitions */
+body.light-theme .admonitionblock .content {
+    border-left-color: #e1e4e8;
+}
+
+/* Light theme: Tags */
+body.light-theme .page__taxonomy-item {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    color: #333333;
+}
+
+body.light-theme .page__taxonomy-item:hover {
+    background-color: #e1e4e8;
+}
+
+/* Smooth theme transitions */
+body,
+.page,
+.masthead,
+.page__footer,
+.sidebar,
+a,
+code,
+.btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
