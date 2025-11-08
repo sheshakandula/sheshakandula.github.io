@@ -18,6 +18,13 @@ author:
   linkedin: sheshanandak/ # FIXME Add your Linkedin username or remove this line.
   location: NY/NJ # FIXME Replace with your location or remove this line.
   name: Sheshananda Reddy Kandula # FIXME Replace with your name.
+  links:
+    - label: "Resume"
+      icon: "fas fa-fw fa-file-pdf"
+      url: "/resume/"
+    - label: "Certifications"
+      icon: "fas fa-fw fa-certificate"
+      url: "/certifications/"
 
 # See https://mmistakes.github.io/minimal-mistakes/docs/configuration/#giscus-comments
 comments:
