@@ -48,7 +48,7 @@ defaults:
       author_profile: true
       classes: wide
       comments: false
-      layout: single
+      layout: post
       related: true
       share: true
       show_date: true

@@ -1,0 +1,74 @@
+<div class="share-section">
+  <h4 class="share-title">Share this post</h4>
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ page.url | absolute_url | uri_escape }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="share-btn share-twitter"
+       aria-label="Share on Twitter">
+      <i class="fab fa-twitter"></i>
+      <span>Twitter</span>
+    </a>
+
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | uri_escape }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="share-btn share-linkedin"
+       aria-label="Share on LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+      <span>LinkedIn</span>
+    </a>
+
+    <button class="share-btn share-copy"
+            onclick="copyToClipboard('{{ page.url | absolute_url }}')"
+            aria-label="Copy link">
+      <i class="fas fa-link"></i>
+      <span>Copy Link</span>
+    </button>
+  </div>
+</div>
+
+<script>
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      const btn = event.currentTarget;
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+      btn.classList.add('copied');
+
+      setTimeout(function() {
+        btn.innerHTML = originalHtml;
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(function(err) {
+      alert('Failed to copy: ' + err);
+    });
+  } else {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+      document.execCommand('copy');
+      const btn = event.currentTarget;
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i><span>Copied!</span>';
+      btn.classList.add('copied');
+
+      setTimeout(function() {
+        btn.innerHTML = originalHtml;
+        btn.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      alert('Failed to copy link');
+    }
+
+    document.body.removeChild(textArea);
+  }
+}
+</script>

@@ -1402,3 +1402,174 @@ body.light-theme .tutorial-content h3 a:hover {
         font-size: 1rem;
     }
 }
+
+/* ============================================
+   Page View Counter Styles
+   ============================================ */
+
+.pageview-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0 1.5rem;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    font-size: 0.95rem;
+    color: #95a5a6;
+}
+
+.pageview-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.pageview-count {
+    font-weight: 600;
+    color: #3498db;
+    min-width: 30px;
+    text-align: center;
+}
+
+.pageview-label {
+    color: #95a5a6;
+}
+
+/* Light theme adjustments */
+body.light-theme .pageview-counter {
+    background: rgba(52, 152, 219, 0.08);
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .pageview-count {
+    color: #2980b9;
+}
+
+body.light-theme .pageview-label {
+    color: #6c757d !important;
+}
+
+/* ============================================
+   Social Share Buttons Styles
+   ============================================ */
+
+.share-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(44, 62, 80, 0.2);
+    border-radius: 12px;
+    border: 2px solid rgba(52, 152, 219, 0.2);
+}
+
+.share-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ecf0f1;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.share-btn i {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.share-twitter {
+    background: linear-gradient(135deg, #1DA1F2, #0c85d0);
+    color: white;
+}
+
+.share-twitter:hover {
+    background: linear-gradient(135deg, #0c85d0, #0a6fb9);
+}
+
+.share-linkedin {
+    background: linear-gradient(135deg, #0077B5, #005885);
+    color: white;
+}
+
+.share-linkedin:hover {
+    background: linear-gradient(135deg, #005885, #004563);
+}
+
+.share-copy {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: white;
+}
+
+.share-copy:hover {
+    background: linear-gradient(135deg, #7f8c8d, #6c7a7b);
+}
+
+.share-copy.copied {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+/* Light theme adjustments for share section */
+body.light-theme .share-section {
+    background: #f8f9fa;
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .share-title {
+    color: #2c3e50 !important;
+}
+
+body.light-theme .share-btn {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .share-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .share-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .share-buttons {
+        gap: 0.75rem;
+    }
+
+    .share-btn {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .pageview-counter {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}

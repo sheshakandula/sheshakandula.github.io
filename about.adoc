@@ -1,9 +1,92 @@
-:page-classes: wide
+= About
 :page-layout: single
+:page-permalink: /about/
+:page-author_profile: true
+
+== 👋 Hi, I’m *Sheshananda Reddy Kandula*
+
+I’m an *Application Security Expert, Speaker, and Researcher* with over *15 years of hands-on experience* helping organizations build secure software — from large-scale enterprise systems to cutting-edge mobile apps.  
+I currently lead Application Security initiatives at *Adobe*, focusing on protecting Document Cloud products such as Acrobat Sign and Acrobat Mobile.
 
 With 15 years of experience in **Application Security**, focusing on **web, mobile**, and **APIs**, I have developed deep expertise in identifying and mitigating vulnerabilities, particularly in alignment with the **OWASP Top 10** for both web and mobile security. Throughout my career, I’ve gained hands-on experience addressing real-world security challenges and hold certifications such as **OSWE**, **OSCP**, and **CISSP**, which further validate my skills.
 
 Having gained extensive knowledge through real-world security challenges and research, I am passionate about contributing to the security community by sharing insights and advancing best practices in **application security, secure coding, and threat modeling**. Through my experience and leadership, I strive to **empower fellow professionals, foster security awareness, and contribute to building a more resilient digital ecosystem**.
+---
+
+== 🧭 Professional Exp.
+
+=== 🏢 Adobe — Senior Security Researcher / Engineer
+*Nov 2021 – Present · New York, NY*
+
+Leading security engineering for Adobe Document Cloud platforms.
+
+* Conduct design reviews and threat modeling across web and mobile teams.  
+* Drive vulnerability remediation from PSIRT and Bug Bounty reports.  
+* Champion secure-by-design adoption across the development lifecycle.
+
+---
+
+=== 💳 Mastercard — Lead Security Analyst
+*Mar 2017 – Oct 2021 · New York, NY*
+
+Led enterprise application and mobile security programs.
+
+* Managed the Bug Bounty Program and M&A Security Assessments.  
+* Performed web, API, and mobile app penetration testing.  
+* Partnered with business units for PCI compliance and recertification.
+
+---
+
+=== 🛡️ Tata Consultancy Services (TCS) — Security Consultant
+*Jun 2016 – Mar 2017*
+
+Delivered large-scale web application security assessments.
+
+* Conducted manual and automated testing using Burp Suite Pro and IBM AppScan.  
+* Provided detailed remediation guidance aligned with OWASP standards.
+
+---
+
+=== 🔐 Cognizant Technology Solutions (CTS) — Senior Security Analyst
+*Dec 2009 – Jun 2016*
+
+Performed enterprise web, mobile, and API security assessments.
+
+* Executed SAST/DAST using HP Fortify, AppScan, and Frida.  
+* Led mobile app penetration testing on rooted/jailbroken devices.
+
+---
+
+== 🧩 Core Skills
+
+Application Security · Mobile App Security (OWASP Top 10) · Penetration Testing · Secure Code Review · Threat Modeling · Bug Bounty Management · Cloud Security (AWS/Azure) · DevSecOps · Security Architecture · CI/CD Pipeline Security · Docker & Kubernetes
+
+---
+
+== 🏅 Certifications
+
+* *OSWE* — Offensive Security Web Expert  
+* *OSCP* — Offensive Security Certified Professional  
+* *CISSP* — Certified Information Systems Security Professional
+
+---
+
+== 🎓 Education
+
+* *Master of Computer Applications (MCA)* — Sri Venkateswara University, Tirupati (India)  
+* *Bachelor’s Degree* — Sri Krishnadevaraya University, Anantapur (India)
+
+---
+
+== 🎤 Talks & Community
+
+I regularly speak at security conferences including *HOPE*, *OWASP AppSec*, and *BSides*, sharing research on topics such as *AppSec*, *AI/ML/LLMSec*, and *secure mobile development practices*.
+
+---
+
+📫 *Let’s connect:*  
+https://www.linkedin.com/in/sheshanandak/[LinkedIn] | https://twitter.com/sheshakandula[Twitter] | https://github.com/sheshakandula[GitHub]
+
 
 
 image:/assets/images/image2.jpeg[Alt text, width=600, align=center]

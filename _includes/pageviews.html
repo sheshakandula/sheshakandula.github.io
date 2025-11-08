@@ -1,0 +1,22 @@
+<div class="pageview-counter">
+  <span class="pageview-icon">👁️</span>
+  <span class="pageview-count" id="pageview-count">Loading...</span>
+  <span class="pageview-label">views</span>
+</div>
+
+<script>
+(function() {
+  const pageUrl = '{{ page.url }}';
+  const counterKey = encodeURIComponent(pageUrl);
+  const apiUrl = `https://api.countapi.xyz/hit/sheshakandula.github.io/${counterKey}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('pageview-count').textContent = data.value || '—';
+    })
+    .catch(() => {
+      document.getElementById('pageview-count').textContent = '—';
+    });
+})();
+</script>
