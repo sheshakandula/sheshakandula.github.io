@@ -45,10 +45,10 @@ header:
     <h2>🎤 Speaking & Conferences ({{ talk_posts.size }})</h2>
     <p>Recent talks and presentations at security conferences</p>
   </div>
-  <div class="talks-grid">
+  <div class="talks-grid" id="talks-grid">
     {% assign sorted_talks = talk_posts | sort: 'date' | reverse %}
-    {% for post in sorted_talks limit:4 %}
-      <article class="talk-card">
+    {% for post in sorted_talks %}
+      <article class="talk-card{% if forloop.index > 4 %} talk-card-hidden{% endif %}">
         {% if post.header.teaser %}
           <div class="talk-thumbnail">
             <img src="{{ post.header.teaser }}" alt="{{ post.title }}">
@@ -66,6 +66,17 @@ header:
       </article>
     {% endfor %}
   </div>
+  {% if talk_posts.size > 4 %}
+  <div class="section-actions">
+    <button class="btn-more" id="talks-more-btn" onclick="toggleTalks()">
+      <span class="btn-text">Show More ({{ talk_posts.size | minus: 4 }} more)</span>
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <a href="/talks/" class="btn-view-all">
+      View All Talks <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+  {% endif %}
 </section>
 {% endif %}
 
@@ -104,10 +115,10 @@ header:
     <h2>🎓 Trainings & Courses ({{ training_posts.size }})</h2>
     <p>Security training materials and educational content</p>
   </div>
-  <div class="trainings-grid">
+  <div class="trainings-grid" id="trainings-grid">
     {% assign sorted_trainings = training_posts | sort: 'date' | reverse %}
-    {% for post in sorted_trainings limit:4 %}
-      <article class="training-card">
+    {% for post in sorted_trainings %}
+      <article class="training-card{% if forloop.index > 4 %} training-card-hidden{% endif %}">
         <div class="training-content">
           <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
           <p class="training-meta">
@@ -120,6 +131,17 @@ header:
       </article>
     {% endfor %}
   </div>
+  {% if training_posts.size > 4 %}
+  <div class="section-actions">
+    <button class="btn-more" id="trainings-more-btn" onclick="toggleTrainings()">
+      <span class="btn-text">Show More ({{ training_posts.size | minus: 4 }} more)</span>
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <a href="/trainings/" class="btn-view-all">
+      View All Trainings <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+  {% endif %}
 </section>
 {% endif %}
 
@@ -155,3 +177,107 @@ header:
 <div class="view-all-posts">
   <a href="/" class="btn-view-all">View All Posts ({{ site.posts.size }}) →</a>
 </div>
+
+<style>
+/* Hidden cards */
+.talk-card-hidden,
+.training-card-hidden {
+  display: none;
+}
+
+/* Section actions container */
+.section-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* More button */
+.btn-more {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+}
+
+.btn-more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.btn-more i {
+  transition: transform 0.3s ease;
+}
+
+.btn-more.expanded i {
+  transform: rotate(180deg);
+}
+
+/* Light theme adjustments */
+body.light-theme .btn-more {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+body.light-theme .btn-more:hover {
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+</style>
+
+<script>
+function toggleTalks() {
+  const hiddenCards = document.querySelectorAll('.talk-card-hidden');
+  const button = document.getElementById('talks-more-btn');
+  const isExpanded = button.classList.contains('expanded');
+
+  hiddenCards.forEach(card => {
+    if (isExpanded) {
+      card.style.display = 'none';
+    } else {
+      card.style.display = 'flex';
+    }
+  });
+
+  if (isExpanded) {
+    button.classList.remove('expanded');
+    button.querySelector('.btn-text').textContent = 'Show More (' + hiddenCards.length + ' more)';
+  } else {
+    button.classList.add('expanded');
+    button.querySelector('.btn-text').textContent = 'Show Less';
+  }
+}
+
+function toggleTrainings() {
+  const hiddenCards = document.querySelectorAll('.training-card-hidden');
+  const button = document.getElementById('trainings-more-btn');
+  const isExpanded = button.classList.contains('expanded');
+
+  hiddenCards.forEach(card => {
+    if (isExpanded) {
+      card.style.display = 'none';
+    } else {
+      card.style.display = 'block';
+    }
+  });
+
+  if (isExpanded) {
+    button.classList.remove('expanded');
+    button.querySelector('.btn-text').textContent = 'Show More (' + hiddenCards.length + ' more)';
+  } else {
+    button.classList.add('expanded');
+    button.querySelector('.btn-text').textContent = 'Show Less';
+  }
+}
+</script>
