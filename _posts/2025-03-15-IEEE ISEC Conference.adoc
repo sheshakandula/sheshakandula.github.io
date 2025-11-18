@@ -1,16 +1,67 @@
-= IEEE ISEC 2025 - Building Secure Applications - 5th talk
+= IEEE ISEC 2025 - Building Secure Applications - 5th Talk
 :imagesdir: /assets/images/posts/IEEEISEC/
-:page-excerpt: This post has the slides related to my talk in the 2025 IEEE Integrated STEM Education Conference (ISEC) Conference
-:page-tags: [Talk, IEEE, WebSecurity, OWASP, Security]
+:page-excerpt: Presented at the 15th IEEE Integrated STEM Education Conference at Princeton University, this talk inspires the next generation of developers to prioritize security in their code and adopt a security-first mindset
+:page-tags: [Talk, IEEE, ISEC, WebSecurity, OWASP, Security, STEM, Education, Secure Coding, AppSec, Students]
 :revdate: 2025-03-15
 // :page-published: false
-Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
-== Talk : Building Secure Applications
+== About IEEE ISEC Conference
 
-The primary goal of this talk was to encourage students and upcoming developers to prioritize security in their development practices. With LLMs, AI, and ML playing an increasingly significant role in software development, it is crucial for both new and experienced developers to integrate security into their workflows.
+The https://ewh.ieee.org/conf/stem[IEEE Integrated STEM Education Conference (ISEC)^] is one of the most prestigious academic events focused on advancing science, technology, engineering, and mathematics education. The 15th annual ISEC conference, held on March 15, 2025, at Princeton University in New Jersey, brought together educators, researchers, industry professionals, and students to explore cutting-edge approaches to STEM education and workforce development.
 
-I emphasized that while these technologies enhance productivity and innovation, they also introduce new security risks. Ultimately, the responsibility of protecting applications lies with every developer, and writing secure, resilient code is fundamental to safeguarding digital ecosystems. By fostering a security-first mindset, developers can help build a safer technological future.
+ISEC 2025 was organized by the IEEE Princeton/Central Jersey Section with technical co-sponsorship from IEEE Baltimore Section, IEEE Regions 1 and 2, and the IEEE Education Society. The conference featured five keynote speakers, a panel discussion on "Responsible Use of AI in STEM Education," dozens of poster presentations by K-12 students, multiple workshops, industry exhibits, and the special IEEE MOVE truck demonstration.
+
+What makes ISEC unique is its focus on **integrated** STEM education—teaching science, technology, engineering, and mathematics not as isolated disciplines, but through interdisciplinary experiences rooted in engineering design and real-world problem-solving. Presenting at ISEC 2025 at Princeton University was a tremendous honor, particularly given the opportunity to speak directly to students and educators who are shaping the next generation of technologists.
+
+== Talk: Building Secure Applications
+
+=== Talk Overview and Goals
+
+The primary goal of this talk was to encourage students and upcoming developers to prioritize security in their development practices. In an era where data breaches and cyber incidents dominate headlines, the need for security-conscious developers has never been greater. Yet many computer science curricula still treat security as an advanced elective rather than a core competency. This talk aimed to change that mindset.
+
+With Large Language Models (LLMs), AI, and ML playing an increasingly significant role in software development, it is crucial for both new and experienced developers to integrate security into their workflows. I emphasized that while these technologies enhance productivity and innovation, they also introduce new security risks. Ultimately, **the responsibility of protecting applications lies with every developer**, and writing secure, resilient code is fundamental to safeguarding digital ecosystems.
+
+=== Core Security Principles for Developers
+
+The talk covered fundamental secure development principles that every developer should internalize:
+
+* **Defense in Depth**: Layer multiple security controls so that if one fails, others remain in place
+* **Principle of Least Privilege**: Grant only the minimum permissions necessary to perform required functions
+* **Fail Securely**: When errors occur, systems should fail in a secure state without leaking sensitive information
+* **Input Validation and Output Encoding**: Never trust user input; validate all inputs and properly encode outputs
+* **Security by Design**: Build security into architecture from the start, not as an afterthought
+
+=== OWASP Top 10 and Practical Guidance
+
+I dove deep into the https://owasp.org/www-project-top-ten[OWASP Top 10^]—the most critical web application security risks. For each vulnerability, I provided real-world breach examples and concrete prevention techniques:
+
+* **Injection Flaws**: Use parameterized queries and prepared statements
+* **Broken Authentication**: Implement MFA and secure session management
+* **Sensitive Data Exposure**: Encrypt data in transit and at rest
+* **Cross-Site Scripting (XSS)**: Properly encode all user-generated content
+* **Broken Access Control**: Enforce authorization checks on every request
+* **Security Misconfiguration**: Disable defaults, remove unnecessary services
+* **Using Components with Known Vulnerabilities**: Regularly update dependencies
+
+=== Security in the Age of AI-Assisted Development
+
+A substantial portion addressed the emerging challenges of AI-assisted development with tools like GitHub Copilot. I covered:
+
+* **AI-Generated Vulnerabilities**: LLMs may suggest insecure code patterns learned from public repositories
+* **Over-Reliance on AI**: Developers must understand **why** code is secure, not blindly accept AI suggestions
+* **Prompt Injection**: New attack vectors for applications using LLMs
+* **Best Practices**: Always review AI-generated code, use static analysis tools, learn secure coding principles
+
+=== Building a Security-First Mindset
+
+Beyond technical controls, I emphasized cultivating a security mindset:
+
+* **Think Like an Attacker**: Regularly ask "How could someone abuse this feature?"
+* **Learn Continuously**: Security threats evolve; commit to ongoing learning
+* **Participate in Security Communities**: Join BSides, OWASP chapters, and security conferences
+* **Practice Ethical Hacking**: Use platforms like HackTheBox, TryHackMe, OWASP WebGoat
+
+By fostering a security-first mindset in the next generation of developers, we can help build a safer technological future.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Building-Secure-ApplicationsV1.0.pdf[View Slides^]
 

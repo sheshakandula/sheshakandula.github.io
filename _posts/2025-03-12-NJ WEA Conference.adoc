@@ -1,18 +1,140 @@
-= NJ WEA 2025  - Securing Critical Infrastructure: Challenges and Controls - 4th talk
+= NJ WEA 2025 - Securing Critical Infrastructure: Challenges and Controls - 4th Talk
 :imagesdir: /assets/images/posts/NJWEA/
-:page-excerpt: This post has the slides related to my talk in the NJWEA Conference
-:page-tags: [Talk, NJWEA, ICS, SCADA, Security]
+:page-excerpt: Presented at the NJ Water Environment Association Annual Conference, this talk addresses the critical challenges of securing water and wastewater infrastructure against evolving cyber threats
+:page-tags: [Talk, NJWEA, ICS, SCADA, Security, Critical Infrastructure, Water Security, OT Security, Industrial Control Systems]
 :revdate: 2025-03-12
 // :page-published: false
-Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
-== Talk : Securing Critical Infrastructure: Challenges and Controls
+== About the NJ WEA Conference
 
-=== NJWEA (New Jersey Water Environment Association) 2025 Talk 
+The https://njwea.org[New Jersey Water Environment Association (NJWEA)^] is the premier organization for water and wastewater professionals in New Jersey, representing operators, engineers, consultants, and environmental specialists dedicated to protecting and improving water quality across the state. The NJWEA Annual Conference is the organization's flagship event, bringing together hundreds of professionals from utilities, municipalities, regulatory agencies, and the private sector.
 
-In this talk, I emphasized the critical importance of securing national infrastructure and its role in maintaining economic stability, public safety, and national security. We examined recent devastating attacks on critical infrastructure, highlighting their far-reaching consequences.
+The 110th Annual John J. (Jack) Lagrosa Conference and Exposition, held May 5-9, 2025, at Harrah's Resort Atlantic City, featured technical sessions, workshops, equipment exhibitions, networking events, and professional development opportunities. The conference covers topics spanning water treatment, wastewater management, environmental compliance, infrastructure modernization, and—increasingly critical—cybersecurity.
 
-I then explored key challenges in Industrial Control Systems (ICS), including vulnerabilities, evolving threat landscapes, and the complexities of securing interconnected systems. Finally, I discussed the responsibilities of every employee in maintaining security, emphasizing the need for awareness, proactive risk management, and a collaborative security-first approach across all levels of an organization.
+Water and wastewater utilities are essential public services that directly impact public health, environmental quality, and economic development. They also represent critical infrastructure that has become an attractive target for cyber attacks. Recent incidents like the Oldsmar, Florida water treatment plant attack (where a hacker attempted to poison the water supply by increasing sodium hydroxide levels) and numerous ransomware attacks on municipal water systems have elevated cybersecurity as a top priority for the water sector.
+
+Presenting at NJWEA 2025 was particularly meaningful because I could address an audience that includes the operators, engineers, and decision-makers responsible for protecting water infrastructure that serves millions of New Jersey residents daily. These professionals often work with limited budgets and aging infrastructure, yet face sophisticated cyber threats from nation-state actors, ransomware groups, and hacktivists.
+
+== Talk: Securing Critical Infrastructure: Challenges and Controls
+
+=== The Critical Role of Water Infrastructure
+
+In this talk, I emphasized the critical importance of securing national infrastructure and its role in maintaining economic stability, public safety, and national security. Water and wastewater systems are foundational to modern civilization—providing safe drinking water, treating sewage, managing stormwater, and protecting waterways from pollution. When these systems are compromised, the consequences can be catastrophic:
+
+* **Public Health Risks**: Contaminated drinking water or untreated sewage releases can cause widespread illness
+* **Environmental Damage**: System failures can result in ecological disasters affecting rivers, bays, and coastal areas
+* **Economic Disruption**: Businesses, hospitals, schools, and industries depend on reliable water services
+* **Loss of Public Trust**: Cybersecurity incidents erode confidence in public utilities and government services
+
+=== Recent Attacks on Critical Infrastructure
+
+We examined recent devastating attacks on critical infrastructure worldwide, highlighting their far-reaching consequences:
+
+* **Colonial Pipeline (2021)**: Ransomware attack shut down 5,500 miles of fuel pipeline, causing gas shortages across the Eastern US
+* **Oldsmar Water Treatment Plant (2021)**: Attacker remotely accessed systems and attempted to poison water supply by increasing sodium hydroxide to dangerous levels
+* **JBS Foods (2021)**: Ransomware attack on meat processing disrupted food supply chains
+* **Ukraine Power Grid (2015, 2016)**: Coordinated cyber attacks caused blackouts affecting hundreds of thousands of people
+* **Municipal Water System Ransomware**: Numerous US water utilities have been targeted by ransomware, with some paying significant ransoms
+
+These attacks demonstrate that critical infrastructure is not just a theoretical target—it's under active attack by sophisticated adversaries.
+
+=== Challenges in Securing Industrial Control Systems (ICS)
+
+I explored key challenges specific to Industrial Control Systems used in water and wastewater facilities:
+
+**1. Legacy Systems and Long Lifecycles**
+* Equipment designed 20-30 years ago without cybersecurity considerations
+* SCADA systems running outdated operating systems (Windows XP, Windows 7)
+* PLCs and RTUs with no authentication or encryption capabilities
+* Extremely long replacement cycles due to cost and operational constraints
+
+**2. Convergence of IT and OT Networks**
+* Increasing connectivity between corporate IT networks and operational technology (OT)
+* Remote access for vendors, contractors, and off-site staff
+* IoT sensors and smart meters creating new attack surfaces
+* Lack of network segmentation between business and control networks
+
+**3. Limited Security Resources**
+* Small utilities with limited cybersecurity expertise and budgets
+* Overworked staff managing both operations and security
+* Difficulty recruiting cybersecurity professionals to operational roles
+* Competing priorities (regulatory compliance, aging infrastructure, rate constraints)
+
+**4. Evolving Threat Landscape**
+* Nation-state actors targeting critical infrastructure for espionage and potential disruption
+* Ransomware groups viewing utilities as lucrative targets
+* Insider threats from disgruntled employees or contractors
+* Supply chain vulnerabilities in equipment, software, and services
+
+**5. Operational Continuity Requirements**
+* Cannot easily take systems offline for patching or security upgrades
+* High availability requirements (24/7/365 operations)
+* Safety-critical operations where security changes must not introduce operational risks
+* Limited testing environments to validate security controls
+
+=== Security Controls and Best Practices
+
+I provided practical, actionable security controls tailored to water and wastewater utilities:
+
+**Network Segmentation and Access Controls**
+* Implement DMZs (Demilitarized Zones) between IT and OT networks
+* Use firewalls with strict access control lists between zones
+* Deploy data diodes for one-way data flow where appropriate
+* Require VPNs and multi-factor authentication for remote access
+
+**Asset Inventory and Vulnerability Management**
+* Maintain comprehensive inventory of all ICS/SCADA components
+* Conduct regular vulnerability assessments using OT-specific tools
+* Prioritize patching based on risk (not all vulnerabilities are equally exploitable in ICS environments)
+* Implement compensating controls when patches aren't available
+
+**Authentication and Access Management**
+* Eliminate default/vendor credentials on all devices
+* Implement strong password policies and regular rotation
+* Use multi-factor authentication for all remote and administrative access
+* Apply principle of least privilege for user and service accounts
+
+**Monitoring and Detection**
+* Deploy ICS-specific intrusion detection systems (IDS)
+* Monitor for anomalous behavior (unusual protocols, configuration changes, unauthorized access)
+* Centralize logging from all ICS devices and security tools
+* Establish baseline of normal operations to detect deviations
+
+**Incident Response Planning**
+* Develop incident response plans specific to ICS/SCADA environments
+* Conduct tabletop exercises simulating cyber attacks
+* Establish communication protocols with law enforcement, regulators, and emergency management
+* Maintain offline backups and recovery procedures
+
+**Security Awareness and Training**
+* Train operational staff to recognize phishing, social engineering, and suspicious activity
+* Educate employees about physical security (USB drives, tailgating, unauthorized visitors)
+* Foster culture where security is everyone's responsibility, not just IT's job
+* Provide role-specific training for operators, engineers, and leadership
+
+=== Employee Responsibilities and Security Culture
+
+Finally, I discussed the responsibilities of every employee in maintaining security, emphasizing the need for awareness, proactive risk management, and a collaborative security-first approach across all levels of an organization:
+
+* **Operators**: Monitor systems for unusual behavior, follow security procedures, report anomalies immediately
+* **Engineers**: Design security into system upgrades, evaluate vendor security capabilities
+* **Management**: Allocate resources for cybersecurity, support training and awareness programs
+* **Everyone**: Practice good cyber hygiene (strong passwords, email caution, physical security awareness)
+
+Security is not solely the responsibility of IT or cybersecurity teams—it requires a collective effort. Plant operators are often the first to notice unusual system behavior. Engineers make critical decisions about vendor selection and system architecture. Management sets the tone and allocates resources. Every employee plays a role in defending critical infrastructure.
+
+=== Regulatory and Compliance Context
+
+I also addressed key regulatory requirements facing water utilities:
+
+* **America's Water Infrastructure Act (AWIA)**: Requires risk assessments and emergency response plans for systems serving over 3,300 people
+* **EPA Cybersecurity Guidance**: Voluntary guidelines for water sector cybersecurity
+* **CISA Critical Infrastructure Protection**: Resources and support from the Cybersecurity and Infrastructure Security Agency
+* **State Regulations**: New Jersey-specific requirements and expectations
+
+Meeting compliance requirements is important, but the real goal is **resilience**—the ability to prevent, withstand, and rapidly recover from cyber incidents.
+
+By emphasizing practical controls, real-world examples, and the shared responsibility for security, this talk aimed to empower NJWEA attendees to strengthen the cybersecurity posture of their water and wastewater systems, protecting the essential services that communities depend on every day.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[View Slides^]
 

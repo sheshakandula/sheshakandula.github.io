@@ -1,17 +1,69 @@
 = BSides Delaware 2025 - LLMsec 2025: A Practical Guide to Attacks and Mitigations - 9th Talk
 :imagesdir: /assets/images/posts/BSidesDE2025/
-:page-excerpt: This post has the slides related to my BSides Delaware 2025 talk
-:page-tags: [Talk, BSides, BSidesDE2025, AI/ML, LLM, AppSec, Security]
+:page-excerpt: Presented at BSides Delaware 2025, Delaware's premier grassroots cybersecurity conference, this hands-on talk explores practical LLM security vulnerabilities and defensive strategies with live demonstrations
+:page-tags: [Talk, BSides, BSidesDE2025, BSidesDelaware, AI/ML, LLM, AppSec, Security, GenAI, AI Security, Prompt Injection]
 :revdate: 2025-11-15
 // :page-published: false
-Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
-== Talk : LLMsec 2025: A Practical Guide to Attacks and Mitigations
+== About BSides Delaware Conference
 
-Large Language Models (LLMs) are now powering business-critical applications—from chatbots and developer copilots to security analysis platforms. This rapid adoption brings new attack surfaces that traditional security models fail to address. This talk delivers a practical, attacker-focused tour of modern LLM vulnerabilities, including prompt injection, jailbreaks, safety evasion, model extraction, and insecure
-tool/plugin integrations. 
+https://bsidesdelaware.com[Security BSides Delaware^] is the First State's premier grassroots cybersecurity conference, and one of the most enduring security community gatherings in the mid-Atlantic region. Since joining the Security BSides family in 2010 as the 12th ever BSides conference, BSides Delaware has been bringing together security researchers, practitioners, students, and enthusiasts for knowledge sharing, hands-on learning, and community building.
 
-Live demos using open-source models will illustrate how these attacks work in realistic environments and how they can be chained for greater impact. We’ll pair each exploit with actionable defensive strategies—such as prompt hardening, input/output filtering, context isolation, and AI red teaming—so attendees leave with the knowledge and tools to secure their own GenAI applications. No prior machine learning expertise is required; this session is built for security professionals on both the offensive and defensive sides.
+Held November 14-15, 2025, at the University of Delaware's UD Fintech building, this marks the 16th annual BSides Delaware conference. The event has weathered significant challenges—hosting virtual conferences in 2020-2021 during the pandemic, and small socially distanced outdoor networking events in 2022-2023—before returning fully in-person in 2024. Throughout its evolution, BSides Delaware has remained committed to its core mission: providing an accessible, community-driven platform for cybersecurity education and collaboration.
+
+BSides Delaware embodies the true spirit of the global Security BSides movement—a volunteer-run, non-profit event that prioritizes learning, networking, and giving back to the security community. The conference features a diverse mix of technical talks, hands-on workshops, Capture The Flag (CTF) competitions, specialized villages, and extensive networking opportunities. With partnerships across Delaware's academic institutions including Wilmington University, Delaware Technical and Community College, and the University of Delaware, BSides Delaware serves as a vital bridge between academia, industry, and the broader cybersecurity community.
+
+What makes BSides Delaware special is its welcoming, inclusive atmosphere. Whether you're a seasoned security professional, a student exploring cybersecurity careers, or someone curious about the field, BSides Delaware provides an environment where everyone can learn, contribute, and connect. Presenting at BSides Delaware was particularly meaningful—it's a conference that represents the collaborative, community-first values that make the security industry thrive.
+
+== Talk: LLMsec 2025: A Practical Guide to Attacks and Mitigations
+
+=== Talk Overview
+
+Large Language Models (LLMs) are now powering business-critical applications—from chatbots and developer copilots to security analysis platforms and automated decision-making systems. This rapid adoption brings new attack surfaces that traditional security models fail to address. Unlike conventional application security where vulnerabilities stem from implementation bugs, LLM security challenges arise from the fundamental nature of how these models work: they're probabilistic systems trained on massive datasets, making them susceptible to unique classes of attacks.
+
+This talk delivered a practical, attacker-focused tour of modern LLM vulnerabilities, including prompt injection, jailbreaks, safety evasion, model extraction, and insecure tool/plugin integrations. The presentation was designed specifically for BSides Delaware's technically savvy audience, emphasizing hands-on demonstrations and real-world attack scenarios over theoretical discussions.
+
+=== Live Demonstrations and Attack Scenarios
+
+What made this talk unique was the extensive use of live demonstrations using open-source models (Mistral, Llama) running locally. This approach allowed me to illustrate how attacks work in realistic environments and how they can be chained together for greater impact:
+
+* **Prompt Injection Attacks**: Demonstrated both direct and indirect prompt injection, showing how attackers can manipulate system prompts to bypass restrictions, extract training data, or execute unauthorized actions
+* **Jailbreaking Techniques**: Showcased various methods to bypass safety guardrails, including role-playing attacks, encoded payloads, and adversarial prompts
+* **RAG (Retrieval-Augmented Generation) Poisoning**: Illustrated how attackers can inject malicious content into vector databases to manipulate LLM responses in document-based Q&A systems
+* **Tool Execution Vulnerabilities**: Demonstrated how LLMs with function-calling capabilities can be tricked into executing unauthorized operations or manipulating parameters
+* **Model Extraction**: Showed techniques for extracting proprietary model behavior and training data through carefully crafted queries
+
+Each attack was paired with real-world context—actual security incidents, proof-of-concept exploits from research papers, and scenarios drawn from production LLM deployments that experienced breaches.
+
+=== Defensive Strategies and Mitigations
+
+The second half of the talk focused on actionable defensive strategies that attendees could immediately implement:
+
+* **Prompt Hardening**: Multi-layer system prompt defenses, delimiter-based separation, and instruction hierarchy techniques
+* **Input Sanitization**: Pattern-based injection detection, content filtering, and length restrictions
+* **Output Filtering**: Post-generation validation, sensitive data redaction, and response quality checks
+* **Context Isolation**: Sandboxing user input, privilege separation, and context fencing to prevent cross-contamination
+* **Tool Policy Enforcement**: Whitelist-based function calling, parameter validation, and permission systems for LLM tools
+* **AI Red Teaming**: Building adversarial testing programs and using frameworks like OWASP Top 10 for LLM Applications
+* **Monitoring and Telemetry**: Implementing real-time logging, anomaly detection, and security event correlation for LLM applications
+
+I also introduced the https://github.com/sheshakandula/llmsec[LLMSec Demo application^]—an open-source training platform I built specifically for this talk that demonstrates vulnerable vs. defended LLM implementations side-by-side.
+
+=== Practical Takeaways
+
+No prior machine learning expertise was required for this session—it was built for security professionals on both the offensive and defensive sides. Attendees left with:
+
+* **Hands-on Understanding**: Practical knowledge of how LLM attacks actually work, not just theoretical concepts
+* **Defense Playbook**: A structured approach to securing LLM integrations with proven mitigation techniques
+* **Testing Tools**: Resources and frameworks for conducting LLM security assessments
+* **Risk Assessment Framework**: Guidance on evaluating LLM security risks specific to their organization's use cases
+* **Open-Source Resources**: Access to the LLMSec Demo repository, testing scripts, and educational materials
+
+=== Why LLM Security Matters Now
+
+The GenAI revolution is happening at breakneck speed. Organizations are integrating LLMs into customer-facing applications, internal tools, and decision-making processes—often without understanding the security implications. Traditional AppSec practices don't translate directly to LLMs. You can't just patch an LLM like you would fix a SQL injection vulnerability. The attack surface is fundamentally different, and defenders need new mental models and toolsets.
+
+The BSides Delaware audience—many of whom are implementing or securing LLM applications in their organizations—needed practical, immediately actionable guidance. This talk bridged the gap between the hype surrounding GenAI and the reality of securing these systems in production environments.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[View Slides^]
 

@@ -1,16 +1,56 @@
-= SECON NJ 2025 - Quantum Computing and AppSec: Preparing for the Post- Quantum Threat - 7th Talk
+= SECON NJ 2025 - Quantum Computing and AppSec: Preparing for the Post-Quantum Threat - 7th Talk
 :imagesdir: /assets/images/posts/SECON/
-:page-excerpt: This post has the slides related to my SECON NJ 2025
-:page-tags: [Talk, SECON, Quantum Computing, AppSec, Cryptography, Security]
+:page-excerpt: Presented at SECON NJ 2025, New Jersey's premier cybersecurity conference, this talk addresses the quantum computing threat to application security and practical strategies for post-quantum readiness
+:page-tags: [Talk, SECON, SECONNJ, Quantum Computing, AppSec, Cryptography, Security, Post-Quantum, PQC, ISC2, ISACA]
 :revdate: 2025-06-10
 // :page-published: false
-Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
-== Talk : Quantum Computing and AppSec: Preparing for the Post- Quantum Threat
+== About SECON NJ Conference
 
-Quantum computing is no longer just theoretical—it’s advancing rapidly, and with it comes a major security disruption. Current encryption methods that secure web applications, APIs, and sensitive data are at risk of becoming obsolete due to quantum attacks. Shor’s Algorithm, for instance, can theoretically break RSA and ECC encryption, which are widely used in authentication, digital signatures, and secure communication.
+https://www.njsecon.org[SECON NJ (Security Conference New Jersey)^] is New Jersey's premier annual cybersecurity conference, bringing together the state's cybersecurity community for a day of learning, networking, and collaboration. Held on June 10, 2025, at Kean University in Union, NJ, SECON is organized by a coalition of leading security organizations including the https://www.isc2.org/Chapters/New-Jersey[ISC2 New Jersey Chapter^] and https://engage.isaca.org/newjerseychapter[NJ ISACA^], along with other cybersecurity advocacy groups.
 
-This talk will explore the real-world implications of quantum computing on AppSec, how soon these threats might become a reality, and what security professionals can do today to prepare. Attendees will gain insights into post-quantum cryptography (PQC), practical mitigation strategies, and how to transition applications to quantum-resistant security models.
+SECON NJ serves as a vital gathering point for CISOs, security practitioners, compliance professionals, threat hunters, incident responders, and cybersecurity leaders across the Garden State and tri-state area. The conference features expert speakers, interactive panels, hands-on workshops, and career development opportunities, covering critical topics such as AI security, threat intelligence, incident response, malware analysis, social engineering, risk management, compliance, and privacy.
+
+What makes SECON unique is its focus on building a strong local cybersecurity ecosystem. The conference emphasizes practical, actionable insights that professionals can immediately apply in their organizations, while fostering connections among New Jersey's cybersecurity community. With hundreds of attendees ranging from seasoned security veterans to emerging professionals, SECON provides an invaluable platform for knowledge sharing and professional growth.
+
+== Talk: Quantum Computing and AppSec: Preparing for the Post-Quantum Threat
+
+=== Talk Overview
+
+Quantum computing represents an existential threat to modern application security, yet many organizations remain unprepared for the rapidly approaching post-quantum era. This presentation was designed to cut through the hype and deliver practical, actionable guidance for SECON's audience of security practitioners and leaders who need to understand and prepare for quantum risks.
+
+Quantum computing is no longer just theoretical—it's advancing rapidly, and with it comes a major security disruption. Current encryption methods that secure web applications, APIs, and sensitive data are at risk of becoming obsolete due to quantum attacks. Shor's Algorithm, for instance, can theoretically break RSA and ECC encryption, which are widely used in authentication, digital signatures, and secure communication.
+
+=== The Urgent Timeline
+
+The most critical aspect I emphasized is the "harvest now, decrypt later" threat. Nation-state actors and sophisticated adversaries are already intercepting and storing encrypted communications, waiting for quantum computers powerful enough to decrypt them retroactively. For organizations handling sensitive data—financial records, healthcare information, government communications, intellectual property—the clock is ticking. Data encrypted today may be vulnerable within the next decade.
+
+=== Key Topics Covered
+
+This talk explored the real-world implications of quantum computing on application security and provided attendees with practical next steps:
+
+* **Quantum Computing Fundamentals**: Understanding qubits, superposition, entanglement, and why quantum computers pose a unique threat to public-key cryptography
+* **Vulnerable Cryptographic Systems**: Identifying which algorithms are at risk (RSA, ECC, Diffie-Hellman) and which remain quantum-resistant (AES-256, SHA-256/SHA-3)
+* **NIST Post-Quantum Standards**: Deep dive into the newly standardized PQC algorithms (CRYSTALS-Kyber for key encapsulation, CRYSTALS-Dilithium and SPHINCS+ for digital signatures)
+* **Risk Assessment Framework**: How to inventory cryptographic assets, prioritize systems based on data sensitivity and lifespan, and calculate quantum risk exposure
+* **Migration Strategies**: Practical roadmaps for transitioning to post-quantum cryptography, including hybrid approaches that combine classical and PQC algorithms for backward compatibility
+* **Crypto-Agility**: Building systems that can swap cryptographic algorithms without major refactoring—a critical capability for adapting to evolving standards
+* **Implementation Guidance**: Real-world examples using libraries like liboqs, Bouncy Castle, and OpenSSL 3.x with PQC support
+
+=== Practical Takeaways
+
+Attendees gained insights into post-quantum cryptography (PQC), practical mitigation strategies, and how to transition applications to quantum-resistant security models. I provided a phased implementation approach:
+
+1. **Phase 1 (Now)**: Inventory all cryptographic implementations and create a quantum risk register
+2. **Phase 2 (Near-term)**: Implement hybrid cryptography in new systems and high-risk applications
+3. **Phase 3 (Medium-term)**: Full migration of critical systems to PQC algorithms
+4. **Phase 4 (Long-term)**: Complete organizational transition and sunsetting of legacy algorithms
+
+The presentation also addressed common misconceptions, such as the false belief that simply increasing RSA key sizes provides quantum resistance (it doesn't), and clarified that symmetric encryption like AES-256 remains secure against quantum attacks when using appropriate key lengths.
+
+=== Why This Matters for New Jersey's Security Community
+
+With New Jersey hosting major financial institutions, pharmaceutical companies, government agencies, and critical infrastructure operators, the state's organizations are prime targets for "harvest now, decrypt later" attacks. SECON's audience—many of whom are responsible for securing these high-value assets—needed to understand that post-quantum readiness isn't a distant concern but an immediate priority that should be incorporated into current security roadmaps and budget planning.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Kandula_Sheshananda_Quantum%20Computing%20and%20AppSec%20Preparing%20for%20the%20Post-Quantum%20Threat_SECONNJ2025v2.0.pdf[View Slides^]
 

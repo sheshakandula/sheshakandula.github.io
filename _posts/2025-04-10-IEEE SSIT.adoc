@@ -1,18 +1,152 @@
 = IEEE SSIT 2025 - Cybersecurity, AI, and Human Rights: A Societal Perspective - 6th Talk
 :imagesdir: /assets/images/posts/IEEESSIT/
-:page-excerpt: This post has the slides related to my talk in the 2025 IEEE SSIT vTools
-:page-tags: [Talk, IEEE, AI, CyberSecurity]
+:page-excerpt: Presented for IEEE SSIT (Society on Social Implications of Technology), this webinar explores the critical intersection of cybersecurity, AI, and human rights, addressing ethical governance, privacy, and accountability in AI-driven security systems
+:page-tags: [Talk, IEEE, SSIT, AI, CyberSecurity, Ethics, Human Rights, Privacy, AI Governance, Surveillance]
 :revdate: 2025-04-10
 // :page-published: false
-Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
 
-== Talk : Cybersecurity, AI, and Human Rights: A Societal Perspective
+== About IEEE SSIT
 
-Abstract: 
+The https://technologyandsociety.org[IEEE Society on Social Implications of Technology (SSIT)^] is a professional society dedicated to understanding and addressing the complex interactions between technology, science, and society. Founded on the principle that engineers and technologists have a responsibility to consider the broader societal impacts of their work, SSIT facilitates discussions on ethics, professional responsibility, and the social consequences of technological advancement.
 
-The rapid evolution of Artificial Intelligence (AI) in cybersecurity is reshaping how digital threats are detected, mitigated, and prevented. AI-driven security solutions enhance threat intelligence, automate responses, and strengthen cyber defense mechanisms. However, as AI becomes more embedded in cybersecurity frameworks, it raises critical concerns about human rights, privacy, and ethical governance. The use of AI in surveillance, data monitoring, and decision-making has sparked debates about its potential to infringe on fundamental freedoms, leading to questions about accountability, fairness, and transparency.
+IEEE SSIT focuses on critical issues at the intersection of technology and society, including:
+* Impact of technology on individuals and communities
+* Ethics in engineering and technology practice
+* Professional and social responsibility
+* Technology policy and governance
+* Privacy, surveillance, and civil liberties
+* Environmental and sustainability concerns
+* Emerging technology implications (AI, biotech, quantum computing)
 
-This webinar will explore the intersection of cybersecurity, AI, and human rights, addressing how AI-driven security measures impact digital privacy, freedom of expression, and the ethical responsibilities of organizations and governments. Experts from cybersecurity, law, and ethics will discuss key challenges such as algorithmic bias, the risks of AI-powered surveillance, and the implications of cybersecurity policies on human rights. Additionally, the session will examine regulatory frameworks and best practices to ensure AI technologies are deployed responsibly while upholding democratic values and societal trust.
+The society publishes the quarterly *IEEE Technology and Society Magazine* and *IEEE Transactions on Technology and Society*, hosts the annual International Symposium on Technology and Society (ISTAS), and maintains working groups on emerging issues. SSIT members include engineers, ethicists, policymakers, academics, and concerned professionals who believe technology must serve humanity's best interests.
+
+This webinar was part of SSIT's ongoing efforts to address one of the most pressing issues of our time: the intersection of artificial intelligence, cybersecurity, and fundamental human rights.
+
+== Talk: Cybersecurity, AI, and Human Rights: A Societal Perspective
+
+=== Abstract and Overview
+
+The rapid evolution of Artificial Intelligence (AI) in cybersecurity is reshaping how digital threats are detected, mitigated, and prevented. AI-driven security solutions enhance threat intelligence, automate responses, and strengthen cyber defense mechanisms. However, as AI becomes more embedded in cybersecurity frameworks, it raises critical concerns about human rights, privacy, and ethical governance.
+
+The use of AI in surveillance, data monitoring, and decision-making has sparked debates about its potential to infringe on fundamental freedoms, leading to questions about accountability, fairness, and transparency. This creates a fundamental tension: the same AI technologies that protect us from cyber threats can also be weaponized against civil liberties, privacy, and democratic values.
+
+=== The Dual-Use Nature of AI Security Technologies
+
+This webinar explored how AI-driven security measures impact digital privacy, freedom of expression, and the ethical responsibilities of organizations and governments. I examined key challenges such as algorithmic bias, the risks of AI-powered surveillance, and the implications of cybersecurity policies on human rights.
+
+**AI as a Defensive Tool:**
+* Threat detection and anomaly identification at scale
+* Automated incident response and remediation
+* Predictive analytics for vulnerability management
+* Behavioral analysis for insider threat detection
+
+**AI as a Surveillance and Control Mechanism:**
+* Mass data collection and processing capabilities
+* Facial recognition and biometric tracking
+* Social media monitoring and sentiment analysis
+* Predictive policing and pre-crime systems
+* Content moderation and censorship at scale
+
+The same capabilities that make AI valuable for cybersecurity also make it powerful for surveillance, social control, and potential human rights abuses.
+
+=== Key Ethical and Human Rights Challenges
+
+**1. Algorithmic Bias and Discrimination**
+* AI systems trained on biased data perpetuate and amplify existing inequalities
+* Facial recognition systems with higher error rates for people of color
+* Automated screening systems that discriminate based on protected characteristics
+* Lack of transparency in how AI systems make decisions
+
+**2. Mass Surveillance and Privacy Erosion**
+* AI enables surveillance at unprecedented scale and sophistication
+* Erosion of privacy as a fundamental human right
+* Chilling effects on freedom of expression and association
+* Normalization of constant monitoring
+
+**3. Lack of Accountability and Transparency**
+* "Black box" AI systems whose decision-making processes are opaque
+* Difficulty determining responsibility when AI systems cause harm
+* Challenges in auditing and validating AI system behavior
+* Limited recourse for individuals affected by AI decisions
+
+**4. Dual-Use Technology Dilemmas**
+* Technologies developed for legitimate security purposes being repurposed for oppression
+* Export of surveillance technologies to authoritarian regimes
+* Balancing innovation with preventing misuse
+
+**5. Power Asymmetries**
+* Concentration of AI capabilities in hands of governments and large corporations
+* Limited ability for individuals and civil society to understand or challenge AI systems
+* Digital divide creating unequal protection and exposure to AI harms
+
+=== Regulatory Frameworks and Governance
+
+The session examined regulatory frameworks and best practices to ensure AI technologies are deployed responsibly while upholding democratic values and societal trust:
+
+**International Human Rights Standards:**
+* Universal Declaration of Human Rights (UDHR)
+* International Covenant on Civil and Political Rights (ICCPR)
+* European Convention on Human Rights (ECHR)
+* UN Guiding Principles on Business and Human Rights
+
+**Emerging AI Governance Frameworks:**
+* EU AI Act: Risk-based regulation of AI systems, prohibiting certain uses
+* GDPR: Data protection and privacy rights in Europe
+* UNESCO Recommendation on the Ethics of AI
+* OECD AI Principles: Transparency, explainability, accountability
+* IEEE Ethically Aligned Design standards
+
+**Principles for Rights-Respecting AI:**
+* **Purpose Limitation**: AI should be used only for specified, legitimate purposes
+* **Proportionality**: Security measures must be proportionate to the threat
+* **Necessity Testing**: Less invasive alternatives must be considered first
+* **Transparency**: Affected individuals have right to know when AI is used
+* **Human Oversight**: Meaningful human review of AI decisions, especially high-stakes ones
+* **Accountability**: Clear responsibility and redress mechanisms
+* **Privacy by Design**: Build privacy protections into systems from the start
+
+=== Case Studies and Real-World Examples
+
+I presented several case studies illustrating the tensions between security and rights:
+
+**China's Social Credit System**: AI-powered mass surveillance integrated with social scoring, demonstrating how cybersecurity infrastructure can be used for social control
+
+**Clearview AI**: Scraping billions of photos for facial recognition, raising questions about consent, privacy, and limits on AI data collection
+
+**Pegasus Spyware**: State-sponsored surveillance tools targeting journalists, activists, and dissidents, showing the dark side of "cybersecurity" tools
+
+**Predictive Policing**: AI systems that perpetuate racial bias in law enforcement, highlighting algorithmic discrimination
+
+**Content Moderation at Scale**: AI systems making decisions about speech with limited transparency or accountability
+
+=== Responsibilities of Cybersecurity Professionals
+
+A critical section addressed the ethical responsibilities of those who build, deploy, and manage AI-powered security systems:
+
+* **Duty to Consider Downstream Impacts**: Think beyond immediate use cases to potential misuse
+* **Transparency Obligations**: Document capabilities, limitations, and risks of AI systems
+* **Bias Testing and Mitigation**: Proactively test for and address discriminatory outcomes
+* **Human Rights Impact Assessments**: Evaluate potential rights impacts before deployment
+* **Whistleblowing and Speaking Out**: Responsibility to raise concerns about unethical uses
+* **Continuous Learning**: Stay informed about evolving ethical standards and best practices
+
+=== Building Rights-Respecting AI Security Systems
+
+The webinar concluded with practical recommendations for organizations:
+
+1. **Conduct Human Rights Due Diligence**: Assess and mitigate rights risks throughout the AI lifecycle
+2. **Implement Explainability and Transparency**: Make AI decision-making processes understandable
+3. **Establish Independent Oversight**: Create ethics boards and review mechanisms
+4. **Enable Meaningful Human Review**: Ensure humans can understand and override AI decisions
+5. **Provide Recourse Mechanisms**: Allow affected individuals to challenge AI decisions
+6. **Engage Stakeholders**: Include affected communities, civil society, and ethicists in design
+7. **Support Beneficial AI Research**: Invest in privacy-preserving and bias-mitigating technologies
+
+=== Conclusion
+
+As cybersecurity professionals, we have both an opportunity and a responsibility to shape how AI is used in our field. The choices we make today about AI system design, deployment, and governance will determine whether these technologies serve as instruments of protection or oppression, empowerment or control.
+
+The goal is not to reject AI in cybersecurity, but to ensure it is developed and deployed in ways that respect fundamental rights, uphold democratic values, and serve the broader public interest. This requires ongoing dialogue between technologists, policymakers, ethicists, civil society, and affected communities—exactly the kind of conversation IEEE SSIT facilitates.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Cybersecurity-AI-and-Human-Rights-A-Societal-Perspective.pdf[View Slides^]
 
