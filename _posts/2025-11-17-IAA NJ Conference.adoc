@@ -7,109 +7,42 @@
 
 == About the ISC2 & IIA Joint Training Day
 
-The November 17, 2025 event at Maggiano's Little Italy in Bridgewater, NJ marked a historic collaboration between two of the most influential professional organizations in risk and security: the https://www.isc2chapternj.org[ISC2 New Jersey Chapter^] and the Institute of Internal Auditors (IIA) NJ Central Jersey chapter. This free, full-day training event represented the first joint educational initiative between these organizations, bringing together cybersecurity professionals and internal auditors to address one of the most pressing challenges facing organizations today—securing artificial intelligence systems.
+The November 17, 2025 event at Maggiano's Little Italy in Bridgewater, NJ marked a historic collaboration between the https://www.isc2chapternj.org[ISC2 New Jersey Chapter^] and Institute of Internal Auditors (IIA) NJ Central Jersey chapter. This free, full-day training brought together cybersecurity professionals and internal auditors to address securing artificial intelligence systems.
 
-The partnership between ISC2 and IIA reflects a critical evolution in how organizations approach technology risk. As AI systems, particularly Large Language Models, become embedded in business-critical functions, the lines between cybersecurity and audit/compliance have blurred. Security professionals need to understand audit frameworks and regulatory requirements, while auditors need to grasp the technical security implications of AI deployments. This training day bridged that gap, creating a shared understanding across disciplines.
-
-The ISC2 New Jersey Chapter has been a cornerstone of the regional cybersecurity community, supporting security professionals through education, certification, and networking. The IIA, meanwhile, serves internal auditors, governance professionals, and risk managers who ensure organizational controls and compliance. By bringing these communities together around AI security, the event addressed a critical need: organizations are deploying LLMs faster than they can properly audit or secure them.
-
-This training day was particularly timely given the explosion of GenAI adoption across enterprises. Companies are integrating LLMs into customer service, document analysis, code generation, decision support, and countless other functions—often without fully understanding the security, privacy, and compliance implications. Attendees included CISOs, IT auditors, compliance officers, risk managers, and security architects, all seeking to understand how to assess, secure, and audit AI systems in their organizations.
+As AI systems become embedded in business-critical functions, security professionals need to understand audit frameworks while auditors need technical security depth. This training day bridged that gap, addressing the critical need: organizations are deploying LLMs faster than they can properly audit or secure them.
 
 == Talk: LLMsec 2025: A Practical Guide to Attacks and Mitigations (Auditor-Focused Edition)
 
 === Tailoring for an Audit and Compliance Audience
 
-While this talk covered the same LLM security topics as my BSides Delaware presentation, I significantly revised the slides, examples, and flow to resonate with an audience of auditors and compliance professionals. The technical depth remained, but the framing shifted to address the specific concerns and responsibilities of internal auditors, risk managers, and governance professionals.
+This talk covered LLM security topics adapted for auditors and compliance professionals. The framing shifted to address audit-specific concerns: what controls should exist, how to test them, regulatory implications, risk quantification, and governance structures.
 
-Auditors think differently than penetration testers. They need to understand:
-- **What controls should exist** (not just how to exploit weaknesses)
-- **How to test those controls** (audit procedures and evidence collection)
-- **Regulatory and compliance implications** (GDPR, SOC 2, ISO 27001, industry-specific regulations)
-- **Risk quantification** (likelihood, impact, residual risk after controls)
-- **Governance structures** (who owns AI risk, approval processes, oversight mechanisms)
+LLMs power business-critical applications (chatbots, developer copilots, security analysis, automated decision-making), bringing new attack surfaces traditional security models don't address. For auditors: how do you audit systems that are probabilistic and whose behavior can't always be predicted?
 
-I restructured the presentation to answer the key questions auditors face when assessing LLM implementations: What are the risks? What controls mitigate those risks? How do I test if controls are effective? What evidence do I need? What should I report to management and the board?
-
-=== Understanding LLM Security from an Audit Perspective
-
-Large Language Models (LLMs) are now powering business-critical applications—from chatbots and developer copilots to security analysis platforms and automated decision-making tools. This rapid adoption brings new attack surfaces that traditional security models fail to address. For auditors, this creates a complex challenge: how do you audit systems that are probabilistic, constantly learning, and whose behavior can't always be predicted or replicated?
-
-This talk delivered a practical, attacker-focused tour of modern LLM vulnerabilities—but through an audit lens. I covered prompt injection, jailbreaks, safety evasion, model extraction, and insecure tool/plugin integrations, but contextualized each vulnerability with:
-
-* **Control Objectives**: What should the organization be trying to prevent?
-* **Audit Procedures**: How can an auditor test for these vulnerabilities?
-* **Evidence Collection**: What documentation, logs, and artifacts prove controls are working?
-* **Risk Rating Criteria**: How to assess severity based on business impact and likelihood
+This talk covered prompt injection, jailbreaks, safety evasion, model extraction, and insecure tool integrations—contextualized with control objectives, audit procedures, evidence collection, and risk rating criteria.
 
 === Key Topics for Auditors and Compliance Professionals
 
-The presentation was structured around auditable control domains:
+Structured around auditable control domains:
 
-**1. Input Validation and Sanitization Controls**
-* Audit Procedure: Review input filtering mechanisms and test with malicious payloads
-* Key Control: Pattern-based injection detection, content filtering
-* Evidence: Input validation logs, rejected request samples, filter configuration documentation
-
-**2. Prompt Engineering and System Prompt Security**
-* Audit Procedure: Attempt to extract system prompts, test instruction hierarchy
-* Key Control: Multi-layer system prompt defenses, delimiter-based separation
-* Evidence: System prompt documentation, segregation of user vs. system instructions
-
-**3. Output Filtering and Content Safety**
-* Audit Procedure: Test for data leakage, PII exposure, and inappropriate content generation
-* Key Control: Post-generation validation, sensitive data redaction
-* Evidence: Output filtering logs, data loss prevention (DLP) integration, content moderation results
-
-**4. Tool and Plugin Security**
-* Audit Procedure: Review function calling permissions, test for unauthorized tool execution
-* Key Control: Whitelist-based function calling, parameter validation
-* Evidence: Tool authorization matrix, execution logs, permission audit trails
-
-**5. Model Access Controls and Authentication**
-* Audit Procedure: Test authentication mechanisms, review access logs
-* Key Control: API key management, rate limiting, user authorization
-* Evidence: Access control lists, authentication logs, rate limit configurations
-
-**6. Monitoring, Logging, and Incident Response**
-* Audit Procedure: Review security event logging, test alerting mechanisms
-* Key Control: Real-time monitoring, anomaly detection, security information and event management (SIEM) integration
-* Evidence: Log retention policies, alert configurations, incident response runbooks
-
-**7. Compliance and Data Privacy**
-* Audit Procedure: Assess data handling practices, verify compliance with regulations
-* Key Control: Data minimization, user consent management, right-to-deletion procedures
-* Evidence: Privacy impact assessments, data flow diagrams, compliance documentation
+* **Input Validation**: Pattern-based injection detection, content filtering; evidence includes validation logs and filter configurations
+* **System Prompt Security**: Multi-layer defenses, delimiter separation; evidence includes system prompt documentation
+* **Output Filtering**: Post-generation validation, sensitive data redaction; evidence includes DLP integration and moderation results
+* **Tool and Plugin Security**: Whitelist-based function calling, parameter validation; evidence includes authorization matrices and execution logs
+* **Model Access Controls**: API key management, rate limiting; evidence includes access control lists and authentication logs
+* **Monitoring and Logging**: Real-time monitoring, anomaly detection, SIEM integration; evidence includes log retention policies and alert configurations
+* **Compliance and Privacy**: Data minimization, consent management; evidence includes privacy impact assessments and data flow diagrams
 
 === Live Demonstrations with Audit Context
 
-Live demos using open-source models illustrated how attacks work in realistic environments and how they can be chained for greater impact. But for each demo, I explained:
-- What an auditor should look for during a control test
-- What "good" vs. "bad" implementations look like
-- How to document findings in audit reports
-- What compensating controls exist if preventive controls aren't feasible
-
-We paired each exploit with actionable defensive strategies—such as prompt hardening, input/output filtering, context isolation, and AI red teaming—framed as auditable controls that could be tested, measured, and reported on.
+Live demos illustrated attacks and explained what auditors should look for during control tests, "good" vs. "bad" implementations, documentation approaches, and compensating controls. Each exploit paired with defensive strategies framed as auditable controls.
 
 === Audit Reporting and Risk Communication
 
-A crucial section addressed how to communicate LLM security findings to non-technical stakeholders, boards, and executive management:
-
-* **Risk Rating Frameworks**: Mapping LLM vulnerabilities to organizational risk registers
-* **Control Maturity Models**: Assessing the organization's LLM security posture (e.g., ad hoc, defined, managed, optimized)
-* **Audit Report Structures**: How to document findings, root causes, impact, and recommendations
-* **Board-Level Reporting**: Translating technical vulnerabilities into business risks
+Addressed communicating findings to stakeholders: risk rating frameworks, control maturity models, audit report structures, and board-level reporting translating technical vulnerabilities into business risks.
 
 === Practical Takeaways for Auditors
 
-No prior machine learning expertise was required for this session—it was built for audit and compliance professionals who need to assess LLM security. Attendees left with:
-
-* **Audit Program Templates**: Sample audit procedures for assessing LLM security controls
-* **Control Checklists**: Comprehensive lists of controls to look for in LLM implementations
-* **Risk Assessment Frameworks**: Methods for evaluating and quantifying LLM security risks
-* **Testing Methodologies**: Practical techniques for testing LLM security controls
-* **Regulatory Guidance**: Understanding how existing frameworks (NIST, ISO 27001, SOC 2) apply to LLMs
-* **Sample Audit Findings**: Examples of well-written audit findings with root cause, impact, and recommendations
-
-This session bridged the gap between technical LLM security and audit/compliance practice, empowering auditors to effectively assess GenAI implementations and provide meaningful assurance to their organizations.
+Attendees left with audit program templates, control checklists, risk assessment frameworks, testing methodologies, regulatory guidance (NIST, ISO 27001, SOC 2), and sample audit findings—bridging technical LLM security and audit practice.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/IIA%20-%20LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[View Slides^] 

@@ -7,172 +7,68 @@
 
 == About BSidesCharm Conference
 
-https://bsidescharm.org[BSidesCharm^] is the Baltimore region's premier grassroots cybersecurity conference, held annually in Towson, Maryland. The 2025 conference took place April 12-13 at the Sheraton Baltimore North, bringing together hundreds of security professionals, researchers, students, and enthusiasts for two days of learning, networking, and community building.
+https://bsidescharm.org[BSidesCharm^] is the Baltimore region's premier grassroots cybersecurity conference, held annually in Towson, Maryland. The 2025 conference (April 12-13 at the Sheraton Baltimore North) brought together hundreds of security professionals, researchers, students, and enthusiasts for technical talks, hands-on workshops, CTF competitions, and career development sessions.
 
-BSidesCharm embodies the core Security BSides philosophy: creating an intimate, accessible environment where participants can engage meaningfully with speakers, connect with peers, and develop lasting professional relationships. Unlike massive commercial conferences, BSides events prioritize community, education, and lowering barriers to entry—particularly for students and those new to cybersecurity.
-
-The conference features technical talks across diverse security domains (network security, cloud security, incident response, threat hunting, forensics, penetration testing, AI security), hands-on workshops, capture-the-flag (CTF) competitions, and career development sessions. BSidesCharm has a strong commitment to welcoming students into the cybersecurity community, offering free tickets to help the next generation of security professionals get started.
-
-Presenting training at BSidesCharm was particularly rewarding because the audience includes a mix of seasoned professionals seeking to sharpen skills, career-changers entering the field, and students exploring cybersecurity for the first time. This diversity creates a dynamic learning environment where participants learn from both the instructor and each other.
+BSidesCharm embodies the Security BSides philosophy: creating an intimate, accessible environment prioritizing community and education over commercialization. The conference has a strong commitment to welcoming students and newcomers, offering free tickets to help the next generation of security professionals get started.
 
 == Training: Web Application Penetration Testing
 
 === Training Overview
 
-This 3-hour hands-on Web Application Penetration Testing training provided participants with practical skills for identifying and exploiting common web vulnerabilities. Unlike purely theoretical sessions, this training emphasized **doing**—participants worked with real vulnerable applications, used professional security tools, and practiced the complete workflow from reconnaissance to exploitation to reporting.
-
-The training was designed for security professionals, developers, and IT administrators seeking foundational knowledge in web application penetration testing and secure coding practices. No prior penetration testing experience was required, though basic understanding of web technologies (HTTP, HTML, databases) was helpful.
+This 3-hour hands-on training provided practical skills for identifying and exploiting common web vulnerabilities. Participants worked with real vulnerable applications, professional security tools, and practiced the complete workflow from reconnaissance to exploitation to reporting. Designed for security professionals, developers, and IT administrators—no prior penetration testing experience required.
 
 === Training Structure and Curriculum
 
 **Part 1: Introduction and Environment Setup**
-* Web application security landscape and real-world breach examples
-* Overview of the OWASP Top 10 web application security risks
-* Setting up a safe, legal testing environment using intentionally vulnerable applications (DVWA, WebGoat)
-* Introduction to essential tools: Burp Suite, SQLMap, Nmap, browser developer tools
+OWASP Top 10 overview, setting up safe testing environment (DVWA, WebGoat), essential tools (Burp Suite, SQLMap, Nmap)
 
 **Part 2: Reconnaissance and Information Gathering**
-* Passive reconnaissance techniques (Google dorking, Shodan, DNS enumeration)
-* Active scanning and enumeration
-* Identifying attack surfaces and entry points
-* Understanding application architecture and technology stack
+Passive and active reconnaissance, identifying attack surfaces, understanding application architecture
 
 **Part 3: Core Exploitation Techniques**
 
-Each vulnerability included theory, live demonstration, and hands-on practice:
+Each vulnerability covered theory, live demo, and hands-on practice:
 
-**SQL Injection**
-* Understanding how SQL injection works
-* Identifying injection points in web applications
-* Exploiting SQL injection to extract data, bypass authentication, and execute commands
-* Using automated tools (SQLMap) and manual techniques
-* Database-specific considerations (MySQL, PostgreSQL, MSSQL)
+* **SQL Injection**: Identifying injection points, extracting data, bypassing authentication, automated (SQLMap) and manual techniques
+* **Cross-Site Scripting (XSS)**: Reflected/stored/DOM-based variants, crafting payloads, bypassing filters
+* **Broken Authentication**: Session hijacking, credential stuffing, brute force, MFA bypass methods
+* **CSRF**: Exploiting missing CSRF tokens, chaining with other vulnerabilities
+* **Security Misconfigurations**: Default credentials, directory listing, misconfigured CORS, cloud storage exposures
 
-**Cross-Site Scripting (XSS)**
-* Reflected, stored, and DOM-based XSS variants
-* Crafting XSS payloads to steal cookies, hijack sessions, and deface pages
-* Bypassing input filters and WAFs (Web Application Firewalls)
-* Real-world attack scenarios and impact
-
-**Broken Authentication and Session Management**
-* Common authentication flaws (weak passwords, insecure session handling)
-* Session hijacking and fixation attacks
-* Credential stuffing and brute force techniques
-* Multi-factor authentication bypass methods
-
-**Cross-Site Request Forgery (CSRF)**
-* Understanding CSRF attack mechanics
-* Exploiting missing CSRF tokens
-* Chaining CSRF with other vulnerabilities
-* Impact on state-changing operations
-
-**Security Misconfigurations**
-* Default credentials and unnecessary services
-* Directory listing and information disclosure
-* Misconfigured CORS (Cross-Origin Resource Sharing)
-* Cloud storage misconfigurations (S3 buckets, Azure blobs)
-
-**Part 4: Advanced Topics and Real-World Scenarios**
-* Chaining vulnerabilities for greater impact
-* Privilege escalation techniques
-* File upload vulnerabilities and remote code execution
-* API security testing basics
-* Mobile application backend testing
+**Part 4: Advanced Topics**
+Chaining vulnerabilities, privilege escalation, file upload exploits, API security testing basics
 
 === Hands-On Labs and Exercises
 
-Participants worked through guided lab exercises using intentionally vulnerable applications:
-
-* **DVWA (Damn Vulnerable Web Application)**: Progressive difficulty levels for practicing exploitation techniques
-* **OWASP WebGoat**: Interactive lessons on specific vulnerability classes
-* **Custom Lab Scenarios**: Real-world-inspired challenges mimicking actual web application architectures
-
-Each exercise followed a structured approach:
-1. **Reconnaissance**: Identify the vulnerability
-2. **Exploitation**: Develop and execute the attack
-3. **Post-Exploitation**: Extract data or achieve objective
-4. **Documentation**: Record findings and evidence
+Participants worked through guided exercises using DVWA, OWASP WebGoat, and custom scenarios. Each exercise followed: reconnaissance → exploitation → post-exploitation → documentation.
 
 === Professional Reporting and Mitigation Strategies
 
-A critical component often overlooked in technical training: **how to communicate findings effectively**.
+**Report Writing**: Executive summaries, technical findings with PoCs, CVSS risk scoring, prioritized remediation, evidence collection
 
-**Report Writing Essentials:**
-* Executive summary for non-technical stakeholders
-* Technical findings with proof-of-concept (PoC) steps
-* Risk severity assessment (CVSS scoring, business impact)
-* Remediation recommendations with prioritization
-* Evidence collection (screenshots, request/response logs)
-
-**Defensive Strategies:**
-For each vulnerability, I provided developers with secure coding guidance:
-* Input validation and output encoding best practices
-* Parameterized queries and prepared statements
-* Secure session management and authentication
-* Content Security Policy (CSP) and other security headers
-* Security testing integration (SAST, DAST, dependency scanning)
+**Defensive Strategies**: Input validation, parameterized queries, secure session management, CSP headers, security testing integration (SAST/DAST)
 
 === Tools and Technologies Covered
 
-**Burp Suite**: Industry-standard web application testing platform
-* Intercepting and modifying HTTP requests
-* Scanner for automated vulnerability detection
-* Intruder for fuzzing and brute forcing
-* Repeater for manual testing and exploitation
-
-**SQLMap**: Automated SQL injection detection and exploitation
-* Database fingerprinting
-* Data extraction techniques
-* OS command execution via SQL injection
-
-**Additional Tools:**
-* Nmap for network and service discovery
-* Browser developer tools for client-side analysis
-* Nikto for web server scanning
-* OWASP ZAP as an alternative to Burp Suite
+* **Burp Suite**: HTTP interception, automated scanning, fuzzing (Intruder), manual testing (Repeater)
+* **SQLMap**: Automated SQL injection, database fingerprinting, data extraction
+* **Additional Tools**: Nmap, browser dev tools, Nikto, OWASP ZAP
 
 === Key Takeaways for Participants
 
-By the end of the training, participants gained:
-
-* **Practical Skills**: Hands-on experience identifying and exploiting web vulnerabilities
-* **Tool Proficiency**: Competence with industry-standard penetration testing tools
-* **Methodology**: Structured approach to web application testing
-* **Reporting Abilities**: Professional documentation and communication skills
-* **Defensive Knowledge**: Understanding how to prevent and mitigate vulnerabilities
-* **Career Resources**: Pathways for continued learning (certifications, practice platforms, communities)
+Practical exploitation skills, proficiency with industry-standard tools, structured testing methodology, professional reporting abilities, defensive security knowledge, and career development resources.
 
 === Ethical and Legal Considerations
 
-Throughout the training, I emphasized the importance of ethical hacking practices:
-
-* **Always obtain written authorization** before testing any system you don't own
-* **Respect scope boundaries** defined in testing agreements
-* **Handle sensitive data responsibly** and follow disclosure procedures
-* **Understand legal frameworks** (Computer Fraud and Abuse Act, regional laws)
-* **Practice on legal targets** (CTF platforms, bug bounty programs, personal lab environments)
+Always obtain written authorization, respect scope boundaries, handle sensitive data responsibly, understand legal frameworks (CFAA), and practice only on legal targets (CTFs, bug bounties, personal labs).
 
 === Resources for Continued Learning
 
-I concluded with curated resources for participants to continue developing skills:
+**Practice Platforms**: HackTheBox, TryHackMe, PortSwigger Web Security Academy, bug bounty programs (HackerOne, Bugcrowd)
 
-**Practice Platforms:**
-* HackTheBox, TryHackMe, PortSwigger Web Security Academy
-* OWASP WebGoat, DVWA, bWAPP
-* Bug bounty programs (HackerOne, Bugcrowd, Synack)
+**Certifications**: OSCP, CEH, GWAPT, eWPT
 
-**Certifications:**
-* OSCP (Offensive Security Certified Professional)
-* CEH (Certified Ethical Hacker)
-* GWAPT (GIAC Web Application Penetration Tester)
-* eWPT (eLearnSecurity Web Application Penetration Tester)
-
-**Community and Conferences:**
-* Local BSides events (BSidesCharm, BSidesDE, BSidesNoVA)
-* OWASP chapters and meetups
-* DEF CON, Black Hat, and regional security conferences
-
-This training aimed to equip participants with immediately applicable skills while inspiring them to continue their cybersecurity journey. Web application security is a constantly evolving field, and the best penetration testers are lifelong learners who stay curious, practice regularly, and contribute back to the community.
+**Community**: Local BSides events, OWASP chapters, DEF CON, Black Hat
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Web-Application-Penetration-TestingFinal.pdf[View Slides^]
 

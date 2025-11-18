@@ -7,41 +7,29 @@
 
 == About HOPE Conference
 
-https://www.hope.net[Hackers On Planet Earth (HOPE)^] is one of the most prestigious and longest-running hacker conferences in the United States, sponsored by the legendary hacker magazine https://www.2600.com[2600: The Hacker Quarterly^]. Since its inception in 1994, HOPE has been a cornerstone of the hacker community, bringing together security researchers, hackers, activists, artists, and technology enthusiasts from around the world.
+https://www.hope.net[Hackers On Planet Earth (HOPE)^] is one of the most prestigious and longest-running hacker conferences in the United States, sponsored by https://www.2600.com[2600: The Hacker Quarterly^]. Since 1994, HOPE has been a cornerstone of the hacker community, bringing together security researchers, hackers, activists, and technology enthusiasts worldwide.
 
-HOPE_16 marked a historic milestone for the conference—transitioning from its traditional biennial schedule to an annual event, and moving to a new venue at St. John's University in Queens, New York (August 15-17, 2025). The conference is renowned for its accessibility, diversity, and commitment to making hacker culture and knowledge available to everyone. HOPE features cutting-edge talks, hands-on workshops, film screenings, art installations, and the famous lockpicking village, creating an environment where technical expertise meets creative expression and social activism.
-
-What sets HOPE apart is its deep roots in the original hacker ethos—curiosity, learning, and challenging established systems. Past speakers have included luminaries like Kevin Mitnick, Steve Wozniak, Richard Stallman, and many other pioneers who have shaped the digital world. For me, presenting at HOPE_16 was both an honor and a full-circle moment, speaking at a conference that has inspired generations of security professionals.
+HOPE_16 marked a historic milestone—transitioning from biennial to annual, moving to St. John's University in Queens, NY (August 15-17, 2025). The conference features cutting-edge talks, workshops, film screenings, art installations, and the famous lockpicking village, rooted in the original hacker ethos of curiosity, learning, and challenging established systems.
 
 == Talk: Quantum Computing and AppSec: Preparing for the Post-Quantum Threat
 
 === Talk Overview
 
-Quantum computing represents one of the most significant paradigm shifts in computing history—and with it comes an existential threat to the cryptographic foundations of modern cybersecurity. This presentation was specifically tailored for the HOPE audience, combining technical depth with practical guidance on preparing for the post-quantum era.
-
-Unlike my previous talks on this topic, I restructured the content to engage HOPE's technically sophisticated and diverse audience, incorporating more hands-on examples, real-world breach scenarios, and actionable migration strategies that security professionals can implement today.
+Quantum computing poses an existential threat to cryptographic foundations of modern cybersecurity. This presentation combined technical depth with practical guidance on preparing for the post-quantum era, tailored for HOPE's technically sophisticated audience.
 
 === The Quantum Threat Landscape
 
-Quantum computing is no longer just theoretical—it's advancing rapidly, and with it comes a major security disruption. Current encryption methods that secure web applications, APIs, and sensitive data are at risk of becoming obsolete due to quantum attacks. Shor's Algorithm, for instance, can theoretically break RSA and ECC encryption, which are widely used in authentication, digital signatures, and secure communication.
-
-The threat isn't just about future attacks. The concept of "harvest now, decrypt later" means adversaries are already collecting encrypted data today, planning to decrypt it once quantum computers become powerful enough. This makes the timeline for migration to post-quantum cryptography (PQC) more urgent than many organizations realize.
+Current encryption methods (RSA, ECC) securing web applications, APIs, and sensitive data risk becoming obsolete due to quantum attacks via Shor's Algorithm. The "harvest now, decrypt later" threat means adversaries are already collecting encrypted data today for future decryption, making post-quantum cryptography (PQC) migration urgent.
 
 === What Attendees Learned
 
-This talk explored the real-world implications of quantum computing on application security, addressing key questions:
+* **Timeline and Reality**: Q-Day implications and threat timelines
+* **Cryptographic Vulnerabilities**: Which algorithms are vulnerable (RSA, ECC, Diffie-Hellman) vs. quantum-resistant (AES-256)
+* **Post-Quantum Cryptography**: NIST's selected PQC algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+)
+* **Migration Strategies**: Crypto-agility, hybrid approaches, prioritization frameworks
+* **Practical Implementation**: Code examples, library updates, testing methodologies
 
-* **Timeline and Reality**: How soon will quantum computers pose a real threat? What does "Q-Day" mean for your organization?
-* **Cryptographic Vulnerabilities**: Which encryption algorithms are vulnerable (RSA, ECC, Diffie-Hellman) and which remain quantum-resistant (symmetric encryption like AES-256)?
-* **Post-Quantum Cryptography**: Understanding NIST's selected PQC algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) and their practical applications
-* **Migration Strategies**: Crypto-agility principles, hybrid approaches, and prioritization frameworks for transitioning applications
-* **Practical Implementation**: Real-world code examples, library updates, and testing methodologies for PQC integration
-
-Attendees gained insights into post-quantum cryptography standards, practical mitigation strategies, and actionable roadmaps for transitioning applications to quantum-resistant security models. The presentation included live demonstrations of vulnerable vs. quantum-safe implementations and a prioritization framework for securing high-value assets first.
-
-=== Why This Matters for AppSec Professionals
-
-For application security professionals, the quantum threat requires immediate attention—not in five or ten years, but now. Many organizations' security roadmaps don't account for PQC migration, leaving critical infrastructure vulnerable. This talk equipped attendees with the knowledge to assess their organization's quantum risk, build migration plans, and advocate for post-quantum readiness at the executive level.
+The presentation included live demonstrations of vulnerable vs. quantum-safe implementations and a prioritization framework for securing high-value assets first.
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/HOPE_Quantum-Computing-and-AppSec-Preparing-for-the-Post-Quantum-ThreatV1.0.pdf[View Slides^]
 
