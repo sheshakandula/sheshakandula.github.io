@@ -1,0 +1,16 @@
+= ISC2 & IIA CYBER / AI TRAINING DAY - 10th Talk
+:imagesdir: /assets/images/posts/IIA/
+:page-excerpt: This post has the slides related to my ISC2 & IIA Cyber or AI Training Day talk
+:page-tags: [Talk, IIA, AppSec, AI/ML, LLM, Security]
+:revdate: 2025-11-17
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : LLMsec 2025 : A Practical Guide to Attacks and Mitigations
+
+This is the same topic as my previous talk. But I revised the slides and flow a lot to make audience(auditors) engaging. 
+
+Large Language Models (LLMs) are now powering business-critical applications—from chatbots and developer copilots to security analysis platforms. This rapid adoption brings new attack surfaces that traditional security models fail to address. This talk delivers a practical, attacker-focused tour of modern LLM vulnerabilities, including prompt injection, jailbreaks, safety evasion, model extraction, and insecure
+tool/plugin integrations. Live demos using open-source models will illustrate how these attacks work in realistic environments and how they can be chained for greater impact. We’ll pair each exploit with actionable defensive strategies—such as prompt hardening, input/output filtering, context isolation, and AI red teaming—so attendees leave with the knowledge and tools to secure their own GenAI applications. No prior machine learning expertise is required; this session is built for security professionals on both the offensive and defensive sides.
+
+link:https://github.com/sheshakandula/slides/blob/main/IIA%20-%20LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[Slides] 

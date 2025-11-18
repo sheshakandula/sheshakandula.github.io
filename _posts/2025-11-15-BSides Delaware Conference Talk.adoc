@@ -1,0 +1,17 @@
+= BSides Delaware 2025 - LLMsec 2025: A Practical Guide to Attacks and Mitigations - 9th Talk
+:imagesdir: /assets/images/posts/BSidesDE2025/
+:page-excerpt: This post has the slides related to my BSides Delaware 2025 talk
+:page-tags: [Talk, BSides, BSidesDE2025, AI/ML, LLM, AppSec, Security]
+:revdate: 2025-11-15
+// :page-published: false
+Here's a quick demo of a few features from https://asciidoc.org[AsciiDoc^].
+
+== Talk : LLMsec 2025: A Practical Guide to Attacks and Mitigations
+
+Large Language Models (LLMs) are now powering business-critical applications—from chatbots and developer copilots to security analysis platforms. This rapid adoption brings new attack surfaces that traditional security models fail to address. This talk delivers a practical, attacker-focused tour of modern LLM vulnerabilities, including prompt injection, jailbreaks, safety evasion, model extraction, and insecure
+tool/plugin integrations. 
+
+Live demos using open-source models will illustrate how these attacks work in realistic environments and how they can be chained for greater impact. We’ll pair each exploit with actionable defensive strategies—such as prompt hardening, input/output filtering, context isolation, and AI red teaming—so attendees leave with the knowledge and tools to secure their own GenAI applications. No prior machine learning expertise is required; this session is built for security professionals on both the offensive and defensive sides.
+
+link:https://github.com/sheshakandula/slides/blob/main/LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[Slides]
+
