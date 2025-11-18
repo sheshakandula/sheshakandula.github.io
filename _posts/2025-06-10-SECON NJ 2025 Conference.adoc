@@ -12,5 +12,5 @@ Quantum computing is no longer just theoretical—it’s advancing rapidly, and 
 
 This talk will explore the real-world implications of quantum computing on AppSec, how soon these threats might become a reality, and what security professionals can do today to prepare. Attendees will gain insights into post-quantum cryptography (PQC), practical mitigation strategies, and how to transition applications to quantum-resistant security models.
 
-link:https://github.com/sheshakandula/slides/blob/main/Kandula_Sheshananda_Quantum%20Computing%20and%20AppSec%20Preparing%20for%20the%20Post-Quantum%20Threat_SECONNJ2025v2.0.pdf[Slides]
+Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Kandula_Sheshananda_Quantum%20Computing%20and%20AppSec%20Preparing%20for%20the%20Post-Quantum%20Threat_SECONNJ2025v2.0.pdf[View Slides^]
 

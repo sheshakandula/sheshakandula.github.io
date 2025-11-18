@@ -14,7 +14,7 @@ In this talk, I emphasized the critical importance of securing national infrastr
 
 I then explored key challenges in Industrial Control Systems (ICS), including vulnerabilities, evolving threat landscapes, and the complexities of securing interconnected systems. Finally, I discussed the responsibilities of every employee in maintaining security, emphasizing the need for awareness, proactive risk management, and a collaborative security-first approach across all levels of an organization.
 
-link:https://github.com/sheshakandula/slides/blob/main/Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[Slides]
+Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Securing-Critical-Infrastructure-Challenges-and-ControlsV1.pdf[View Slides^]
 
 image:IMG_2375.png[NJWEA]
 

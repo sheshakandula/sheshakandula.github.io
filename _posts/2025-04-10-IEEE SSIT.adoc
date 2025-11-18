@@ -14,5 +14,5 @@ The rapid evolution of Artificial Intelligence (AI) in cybersecurity is reshapin
 
 This webinar will explore the intersection of cybersecurity, AI, and human rights, addressing how AI-driven security measures impact digital privacy, freedom of expression, and the ethical responsibilities of organizations and governments. Experts from cybersecurity, law, and ethics will discuss key challenges such as algorithmic bias, the risks of AI-powered surveillance, and the implications of cybersecurity policies on human rights. Additionally, the session will examine regulatory frameworks and best practices to ensure AI technologies are deployed responsibly while upholding democratic values and societal trust.
 
-link:https://github.com/sheshakandula/slides/blob/main/Cybersecurity-AI-and-Human-Rights-A-Societal-Perspective.pdf[Slides]
+Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Cybersecurity-AI-and-Human-Rights-A-Societal-Perspective.pdf[View Slides^]
 

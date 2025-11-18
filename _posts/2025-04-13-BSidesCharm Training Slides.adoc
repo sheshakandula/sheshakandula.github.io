@@ -18,5 +18,5 @@ Beyond exploitation, the training emphasizes reporting and mitigation strategies
 
 This training is ideal for security professionals, developers, and IT administrators seeking a foundational understanding of web application penetration testing and secure coding practices.
 
-link:https://github.com/sheshakandula/slides/blob/main/Web-Application-Penetration-TestingFinal.pdf[Slides]
+Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Web-Application-Penetration-TestingFinal.pdf[View Slides^]
 

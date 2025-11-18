@@ -13,5 +13,5 @@ tool/plugin integrations.
 
 Live demos using open-source models will illustrate how these attacks work in realistic environments and how they can be chained for greater impact. We’ll pair each exploit with actionable defensive strategies—such as prompt hardening, input/output filtering, context isolation, and AI red teaming—so attendees leave with the knowledge and tools to secure their own GenAI applications. No prior machine learning expertise is required; this session is built for security professionals on both the offensive and defensive sides.
 
-link:https://github.com/sheshakandula/slides/blob/main/LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[Slides]
+Slides can be found here: https://github.com/sheshakandula/slides/blob/main/LLMsec-2025-A-Practical-Guide-to-Attacks-and-MitigationsV1.0.pdf[View Slides^]
 
