@@ -78,9 +78,6 @@
 .page__hero > img {
     max-width: 1280px;
 }
-.sectionbody {
-    font-size: 0.75em;
-}
 code {
     color: #5389D0;
     font-size: 1em !important;
