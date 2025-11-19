@@ -71,6 +71,13 @@
 .listingblock > .title {
     font-style: italic;
 }
+/* Fix copy button positioning to stay inside code blocks */
+pre {
+    position: relative;
+}
+.highlight pre {
+    position: relative;
+}
 .page__hero {
     margin-bottom: 0;
     text-align: center;
