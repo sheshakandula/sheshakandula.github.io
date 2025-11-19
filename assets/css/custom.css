@@ -78,6 +78,19 @@ pre {
 .highlight pre {
     position: relative;
 }
+/* Fix copy button icon/text overlap */
+pre .clipboard-copy-button {
+    width: auto !important;
+    min-width: 2em;
+    padding: 0.3em 0.6em !important;
+}
+pre .clipboard-copy-button i {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    display: inline-block;
+    margin: 0;
+}
 .page__hero {
     margin-bottom: 0;
     text-align: center;
