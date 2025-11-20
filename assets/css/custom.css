@@ -1421,54 +1421,6 @@ body.light-theme .tutorial-content h3 a:hover {
 }
 
 /* ============================================
-   Page View Counter Styles
-   ============================================ */
-
-.pageview-counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem 1.5rem;
-    margin: 2rem 0 1.5rem;
-    background: rgba(52, 152, 219, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(52, 152, 219, 0.2);
-    font-size: 0.95rem;
-    color: #95a5a6;
-}
-
-.pageview-icon {
-    font-size: 1.2rem;
-    line-height: 1;
-}
-
-.pageview-count {
-    font-weight: 600;
-    color: #3498db;
-    min-width: 30px;
-    text-align: center;
-}
-
-.pageview-label {
-    color: #95a5a6;
-}
-
-/* Light theme adjustments */
-body.light-theme .pageview-counter {
-    background: rgba(52, 152, 219, 0.08);
-    border-color: rgba(52, 152, 219, 0.3);
-}
-
-body.light-theme .pageview-count {
-    color: #2980b9;
-}
-
-body.light-theme .pageview-label {
-    color: #6c757d !important;
-}
-
-/* ============================================
    Social Share Buttons Styles
    ============================================ */
 
@@ -1582,11 +1534,6 @@ body.light-theme .share-btn:hover {
 
     .share-btn {
         padding: 0.65rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .pageview-counter {
-        padding: 0.875rem 1.25rem;
         font-size: 0.9rem;
     }
 }
