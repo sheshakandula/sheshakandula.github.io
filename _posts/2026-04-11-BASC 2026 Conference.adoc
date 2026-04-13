@@ -1,0 +1,80 @@
+= OWASP BASC 2026 - TLS, Tokens, and Trouble: Preparing Modern Applications for the Quantum Era - 12th Talk
+:imagesdir: /assets/images/posts/BASC2026/
+:page-excerpt: Presented at OWASP BASC (Boston Application Security Conference) 2026, this talk demystifies quantum computing for AppSec professionals and provides a practical roadmap for preparing modern applications—TLS, JWTs, digital signatures, and more—for the post-quantum era.
+:page-tags: [Talk, OWASP, BASC, Boston, QuantumComputing, PostQuantum, Cryptography, AppSec, TLS, JWT, Security, PQC, NIST]
+:revdate: 2026-04-11
+// :page-published: false
+
+== About OWASP BASC 2026
+
+https://basconf.org[OWASP BASC (Boston Application Security Conference) 2026^] is an OWASP-affiliated security conference held in Boston, bringing together application security professionals, researchers, and practitioners to discuss emerging threats and practical defenses in the modern security landscape.
+
+== Talk: TLS, Tokens, and Trouble: Preparing Modern Applications for the Quantum Era
+
+=== Talk Overview
+
+Quantum computing is rapidly moving from theory to practical reality—and its impact on application security will be profound. Within the next decade, quantum algorithms may break the cryptographic foundations that protect modern applications, including HTTPS/TLS, JWTs, digital signatures, mobile authentication, and blockchain-based trust models.
+
+Adversaries are already responding with a strategy known as **"harvest now, decrypt later"**—collecting encrypted traffic today to exploit future quantum capabilities. This talk demystified quantum computing for application security professionals and focused on what AppSec teams need to understand and act on now.
+
+=== Relevant Quantum Algorithms and Their Impact
+
+Covered the two key quantum algorithms threatening modern cryptography:
+
+**Shor's Algorithm**: Efficiently factors large integers and solves discrete logarithm problems—directly breaking RSA, ECC, and Diffie-Hellman. This threatens TLS key exchange, JWT signing (RS256, ES256), certificate authorities, and mobile/blockchain authentication.
+
+**Grover's Algorithm**: Provides a quadratic speedup for brute-force search—effectively halving the security of symmetric algorithms like AES. AES-128 becomes equivalent to 64-bit security under quantum attack; AES-256 remains viable with doubled key length considerations.
+
+=== Application-Level Attack Scenarios
+
+Mapped quantum threats to concrete AppSec scenarios teams encounter today:
+
+* **TLS Handshakes**: RSA and ECDH key exchange broken by Shor's—a quantum adversary can retroactively decrypt captured TLS sessions
+* **JWT Token Signing**: RS256 and ES256 signing algorithms rely on RSA/ECC, making signed tokens forgeable post-quantum
+* **Mobile Authentication**: ECDSA-based device attestation and certificate pinning undermined
+* **Long-Lived Encrypted Data**: Data encrypted today with RSA or ECC is vulnerable if stored and decrypted in the future
+* **Blockchain Trust Models**: Public key cryptography underpinning wallet signatures and smart contract authentication at risk
+
+=== Post-Quantum Cryptography: NIST Standards
+
+Walked through the emerging NIST post-quantum cryptography (PQC) standards and their application-level fit:
+
+* **CRYSTALS-Kyber (ML-KEM)**: Key encapsulation mechanism—replaces RSA/ECDH in TLS and key exchange protocols
+* **CRYSTALS-Dilithium (ML-DSA)**: Digital signature algorithm—replaces RSA/ECDSA for JWT signing, certificates, and code signing
+* **SPHINCS+ (SLH-DSA)**: Hash-based signature scheme—conservative, stateless alternative for high-assurance signing
+
+=== Practical Roadmap for AppSec Teams
+
+A pragmatic, phased approach for preparing applications before quantum threats become operationally unavoidable:
+
+**Phase 1 — Cryptographic Inventory**
+Identify all cryptographic assets: TLS certificates, JWT signing keys, encryption keys, hashing algorithms, third-party libraries, and APIs. Map them to quantum-vulnerable vs. quantum-safe categories.
+
+**Phase 2 — Crypto Agility**
+Refactor applications to treat cryptographic algorithms as configurable parameters rather than hard-coded choices. This enables fast algorithm swaps without architectural rework when standards evolve.
+
+**Phase 3 — Hybrid Deployments**
+Deploy hybrid TLS (classical + PQC key exchange simultaneously) and hybrid signatures to maintain backwards compatibility while testing PQC in production. Major TLS libraries and cloud providers are already supporting this.
+
+**Phase 4 — Testing and Tooling**
+Update SAST/DAST rules to flag quantum-vulnerable algorithms. Test PQC implementations for performance overhead (especially in mobile/IoT contexts). Validate certificate chains with PQC CAs.
+
+**Phase 5 — CI/CD and Platform Readiness**
+Integrate cryptographic algorithm checks into CI/CD pipelines. Ensure container base images, language runtimes, and platform dependencies support PQC libraries. Track NIST and vendor timelines.
+
+=== Key Takeaways
+
+* The quantum threat is not hypothetical—harvest now, decrypt later attacks are happening today
+* AppSec teams don't need to become cryptographers, but must understand which primitives are at risk
+* Crypto agility is the highest-leverage investment teams can make right now
+* NIST PQC standards (Kyber, Dilithium) are finalized—adoption can begin today
+* Start with a cryptographic inventory; you can't protect what you haven't mapped
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/OWASP_BASC_2026_Quantum_PQC%20v1.0.pdf[View Slides (PDF)^]
+* https://github.com/sheshakandula/slides/blob/main/OWASP_BASC_2026_Quantum_PQC%20v1.0.ppt[Download Slides (PPT)^]
+
+// Add event photos below once available
+// image:photo1.jpg[BASC2026]
+// image:photo2.jpg[BASC2026]

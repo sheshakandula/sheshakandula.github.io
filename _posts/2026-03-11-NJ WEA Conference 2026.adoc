@@ -1,0 +1,115 @@
+= NJ WEA 2026 - Passwords Are Failing: How to Protect Yourself and Your Organization Using Password Managers and Passkeys - 11th Talk
+:imagesdir: /assets/images/posts/NJWEA2026/
+:page-excerpt: Returning to the NJWEA Annual Seminar at Sheraton Eatontown NJ, this talk covers why passwords are failing and how organizations and individuals can move to stronger authentication using password managers and passkeys.
+:page-tags: [Talk, NJWEA, Passwords, Passkeys, Authentication, Security, PasswordManagers, FIDO2, AppSec, Critical Infrastructure]
+:revdate: 2026-03-11
+// :page-published: false
+
+== About the NJ WEA Conference
+
+The https://njwea.org[New Jersey Water Environment Association (NJWEA)^] Annual Seminar brings together wastewater operators, engineers, and IT staff focused on operational excellence and security for water and wastewater infrastructure. This was my second time presenting at NJWEA — my https://sheshakandula.github.io/2025/03/12/NJ-WEA-Conference/[first talk in March 2025^] on securing critical infrastructure was well received, and I was invited back to present another session.
+
+The seminar was held at the Sheraton, Eatontown, NJ on March 11, 2026. My session ran from 9:30 AM to 10:45 AM (two 30-minute blocks with a 15-minute break).
+
+== Talk: Passwords Are Failing: How to Protect Yourself and Your Organization Using Password Managers and Passkeys
+
+=== Talk Overview
+
+Passwords have been the default authentication mechanism for decades — and they are failing. Weak passwords, password reuse, phishing, credential stuffing, and data breaches make password-based authentication a liability for both individuals and organizations. This session addressed why the status quo is broken, and what practical steps teams can take today using password managers and passkeys to dramatically reduce authentication-related risk.
+
+The audience — primarily IT staff and operators at water and wastewater utilities — face the same authentication threats as any organization, with the added consequence that compromised access to operational systems can have public safety implications.
+
+=== Why Passwords Are Failing
+
+**The scale of the problem**:
+
+* Billions of credentials are available in breach databases (Have I Been Pwned, dark web dumps)
+* The most common passwords in 2025 still include "123456", "password", and "qwerty"
+* Password reuse across personal and work accounts means one breach can cascade
+* Phishing, SIM swapping, and credential stuffing attacks are largely automated and at scale
+
+**Fundamental weaknesses**:
+
+* Humans are poor at generating truly random, unique passwords for every service
+* Memory limits lead to reuse, incremental patterns (Password1 → Password2), or insecure storage (sticky notes, spreadsheets)
+* SMS-based 2FA does not fully solve the problem — SIM swapping and SS7 attacks remain viable
+
+=== Password Managers: The Right First Step
+
+Password managers solve the human side of the problem by generating, storing, and auto-filling unique, complex passwords for every account.
+
+**Key benefits**:
+
+* Strong, unique password per site — eliminates reuse risk
+* Auto-fill reduces susceptibility to phishing (no fill on fake domains)
+* Secure sharing for team credentials
+* Breach monitoring (alerts when stored credentials appear in known dumps)
+
+**Organizational considerations**:
+
+* Enterprise password managers (e.g., 1Password Teams, Bitwarden Business, Keeper) integrate with SSO and directory services
+* Role-based vault access enforces least privilege for shared credentials
+* Audit logs provide visibility into who accessed what and when
+* Master password / recovery key management must be part of the security policy
+
+=== Passkeys: The Future of Authentication
+
+Passkeys are the next step — eliminating passwords entirely for supported services. Built on the https://fidoalliance.org/passkeys[FIDO2/WebAuthn standard^], passkeys use public-key cryptography tied to the user's device.
+
+**How passkeys work**:
+
+. A public/private key pair is generated on the user's device at registration
+. The private key never leaves the device — the server only stores the public key
+. Authentication requires proof of possession of the private key, verified locally via biometrics (Face ID, fingerprint) or PIN
+. No password is transmitted — nothing to phish, steal from a server, or brute force
+
+**Security advantages**:
+
+* Phishing-resistant by design — the key is scoped to the exact origin
+* No server-side password database to breach
+* Resistant to credential stuffing and replay attacks
+* Biometric convenience without biometric data leaving the device
+
+**Adoption landscape**:
+
+* Major platforms support passkeys: Apple, Google, Microsoft, and hundreds of consumer services
+* Enterprise rollout is accelerating — Azure AD, Okta, and Duo all support FIDO2
+* Synced passkeys (iCloud Keychain, Google Password Manager) enable cross-device use
+
+=== Practical Roadmap for Organizations
+
+**Immediate actions**:
+
+. **Deploy an enterprise password manager** — enforce unique passwords, eliminate shared credentials in spreadsheets
+. **Enable MFA everywhere** — prefer authenticator apps or hardware keys over SMS
+. **Audit privileged accounts** — service accounts, admin accounts, and shared credentials are highest risk
+. **Run a credential breach check** — use Have I Been Pwned or enterprise tools to identify exposed accounts
+
+**Near-term steps**:
+
+. **Pilot passkeys** for internal applications — start with low-risk services to build familiarity
+. **Evaluate FIDO2-capable MFA** (YubiKey, platform authenticators) for privileged access
+. **Update authentication policies** — require password manager use, ban password reuse across systems
+. **Train staff** — phishing simulations, password hygiene awareness, and how to use the password manager effectively
+
+**Strategic direction**:
+
+. Adopt a passwordless strategy for new applications — build passkey support in from the start
+. Integrate identity provider (IdP) SSO with FIDO2 for a unified, phishable-credential-free authentication experience
+. Track NIST SP 800-63B guidance for evolving authentication best practice
+
+=== Key Takeaways
+
+* Passwords are not going away immediately — but the tools to manage them properly exist today
+* A password manager is the highest-ROI security improvement most individuals and small teams can make
+* Passkeys are production-ready and should be part of every organization's authentication roadmap
+* The goal is not perfection — it is raising the cost of attack above what adversaries will bother with
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/NJ%20WEA%202026%20Passwords-Are-Failing.pdf[View Slides (PDF)^]
+* https://github.com/sheshakandula/slides/blob/main/NJ%20WEA%202026%20Passwords-Are-Failing.ppt[Download Slides (PPT)^]
+
+// Add event photos below once available
+// image:photo1.jpg[NJWEA2026]
+// image:photo2.jpg[NJWEA2026]
