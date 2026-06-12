@@ -1,0 +1,56 @@
+= AI Dev Summit NYC 2026 - AI Agents Under Attack: Breaking and Securing Autonomous AI Applications - 13th Talk
+:imagesdir: /assets/images/posts/AIDevSummit2026/
+:page-excerpt: Presented at DeveloperWeek New York + AI DevSummit 2026, this talk tears down a deliberately vulnerable AI agent — exploiting over-permissioned tools, unvetted retrieval, and implicit model trust — then rebuilds it with practical architectural defenses.
+:page-tags: [Talk, AIDevSummit, DeveloperWeek, NYC, AIAgents, AISecurity, AgenticAI, AppSec, CloudSecurity, PromptInjection]
+:revdate: 2026-06-10
+// :page-published: false
+
+== About DeveloperWeek New York + AI DevSummit
+
+https://aidevsummit.co/newyork/conference/[AI DevSummit New York^] is part of the https://www.developerweek.com/new-york/[DeveloperWeek New York^] conference held June 9–10, 2026 at the TWA Hotel at JFK. My session was a 25-minute Technical Session on the Expo Stage in the AI Agents track on Wednesday, June 10, 2026 from 10:30 AM to 10:55 AM.
+
+== Talk: AI Agents Under Attack: Breaking and Securing Autonomous AI Applications
+
+=== Talk Overview
+
+AI agents are hitting production faster than security teams can keep up. They have tool access, persistent memory, API keys, and broad permissions — and most teams building them are focused on capability, not attack surface.
+
+This was a live tear down: I stood up a deliberately vulnerable AI agent wired into Gmail, Slack, and document retrieval, then systematically exploited it — not with jailbreaks, but with architectural mistakes common in real systems. The audience watched credentials leak, unintended actions execute, and data flow where it shouldn't. Then I fixed it. Same app, different architecture.
+
+=== The Attack Surface of AI Agents
+
+* **Over-permissioned tools**: Agents granted broad OAuth scopes (read/send email, post to Slack) can be turned into data exfiltration vectors via a single successful injection
+* **Unvetted retrieval**: RAG pipelines that ingest user-controlled content introduce injection vectors — a malicious document can override the agent's instructions at query time
+* **Implicit trust in model outputs**: Many frameworks pass model outputs directly to tool calls without validation, meaning any successful prompt injection can control agent behavior
+* **Multi-turn exploitation**: Agents accumulate context across turns — an early manipulation can have consequences many steps later, making attribution difficult
+
+=== Live Tear Down: Three Flaws Demonstrated
+
+**Flaw 1 — Over-permissioned Gmail tool**: A prompt injection in an incoming email instructed the agent to forward all matching messages externally. With full send scope and no output validation, it complied. Fix: scope tools per operation, require confirmation for destructive actions.
+
+**Flaw 2 — Poisoned RAG store**: A document in the retrieval store contained embedded instructions that fired at query time, leaking user context to an external webhook. Fix: treat retrieved content as untrusted data, not instructions.
+
+**Flaw 3 — Injected tool response**: A crafted Slack response embedded a follow-up instruction that the agent treated as legitimate. Fix: validate tool responses before returning them to model context.
+
+=== Fixing the Architecture
+
+* Least-privilege tooling: one tool per operation, scoped credentials, user confirmation for side-effecting actions
+* Retrieval trust boundaries: explicitly label retrieved content in the prompt as untrusted external data
+* Output validation: intercept tool calls before execution, flag high-risk operations
+* Audit logging: every tool call logged with session ID for post-incident reconstruction
+
+=== Key Takeaways
+
+* AI agent security is an architecture problem, not a model problem
+* Over-permissioned tools are the highest-impact, lowest-effort fix
+* Retrieval pipelines are an injection surface — treat them like user input
+* Validate before acting on model outputs, especially for operations with side effects
+
+Slides can be found here:
+
+// * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pdf[View Slides (PDF)^]
+// * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pptx[Download Slides (PPTX)^]
+
+// Add event photos below once available
+// image:photo1.jpg[AI Dev Summit NYC 2026]
+// image:photo2.jpg[AI Dev Summit NYC 2026]

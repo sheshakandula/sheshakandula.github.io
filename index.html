@@ -18,6 +18,24 @@ header:
   </div>
 </div>
 
+<!-- Floating Photo Gallery -->
+<section class="photo-gallery">
+  <div class="section-header">
+    <h2>Speaking Highlights</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="/assets/images/posts/All/IMG_7417.jpg" alt="Conference Speaking">
+    <img src="/assets/images/posts/BSidesDelaware/BSidesDel1.jpeg" alt="BSides Delaware Talk">
+    <img src="/assets/images/posts/BSidesPhilly/BSidesPhilly1.jpeg" alt="BSides Philly">
+    <img src="/assets/images/posts/All/IMG_7421.jpg" alt="Speaking Session">
+    <img src="/assets/images/posts/NJWEA/IMG_2375.png" alt="NJ WEA Conference">
+    <img src="/assets/images/posts/IEEEISEC/IMG_2397.png" alt="IEEE ISEC">
+    <img src="/assets/images/posts/All/IMG_1489.jpg" alt="Conference Presentation">
+    <img src="/assets/images/posts/BSidesDelaware/BSidesDel2.jpeg" alt="Security Talk">
+    <img src="/assets/images/posts/BSidesPhilly/BSidesPhilly2.jpeg" alt="Conference Session">
+  </div>
+</section>
+
 <!-- Quick Navigation -->
 {% assign talk_posts = site.posts | where_exp: "post", "post.tags contains 'Talk'" %}
 {% assign training_posts = site.posts | where_exp: "post", "post.tags contains 'Training'" %}
@@ -280,4 +298,70 @@ function toggleTrainings() {
     button.querySelector('.btn-text').textContent = 'Show Less';
   }
 }
+
+// Lightbox functionality for gallery
+document.addEventListener('DOMContentLoaded', function() {
+  // Create lightbox elements
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <span class="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next">&#10095;</span>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector('.lightbox-img');
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
+  let currentIndex = 0;
+
+  // Open lightbox on image click
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Navigate prev/next
+  lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
+
+  lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    }
+    if (e.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    }
+  });
+});
 </script>

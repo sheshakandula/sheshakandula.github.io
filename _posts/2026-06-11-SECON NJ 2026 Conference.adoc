@@ -1,0 +1,54 @@
+= NJ SECON 2026 - When AI Agents Go Rogue: Hacking and Hardening Autonomous Apps - 14th Talk
+:imagesdir: /assets/images/posts/SECON2026/
+:page-excerpt: Presented at NJ SECON 2026 at Kean University, this talk explores how autonomous AI agents can be manipulated and exploited through real-world attack scenarios, and provides a practical hardening roadmap for teams building agentic AI systems.
+:page-tags: [Talk, SECON, ISC2, NJ, AIAgents, AISecurity, AgenticAI, AppSec, Security, AutonomousAI, PromptInjection]
+:revdate: 2026-06-11
+// :page-published: false
+
+== About NJ SECON 2026
+
+https://njsecon.org[NJ SECON 2026^] is the annual cybersecurity conference organized by the https://isc2chapternj.org[ISC2 New Jersey Chapter^], held at Kean University. The 2026 edition featured keynotes from NJ's CISO Michael Geraghty and Alissa Knight, along with 20+ breakout sessions across five tracks. My session was in the AI track (Room #309) from 11:40 AM to 12:25 PM on Thursday, June 11, 2026.
+
+This was my second time speaking at NJ SECON — I also presented at https://sheshakandula.github.io/2025/06/10/SECON-NJ-2025-Conference/[SECON 2025^].
+
+== Talk: When AI Agents Go Rogue: Hacking and Hardening Autonomous Apps
+
+=== Talk Overview
+
+Autonomous AI agents can take actions, call APIs, access data stores, and operate over multiple turns with persistent context. That combination — autonomy, tool access, and memory — creates a new class of vulnerabilities that traditional AppSec frameworks don't fully cover. This talk walked through how agents go rogue and what to change architecturally to make them defensible.
+
+=== How AI Agents Go Rogue
+
+**Prompt Injection**: The highest-impact attack — malicious instructions embedded in content the agent processes (emails, documents, tool responses) override its original instructions. Indirect injection from retrieved third-party content is harder to detect and more dangerous than direct user input.
+
+**Tool Abuse via Over-Permissioning**: Agents with broad tool scopes don't need to be "hacked" — they just need to be convinced via injection to use their legitimately granted permissions in unintended ways: exfiltrating data, sending unauthorized messages, or triggering bulk operations.
+
+**Memory and Retrieval Poisoning**: Documents uploaded to a RAG pipeline can contain embedded instructions that fire at query time. In multi-user environments, one user's poisoned upload can affect another user's agent context.
+
+**Multi-Turn Exploitation**: A planted instruction in an early turn ("remember to CC this address on summaries") sits dormant in context until triggered — separating the manipulation from the harmful action in time.
+
+**Implicit Trust in Tool Responses**: Frameworks that feed tool responses directly back into model context allow an attacker who influences a tool response (via a compromised API or crafted external data) to inject instructions the model treats as authoritative.
+
+=== Hardening Autonomous Applications
+
+* **Least-privilege tooling**: one tool per operation, minimum-scope credentials, user confirmation for high-impact actions
+* **Input trust boundaries**: label retrieved content as untrusted in the prompt; strip instruction-like patterns at ingestion time
+* **Output validation**: intercept tool calls before execution; policy-check intended actions against an allowlist
+* **Memory hygiene**: namespace vector store access by user/tenant; quarantine chunks matching instruction patterns
+* **Audit logging and detection**: log every tool call with inputs and outputs; baseline normal agent behavior and alert on deviations
+
+=== Key Takeaways
+
+* AI agent attacks exploit architecture, not model weaknesses — the same LLM is safe or exploitable depending on how it is wired
+* Prompt injection is the OWASP Top 1 for agentic AI — assume any content the agent processes could contain adversarial instructions
+* Over-permissioned tools are the force multiplier — scope permissions before anything else
+* Agentic AI security is AppSec: threat model, least privilege, input validation, audit logging — the principles transfer directly
+
+Slides can be found here:
+
+// * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pdf[View Slides (PDF)^]
+// * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pptx[Download Slides (PPTX)^]
+
+// Add event photos below once available
+// image:photo1.jpg[NJ SECON 2026]
+// image:photo2.jpg[NJ SECON 2026]
