@@ -44,8 +44,9 @@ Autonomous AI agents can take actions, call APIs, access data stores, and operat
 * Over-permissioned tools are the force multiplier — scope permissions before anything else
 * Agentic AI security is AppSec: threat model, least privilege, input validation, audit logging — the principles transfer directly
 
-Slides can be found here:
+Resources:
 
+* https://github.com/sheshakandula/ai-agent-security-demo[AI Agent Security Demo Repository^]
 // * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pdf[View Slides (PDF)^]
 // * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pptx[Download Slides (PPTX)^]
 

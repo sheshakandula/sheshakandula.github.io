@@ -46,8 +46,9 @@ This was a live tear down: I stood up a deliberately vulnerable AI agent wired i
 * Retrieval pipelines are an injection surface — treat them like user input
 * Validate before acting on model outputs, especially for operations with side effects
 
-Slides can be found here:
+Resources:
 
+* https://github.com/sheshakandula/ai-agent-security-demo[AI Agent Security Demo Repository^]
 // * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pdf[View Slides (PDF)^]
 // * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pptx[Download Slides (PPTX)^]
 
