@@ -11,11 +11,15 @@ https://www.hope.net[Hackers On Planet Earth (HOPE)^] is one of the most prestig
 
 HOPE_16 marked a historic milestone—transitioning from biennial to annual, moving to St. John's University in Queens, NY (August 15-17, 2025). The conference features cutting-edge talks, workshops, film screenings, art installations, and the famous lockpicking village, rooted in the original hacker ethos of curiosity, learning, and challenging established systems.
 
+image::photo3.jpg[Speaker badge outside The Little Theatre at HOPE_16,width=700]
+
 == Talk: Quantum Computing and AppSec: Preparing for the Post-Quantum Threat
 
 === Talk Overview
 
 Quantum computing poses an existential threat to cryptographic foundations of modern cybersecurity. This presentation combined technical depth with practical guidance on preparing for the post-quantum era, tailored for HOPE's technically sophisticated audience.
+
+image::photo1.jpg[In the Little Theatre ahead of the talk, with the schedule on screen,width=700]
 
 === The Quantum Threat Landscape
 
@@ -30,6 +34,8 @@ Current encryption methods (RSA, ECC) securing web applications, APIs, and sensi
 * **Practical Implementation**: Code examples, library updates, testing methodologies
 
 The presentation included live demonstrations of vulnerable vs. quantum-safe implementations and a prioritization framework for securing high-value assets first.
+
+image::photo2.jpg[The HOPE_16 stage showing the upcoming talk schedule,width=700]
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/HOPE_Quantum-Computing-and-AppSec-Preparing-for-the-Post-Quantum-ThreatV1.0.pdf[View Slides^]
 

@@ -21,6 +21,8 @@ LLMs power business-critical applications (chatbots, developer copilots, securit
 
 This talk covered prompt injection, jailbreaks, safety evasion, model extraction, and insecure tool integrations—contextualized with control objectives, audit procedures, evidence collection, and risk rating criteria.
 
+image::photo1.jpg[Walking through the LLMSec demo app architecture,width=700]
+
 === Key Topics for Auditors and Compliance Professionals
 
 Structured around auditable control domains:
@@ -36,6 +38,8 @@ Structured around auditable control domains:
 === Live Demonstrations with Audit Context
 
 Live demos illustrated attacks and explained what auditors should look for during control tests, "good" vs. "bad" implementations, documentation approaches, and compensating controls. Each exploit paired with defensive strategies framed as auditable controls.
+
+image::photo2.jpg[Demonstrating a live context-injection attack against a vulnerable RAG endpoint,width=700]
 
 === Audit Reporting and Risk Communication
 

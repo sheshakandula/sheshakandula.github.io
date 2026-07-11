@@ -11,6 +11,8 @@ https://www.njsecon.org[SECON NJ (Security Conference New Jersey)^] is New Jerse
 
 The conference serves CISOs, security practitioners, compliance professionals, and cybersecurity leaders, featuring expert speakers, panels, workshops, and career development on topics including AI security, threat intelligence, incident response, risk management, and privacy.
 
+image::photo1.jpg[Presenting Quantum Computing and AppSec at SECON NJ 2025,width=700]
+
 == Talk: Quantum Computing and AppSec: Preparing for the Post-Quantum Threat
 
 === Talk Overview
@@ -35,6 +37,8 @@ The critical "harvest now, decrypt later" threat: adversaries are already interc
 2. **Near-term**: Implement hybrid cryptography in new and high-risk systems
 3. **Medium-term**: Full migration of critical systems to PQC
 4. **Long-term**: Complete organizational transition, sunset legacy algorithms
+
+image::photo2.jpg[At the SECON NJ 2025 title slide before the session,width=700]
 
 Slides can be found here: https://github.com/sheshakandula/slides/blob/main/Kandula_Sheshananda_Quantum%20Computing%20and%20AppSec%20Preparing%20for%20the%20Post-Quantum%20Threat_SECONNJ2025v2.0.pdf[View Slides^]
 
