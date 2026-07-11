@@ -9,6 +9,8 @@
 
 https://aidevsummit.co/newyork/conference/[AI DevSummit New York^] is part of the https://www.developerweek.com/new-york/[DeveloperWeek New York^] conference held June 9–10, 2026 at the TWA Hotel at JFK. My session was a 25-minute Technical Session on the Expo Stage in the AI Agents track on Wednesday, June 10, 2026 from 10:30 AM to 10:55 AM.
 
+image::photo2.jpg[DeveloperWeek New York + AI DevSummit 2026 at the TWA Hotel,width=700]
+
 == Talk: AI Agents Under Attack: Breaking and Securing Autonomous AI Applications
 
 === Talk Overview
@@ -25,6 +27,8 @@ This was a live tear down: I stood up a deliberately vulnerable AI agent wired i
 * **Multi-turn exploitation**: Agents accumulate context across turns — an early manipulation can have consequences many steps later, making attribution difficult
 
 === Live Tear Down: Three Flaws Demonstrated
+
+image::photo1.jpg[Demonstrating the Excessive Tool Privilege exploit live on the Expo Stage,width=700]
 
 **Flaw 1 — Over-permissioned Gmail tool**: A prompt injection in an incoming email instructed the agent to forward all matching messages externally. With full send scope and no output validation, it complied. Fix: scope tools per operation, require confirmation for destructive actions.
 
@@ -51,7 +55,3 @@ Resources:
 * https://github.com/sheshakandula/ai-agent-security-demo[AI Agent Security Demo Repository^]
 // * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pdf[View Slides (PDF)^]
 // * https://github.com/sheshakandula/slides/blob/main/AI-Dev-Summit-NYC-2026-AI-Agents-Under-Attack.pptx[Download Slides (PPTX)^]
-
-// Add event photos below once available
-// image:photo1.jpg[AI Dev Summit NYC 2026]
-// image:photo2.jpg[AI Dev Summit NYC 2026]

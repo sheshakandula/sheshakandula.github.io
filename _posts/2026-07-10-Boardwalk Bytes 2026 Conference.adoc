@@ -1,0 +1,60 @@
+= Boardwalk Bytes 2026 - Prompt to Breach: Attack Paths in Enterprise AI Assistant Adoption - 15th Talk
+:imagesdir: /assets/images/posts/BoardwalkBytes2026/
+:page-excerpt: Presented at the Boardwalk Bytes Information Security Conference 2026 in Atlantic City, this talk walks four real attack paths in enterprise AI assistant adoption — sensitive input, retrieved injection, connector identity, and memory — and shows why the fix is deterministic authorization outside the model, not a better prompt.
+:page-tags: [Talk, BoardwalkBytes, AtlanticCity, NJ, AIAgents, AISecurity, AgenticAI, AppSec, EnterpriseAI, PromptInjection, DataLeakage]
+:revdate: 2026-07-10
+// :page-published: false
+
+== About Boardwalk Bytes 2026
+
+https://boardwalkbytes.org[Boardwalk Bytes Information Security Conference 2026^] is a regional cybersecurity conference held at Bally's in Atlantic City, New Jersey, bringing together practitioners, researchers, and defenders across offensive and defensive security. My session ran on Friday, July 10, 2026 from 4:10 PM to 4:50 PM in Traymore C.
+
+image::photo1.jpg[Speaking at Boardwalk Bytes 2026,width=700]
+
+== Talk: Prompt to Breach: Attack Paths in Enterprise AI Assistant Adoption
+
+=== Talk Overview
+
+As enterprises race up the AI adoption ladder — chat, file upload, enterprise search, connectors, actions, memory — each new rung adds capability and quietly removes a checkpoint. This talk reframed enterprise AI assistant risk as a data-flow and authorization problem rather than a model problem. The central thesis: **the model can recommend, but the application must authorize.** A prompt becomes dangerous the moment data crosses an identity, tool, memory, tenant, or destination boundary without deterministic enforcement outside the model. I demonstrated this live across four attack paths, each following the same rhythm — scenario, exploit, data flow, and the enforcement control that actually contains it.
+
+image::photo2.jpg[Walking the room through the live enterprise AI attack-path demo,width=700]
+
+Each path was shown with a live, deterministic demo — running the vulnerable flow first, then toggling to the defended version to show the exact control that changes the outcome.
+
+image::photo3.jpg[Mapping attack path 2 to the EchoLeak (CVE-2025-32711) real-world incident,width=700]
+
+=== Four Attack Paths in Enterprise AI Adoption
+
+**1. Sensitive Input & Shadow AI**: An engineer pastes an incident log — production API key, customer data, stack trace — into an assistant to summarize before sending it to a vendor. A scanner detects the secrets and warns, but no destination policy blocks the transfer, so the data still leaves. The lesson: *visibility is not enforcement.*
+
+**2. Retrieved Injection**: A user asks a routine question; enterprise search returns a ticket an external collaborator edited with hidden instructions. The user never typed the malicious prompt, yet the assistant acts on it. Retrieved content is *data, not authority* — telling the model to ignore malicious text only lowers the odds; the containing control is authorization outside the model.
+
+**3. Connector Identity**: The assistant invokes a connector — but whose identity does it use? A shared service token becomes a master key whose blast radius is defined by what the credential reaches, not by what the user is allowed to see. *OAuth scope is not user authorization.* The fix is delegated, per-user identity with resource-level checks.
+
+**4. Memory & Cross-Context**: One user stores confidential project context; another later asks an unrelated question and the first user's data surfaces through pure semantic relevance. Sending all memory to the model and hoping it self-filters has already crossed the boundary — retrieval must filter by owner, tenant, and classification *before* ranking.
+
+=== Building Enforcement Outside the Model
+
+Across all four paths the defensive pattern is the same: **the model interprets and proposes; the application owns every non-negotiable decision.**
+
+* **Classify at point of use**: enforce approved-destination policy on egress, not just detection at rest
+* **Preserve provenance**: label retrieved and third-party content as untrusted; authorize every tool call independently of the model's suggestion
+* **Delegate identity**: per-user scoped connector tokens and least privilege instead of shared service accounts
+* **Scope memory retrieval**: filter by tenant, owner, and classification before semantic ranking; make stored memory inspectable and deletable
+* **Audit every crossing**: one unified event capturing the model's proposal, the application's decision and policy, source provenance, and identity/tenant
+
+=== Real-World Precedent
+
+These are not hypothetical. The talk mapped each path to disclosed incidents — EchoLeak (CVE-2025-32711, zero-click exfiltration in M365 Copilot), Slack AI's public-to-private instruction execution, the Salesloft/Drift OAuth token breach, the Meta AI cross-user conversation bug, and the Dialogflow CX hijack flaw — every one a data-flow or authorization failure, not a model jailbreak.
+
+=== Key Takeaways
+
+* Enterprise AI assistant risk is a data-flow and authorization problem — the model can recommend, but the application must authorize
+* Detection is not enforcement: a scanner that warns but doesn't block still leaks
+* Retrieved and third-party content is data, not instruction — enforce provenance and authorize tool calls outside the model
+* OAuth scope is not user authorization — delegate per-user identity and scope connector access
+* Before approving an enterprise AI assistant, map every path data can enter, persist, and leave
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/Prompt-to-Breach-Latest.pdf[View Slides (PDF)^]

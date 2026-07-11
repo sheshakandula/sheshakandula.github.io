@@ -11,11 +11,15 @@ https://njsecon.org[NJ SECON 2026^] is the annual cybersecurity conference organ
 
 This was my second time speaking at NJ SECON — I also presented at https://sheshakandula.github.io/2025/06/10/SECON-NJ-2025-Conference/[SECON 2025^].
 
+image::photo1.jpg[Presenting at NJ SECON 2026 at Kean University,width=700]
+
 == Talk: When AI Agents Go Rogue: Hacking and Hardening Autonomous Apps
 
 === Talk Overview
 
 Autonomous AI agents can take actions, call APIs, access data stores, and operate over multiple turns with persistent context. That combination — autonomy, tool access, and memory — creates a new class of vulnerabilities that traditional AppSec frameworks don't fully cover. This talk walked through how agents go rogue and what to change architecturally to make them defensible.
+
+image::photo3.jpg[The "When AI Agents Go Rogue" title slide at SECON NJ 2026,width=700]
 
 === How AI Agents Go Rogue
 
@@ -37,6 +41,8 @@ Autonomous AI agents can take actions, call APIs, access data stores, and operat
 * **Memory hygiene**: namespace vector store access by user/tenant; quarantine chunks matching instruction patterns
 * **Audit logging and detection**: log every tool call with inputs and outputs; baseline normal agent behavior and alert on deviations
 
+image::photo2.jpg[Walking through hardening controls for autonomous AI applications,width=700]
+
 === Key Takeaways
 
 * AI agent attacks exploit architecture, not model weaknesses — the same LLM is safe or exploitable depending on how it is wired
@@ -49,7 +55,3 @@ Resources:
 * https://github.com/sheshakandula/ai-agent-security-demo[AI Agent Security Demo Repository^]
 // * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pdf[View Slides (PDF)^]
 // * https://github.com/sheshakandula/slides/blob/main/SECON-NJ-2026-When-AI-Agents-Go-Rogue.pptx[Download Slides (PPTX)^]
-
-// Add event photos below once available
-// image:photo1.jpg[NJ SECON 2026]
-// image:photo2.jpg[NJ SECON 2026]
