@@ -9,6 +9,8 @@
 
 https://basconf.org[OWASP BASC (Boston Application Security Conference) 2026^] is an OWASP-affiliated security conference held in Boston, bringing together application security professionals, researchers, and practitioners to discuss emerging threats and practical defenses in the modern security landscape.
 
+image::photo1.jpg[Presenting TLS, Tokens, and Trouble at OWASP BASC 2026,width=700]
+
 == Talk: TLS, Tokens, and Trouble: Preparing Modern Applications for the Quantum Era
 
 === Talk Overview
@@ -16,6 +18,8 @@ https://basconf.org[OWASP BASC (Boston Application Security Conference) 2026^] i
 Quantum computing is rapidly moving from theory to practical reality—and its impact on application security will be profound. Within the next decade, quantum algorithms may break the cryptographic foundations that protect modern applications, including HTTPS/TLS, JWTs, digital signatures, mobile authentication, and blockchain-based trust models.
 
 Adversaries are already responding with a strategy known as **"harvest now, decrypt later"**—collecting encrypted traffic today to exploit future quantum capabilities. This talk demystified quantum computing for application security professionals and focused on what AppSec teams need to understand and act on now.
+
+image::photo2.jpg[Walking through the talk agenda: quantum basics, at-risk primitives, and AppSec impact,width=700]
 
 === Relevant Quantum Algorithms and Their Impact
 
@@ -34,6 +38,8 @@ Mapped quantum threats to concrete AppSec scenarios teams encounter today:
 * **Mobile Authentication**: ECDSA-based device attestation and certificate pinning undermined
 * **Long-Lived Encrypted Data**: Data encrypted today with RSA or ECC is vulnerable if stored and decrypted in the future
 * **Blockchain Trust Models**: Public key cryptography underpinning wallet signatures and smart contract authentication at risk
+
+image::photo3.jpg[Engaging the room on whether their applications are ready for the post-quantum era,width=700]
 
 === Post-Quantum Cryptography: NIST Standards
 
@@ -74,7 +80,3 @@ Slides can be found here:
 
 * https://github.com/sheshakandula/slides/blob/main/OWASP_BASC_2026_Quantum_PQC%20v1.0.pdf[View Slides (PDF)^]
 * https://github.com/sheshakandula/slides/blob/main/OWASP_BASC_2026_Quantum_PQC%20v1.0.ppt[Download Slides (PPT)^]
-
-// Add event photos below once available
-// image:photo1.jpg[BASC2026]
-// image:photo2.jpg[BASC2026]
