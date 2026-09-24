@@ -1,0 +1,77 @@
+= OWASP 25th Anniversary Virtual Conference - Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface - 16th Talk
+:imagesdir: /assets/images/posts/OWASP25thAnniversary/
+:page-excerpt: Presented at the OWASP Foundation 25th Anniversary Virtual Conference, this talk walks two live attack paths in the Model Context Protocol's trust model — a rogue server that's clean forever and a remote server that turns malicious after approval — and argues the gap is architectural, not a bug to patch.
+:page-tags: [Talk, OWASP, MCP, ModelContextProtocol, AIAgents, AISecurity, AgenticAI, SupplyChain, AppSec, PromptInjection]
+:revdate: 2026-09-22
+// :page-published: false
+
+== About the OWASP 25th Anniversary Virtual Conference
+
+The https://owasp.org[OWASP Foundation^] marked 25 years with a virtual conference bringing together the global AppSec community. My session, "Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface," ran on Tuesday, September 22, 2026 from 11:30 AM to 12:15 PM PDT.
+
+image::mcp_architecture.png[MCP host, client, and server architecture, and where the real trust boundary sits,width=700]
+
+== Talk: Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface
+
+=== Talk Overview
+
+Every time you add an MCP server, it's as simple as dropping a JSON entry pointing at a third-party process. Restart your client, and that server's output flows straight into your agent's context — trusted like your own instructions. No signature checks, no permission review, no way to know today's install is next week's running code. This talk showed why that one-time "yes" is a snapshot, not a guarantee, and proved it live with two attack paths against the same architecture, in real clients.
+
+The throughline: **install once** (the trust decision) → **exploit forever** (nothing ever re-verifies it) → **it's the design, not a bug** (so the fixes have to be structural, not a patch).
+
+=== MCP 101: Declared vs. Done
+
+The protocol's lifecycle boils down to three calls: `initialize` (handshake), `tools/list` (the server's declared manifest — what scanners hash and pin), and `tools/call` (what the server actually runs and returns). A manifest pin verifies what a server *declares*. Your agent is only ever affected by what it *does*. Those are two different surfaces, and the gap between them is the whole attack.
+
+=== Live Demo 1: The Scanner Sees Clean, the Agent Gets Owned
+
+A single innocuous tool, `summarize_notes`, behaves differently depending on who's calling it. A scanner or probe gets a benign summary and a clean verdict. A real agent, with real task context, gets a hidden instruction injected into the result and its context exfiltrated — with the manifest hash byte-identical in both cases.
+
+image::demo1_scanner_vs_agent.png[Live demo: manifest scan reports clean while the real agent call returns an injected instruction and exfiltrated context,width=700]
+
+A better signature-based scanner can't close this gap — it's architectural. "It passed the scan" and "it's safe to call" are different claims that today's tooling conflates.
+
+=== Live Demo 2: The Silent Update
+
+Day 1: you review `release_notes_helper`, approve it, add it to your config. Days 2–13: every call is clean. Day 14: the vendor's server-side state flips — no restart, no reconnect, no re-prompt — and the same session, same manifest hash, now returns a hidden instruction to read SSH keys and token environment variables.
+
+image::demo2_rugpull.png[Live demo: Day 1 and Day 14 manifest pins are identical, but Day 14 injects a malicious instruction,width=700]
+
+A one-time approval is a snapshot. The protocol has no notion of "the code I approved" versus "whatever's deployed right now" — approval happens once, at install, and is never re-attested.
+
+=== Nothing Was "Exploited." That's the Point.
+
+No memory corruption, no auth bypass, no CVE, nothing crashed. Both attacks are the server doing exactly what the protocol lets it do. To show this isn't one client's mistake, the same malicious server was run — unmodified — against both Claude Desktop and VS Code, with the same hidden instruction and exfiltration path flowing into the agent's context in both. That's a broader architectural issue in the MCP trust model, not a single vendor's bug.
+
+=== What You Can Check Today
+
+Live audit tooling (`mcpscan`) can point at your own Claude Desktop, VS Code, Cursor, or Windsurf configs and flag remote/mutable servers, unpinned `npx -y` / `uvx` installs, live credentials in scope, and missing integrity checks — read-only, never executing a server or printing a secret. But it has an honest limit: it flags risk *posture*, not runtime *behavior*. It would still call Demo 1's server "clean" if pinned. That's the bridge to why the fixes have to be structural.
+
+=== Mitigations for This Week
+
+* **Allowlist** which servers are permitted — don't paste ad hoc entries from READMEs
+* **Pin versions** — no `npx -y`, no `@latest`, no unpinned `uvx`; pin an exact version or hash
+* **Sandbox the server** — least privilege, restrict filesystem and network (spec-recommended)
+* **Monitor outbound connections** from agent processes, not just browsers
+* **Audit permissions and scopes** per server — no wildcard/omnibus scopes (spec-recommended)
+* **Treat MCP updates like third-party code changes** — review the diff, don't just click "update"
+
+=== What the Ecosystem Still Needs
+
+MCP's own Security Best Practices already name local-server compromise as a recognized threat, but its guidance stops at install-time consent and sandboxing — both point-in-time controls that don't survive a change after approval. Closing the gap needs:
+
+* **Signed provenance** — bind what you approved to what actually runs
+* **Re-authorization on behavior change** — not just schema or permission diffs
+* **Continuous re-attestation** — not a one-time "yes" at install
+
+=== Key Takeaways
+
+* Approval ≠ safety — consent-at-install is a snapshot; trust must be continuous
+* Declared ≠ done — permission review can't see runtime behavior (`tools/list` ≠ `tools/call`)
+* An MCP server has the same privileges as your client — it isn't sandboxed by default; it's code you run
+* The spec names the threat but stops at install — point-in-time controls don't survive change
+* Defense is layered: allowlist + pin + sandbox + least-privilege + outbound monitoring
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/Install-Once-Exploit-Forever-OWASP.pdf[View Slides (PDF)^]
