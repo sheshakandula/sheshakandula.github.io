@@ -1,0 +1,104 @@
+= CarolinaCon 2026 - Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface - 17th Talk
+:imagesdir: /assets/images/posts/CarolinaCon2026/
+:page-excerpt: Presented at CarolinaCon 2026, this talk shows how a single MCP config entry wires untrusted code into an AI agent's reasoning, demonstrates two live attack paths — a server that's rogue from day one and one that turns malicious after approval — and lays out what defenders can check today and what the spec still doesn't close.
+:page-tags: [Talk, CarolinaCon, MCP, ModelContextProtocol, AIAgents, AISecurity, AgenticAI, SupplyChain, AppSec, PromptInjection]
+:revdate: 2026-10-25
+// :page-published: false
+
+== About CarolinaCon 2026
+
+https://carolinacon.org[CarolinaCon^] is a long-running hacker conference out of North Carolina. The 2026 edition ran online October 23–25, with talks, workshops, and hangouts streamed live on Jitsi and YouTube. I presented "Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface" on Sunday, October 25, 2026.
+
+image::title.png[Install Once, Exploit Forever — CarolinaCon 2026 title slide,width=700]
+
+== Talk: Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface
+
+=== Talk Overview
+
+Adding an MCP server takes one JSON entry pointing at a third-party process. Restart your client, and that server's output flows straight into your agent's context, trusted like your own instructions. There are no signature checks, no permission reviews, and no way to know this week's code is the code you approved last month.
+
+The talk followed one thread: **install once** (the trust decision) → **exploit forever** (nothing ever re-verifies it) → **it's the design, not a bug** (so the fixes have to be structural).
+
+=== MCP 101: Where the Trust Boundary Really Is
+
+MCP (Model Context Protocol) is an open standard for connecting AI apps to external tools and data, the "USB-C for AI tools" now built into Claude Desktop, VS Code, Cursor, Windsurf, and more. Servers run locally over stdio or remotely over HTTP with OAuth, and expose tools, resources, and prompts. Tools are the dangerous part: the model takes real action based on what they return.
+
+image::mcp_architecture.png[MCP host, client, and server architecture, and where the real trust boundary sits,width=700]
+
+The lifecycle comes down to three calls: `initialize` (handshake), `tools/list` (the declared manifest, which is what scanners hash and pin), and `tools/call` (what the server actually runs and returns). Pins verify what a server *declares*. Your agent is affected by what it *does*. The gap between those two surfaces is the attack.
+
+=== This Is Already Happening
+
+MCP servers sit inside the agent's workflow, see task context and credentials flowing between tools, and talk back into the model's reasoning. Unlike browser or IDE extensions, they have no marketplace safety net. Recent research and CVEs show this is already being exploited in the wild, not just in theory.
+
+image::already_happening.png[Recent MCP vulnerabilities and incidents, including RCE in MCP Inspector and command injection in MCP servers,width=700]
+
+=== Two Attack Paths, One Root Cause
+
+image::two_attack_paths.png[Two attack paths — a rogue server from day one and a server that turns malicious after an update — sharing one root cause: trust granted once, never re-verified,width=700]
+
+==== Live Demo 1: Legitimate From Day One
+
+The tool's name, description, and schema are benign forever, so a scanner has nothing to flag. The malice lives only in the `tools/call` result, and the server actively evades detection: scanner user-agents and bare probes with no real task context get the clean branch. Two different scanners returned the same clean verdict while the real agent call got a hidden instruction and had its context exfiltrated.
+
+image::demo1_scanner_vs_agent.png[Live demo: manifest scan reports clean while the real agent call returns an injected instruction and exfiltrated context,width=700]
+
+"Passed the scan" and "safe to call" are different claims. A better scanner can't close that gap; it's architectural.
+
+==== Live Demo 2: The Silent Update
+
+You approve a remote server once. Days 1–13, every call is clean. On Day 14 the vendor (or an attacker) pushes a server-side change: no restart, no reconnect, no re-prompt. In the same session, with the same manifest hash, the next call returns an instruction to read SSH keys and token environment variables. Clients re-prompt when the manifest changes, not when behavior changes.
+
+image::demo2_rugpull.png[Live demo: Day 1 and Day 14 manifest pins are identical, but Day 14 injects a malicious instruction,width=700]
+
+=== Nothing Was "Exploited." That's the Point.
+
+There was no memory corruption, no auth bypass, no CVE, and nothing crashed. Both attacks are the server doing exactly what the protocol lets it do. The same unmodified server ran against both Claude Desktop and VS Code, and in both the same hidden instruction and exfiltration flowed into the agent's context. This isn't one client's bug.
+
+=== What an Attacker Walks Away With
+
+* **Exfiltration is unavoidable.** The server sees your context and credentials the instant you call it, before the model replies.
+* **The data's already gone.** No client-side defense can pull it back.
+* **Injection is client-dependent.** A strong client refused it in the demo; a weaker one or a subtler payload may not.
+* **Nothing tripped a check.** Clean manifest, approved once.
+
+Remote servers add another leak: SSRF via redirect, where a malicious server points the client at internal endpoints like cloud metadata and the error details flow back to the attacker.
+
+image::ssrf_redirect.png[SSRF via redirect: a malicious MCP server redirects the client to an internal metadata service and receives the leaked response,width=700]
+
+=== What You Can Check Today
+
+The `mcpscan` audit tool reads your Claude Desktop, VS Code, Cursor, or Windsurf configs and flags remote or mutable servers, unpinned `npx -y` / `uvx` installs, live credentials in scope, broad filesystem access, and missing integrity checks. It is read-only and never runs a server or prints a secret. Its limit is honest: it flags risk *posture*, not runtime *behavior*.
+
+MCP's own Security Best Practices already name "Local MCP Server Compromise" as a threat. Its fix is consent and sandboxing at install time, and every one of those controls is point-in-time.
+
+=== Mitigations You Can Apply This Week
+
+* **Allowlist servers.** No ad hoc entries copied from READMEs.
+* **Pin versions.** No `npx -y`, no `@latest`, no unpinned `uvx`.
+* **Sandbox the server.** Least privilege, restricted filesystem and network (spec-recommended).
+* **Monitor outbound connections** from agent processes, not just browsers.
+* **Treat updates like code changes.** Audit permissions per server and review the diff.
+
+=== The Gap the Spec Doesn't Close Yet
+
+MCP's guidance stops at install time. Nothing re-verifies a server that behaves differently after approval, the time-based rug pull isn't addressed, and sandboxing limits blast radius but can't tell you the code changed. The ecosystem still needs:
+
+* **Signed provenance** that binds what you approved to what actually runs
+* **Re-authorization on behavior change**, not just schema or permission diffs
+* **Continuous re-attestation** instead of a one-time "yes" at install
+
+The talk closed by mapping these risks to the OWASP MCP Top 10, including software supply chain attacks, tool poisoning, prompt injection via contextual payloads, and shadow MCP servers.
+
+image::owasp_mcp_top10.png[OWASP MCP Top 10 roadmap,width=700]
+
+=== Key Takeaways
+
+* **Approval ≠ safety.** Consent at install is a snapshot; trust has to be continuous.
+* **Declared ≠ done.** Permission review can't see runtime behavior (`tools/list` ≠ `tools/call`).
+* **Same privileges as your client.** An MCP server isn't sandboxed by default; it's code you run.
+* **Defense is layered.** Allowlist + pin + sandbox + least privilege + outbound monitoring. No single scan closes the gap.
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/Install-Once-Exploit-Forever-CarolinaCon.pdf[View Slides (PDF)^]
