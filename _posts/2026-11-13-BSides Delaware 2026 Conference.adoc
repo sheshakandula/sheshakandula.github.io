@@ -1,0 +1,115 @@
+= BSides Delaware 2026 - Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface - 18th Talk
+:imagesdir: /assets/images/posts/BSidesDE2026/
+:page-excerpt: Back at BSides Delaware for 2026, this talk shows how a single MCP config entry wires untrusted code into an AI agent's reasoning. It demonstrates two live attack paths that pass every scan, maps which defenses actually stop them, and releases the demo code so attendees can reproduce both attacks safely on their own machines.
+:page-tags: [Talk, BSides, BSidesDE2026, BSidesDelaware, MCP, ModelContextProtocol, AIAgents, AISecurity, AgenticAI, SupplyChain, AppSec, PromptInjection]
+:revdate: 2026-11-13
+// :page-published: false
+
+== About BSides Delaware 2026
+
+https://www.bsidesdelaware.com[Security BSides Delaware^] is Delaware's grassroots cybersecurity conference. It has run since 2010 and is one of the longest-running BSides events in the mid-Atlantic. The 2026 edition took place November 13–14 at the University of Delaware's Fintech Innovation Hub in Newark, with technical talks, workshops, CTF competitions, villages, and plenty of hallway conversations. As always, it was volunteer-run and community-first.
+
+This was my third time speaking at BSides Delaware, after "LLMsec 2025: A Practical Guide to Attacks and Mitigations" last year. I presented "Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface" on Friday, November 13, 2026.
+
+image::title.png[Install Once, Exploit Forever — BSides Delaware 2026 title slide,width=700]
+
+== Talk: Install Once, Exploit Forever: The MCP Plugin Supply-Chain Attack Surface
+
+=== Talk Overview
+
+Adding a Model Context Protocol (MCP) server to Claude Desktop, VS Code, or Cursor takes a single JSON entry. Restart the client, and that server's output flows straight into your agent's context, trusted like your own instructions. Nothing checks a signature, reviews permissions, or confirms that this week's code is the code you approved last month.
+
+image::one_json_entry.png[One JSON entry — what it silently grants: access to files and tokens, no verification, no re-checks,width=700]
+
+The talk followed one thread: **install once** (the trust decision) → **exploit forever** (nothing ever re-verifies it) → **it's the design, not a bug** (so the fixes have to be structural).
+
+=== MCP 101: Where Trust Actually Lives
+
+Before breaking anything, the talk covered MCP's core pieces in about five minutes:
+
+* Servers run locally over stdio or remotely over HTTP with OAuth.
+* They expose tools, resources, and prompts.
+* Every session follows the same lifecycle: `initialize` → `tools/list` → `tools/call`.
+
+The demos started live with a minimal server and client, then MCP Inspector, then a tool result landing in a real agent's context.
+
+The key distinction is simple. Scanners and pins verify `tools/list`, which is what a server *declares*. Your agent is affected by `tools/call`, which is what the server *does*. That gap is the attack surface.
+
+=== Two Attack Paths, One Root Cause
+
+image::two_attack_paths.png[Two attack paths — a rogue server from day one and a server that turns malicious after an update — sharing one root cause: trust granted once, never re-verified,width=700]
+
+==== Live Demo 1: Legitimate From Day One
+
+The demo tool's name, description, and schema are benign forever, so a manifest scan has nothing to flag. The malice lives only in the `tools/call` result, and the server actively evades detection: it gives the clean branch to scanner user-agents and to bare probes that carry no real task context. Two different scanners returned the same clean verdict, while the real agent call received a hidden instruction and had its context exfiltrated.
+
+image::demo1_two_scanners.png[Live demo: two scanners return a clean verdict on the evasive MCP server,width=700]
+
+==== Live Demo 2: The Silent Update
+
+You approve a remote server once, and on Days 1–13 every call is clean. On Day 14, the vendor or an attacker pushes a server-side change. There's no restart, no reconnect, and no re-prompt. In the same session, with the same manifest hash, the next call returns an instruction to read SSH keys and token environment variables. Clients re-prompt when the manifest changes, not when behavior changes.
+
+image::demo2_silent_update.png[Live demo: the silent update — same manifest pin, malicious behavior after a server-side change,width=700]
+
+=== One Server, Two Clients, Same Result
+
+There was no memory corruption, no auth bypass, no CVE, and nothing crashed. Both attacks are the server doing exactly what the protocol allows. The same unmodified server ran in Claude Desktop and in VS Code, and both clients passed the same hidden instruction and exfiltrated context into the agent. This isn't a bug in one client. It's an architectural issue.
+
+image::two_clients.png[One server, two clients, same result — Claude Desktop and VS Code both pass the hidden instruction into the agent's context,width=700]
+
+Remote servers add one more leak: SSRF via redirect. A malicious server points the client at an internal endpoint such as cloud metadata, and the error details flow back to the attacker.
+
+=== What You Can Check Today
+
+The `mcpscan` audit tool reads your Claude Desktop, VS Code, Cursor, or Windsurf configs. It flags:
+
+* remote or mutable servers
+* unpinned `npx -y` / `uvx` installs
+* live credentials handed to servers
+* broad filesystem access
+* missing integrity checks
+
+It's read-only and never runs a server or prints a secret. Its limit is honest: it flags risk *posture*, not runtime *behavior*.
+
+=== Mitigations, and What Each One Actually Stops
+
+Mitigations you can configure tonight:
+
+* **Allowlist servers.** Don't add entries copied from READMEs.
+* **Pin versions.** No `npx -y`, no `@latest`, no unpinned `uvx`.
+* **Sandbox the server.** Use least privilege and restrict filesystem and network access, as the spec recommends.
+
+Mitigations to run continuously this quarter:
+
+* **Monitor outbound connections** from agent processes, not just browsers.
+* **Treat updates like code changes.** Audit permissions per server and review the diff.
+
+New for BSides Delaware, I added a slide that maps each control against both demos. Every control raises the bar, but none closes the gap alone. Allowlists, pins, and scanners are blind to both attacks because the manifest stays clean. Today, only the runtime controls (sandboxing with least privilege, and outbound monitoring) catch these attacks live. That's the whole case for signed provenance.
+
+image::control_matrix.png[What each control actually stops: allowlist, version pin, scanner, sandbox, outbound monitoring and signed provenance against both demos,width=700]
+
+=== The Gap the Spec Doesn't Close Yet
+
+MCP's own Security Best Practices already name local MCP server compromise as a threat, but their guidance stops at install time. Nothing re-verifies a server that behaves differently after approval. The ecosystem still needs:
+
+* **Signed provenance** that binds what you approved to what actually runs
+* **Re-authorization when behavior changes**, not just when the schema or permissions change
+* **Continuous re-attestation** instead of a one-time "yes" at install
+
+The talk closed by mapping these risks to the OWASP MCP Top 10.
+
+image::owasp_mcp_top10.png[OWASP MCP Top 10 roadmap,width=700]
+
+=== Key Takeaways
+
+* **Approval ≠ safety.** Consent at install is a snapshot; trust has to be continuous.
+* **Declared ≠ done.** Permission review can't see runtime behavior (`tools/list` ≠ `tools/call`).
+* **Same privileges as your client.** An MCP server isn't sandboxed by default; it's code you run.
+* **Defense is layered.** Allowlist + pin + sandbox + least privilege + outbound monitoring. No single scan closes the gap.
+
+=== Slides and Demo Code
+
+The slides and all of the demo code are on GitHub:
+
+* https://github.com/sheshakandula/slides/blob/main/Install-Once-Exploit-Forever-BSidesDelaware.pdf[View Slides (PDF)^]
+* https://github.com/sheshakandula/slides/tree/main/BSidesDelaware2026[Demo Files^]: the evasive server and silent-update proof of concept, a minimal MCP server and client, the `mcpscan` config auditor, and the stage runbook. Every malicious effect is simulated and local only.
