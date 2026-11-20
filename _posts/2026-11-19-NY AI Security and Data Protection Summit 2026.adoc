@@ -1,0 +1,93 @@
+= NY AI Security & Data Protection Summit 2026 - The Breach Without a Break-In: How AI Agents Leak Data Through the Access You Approved - 19th Talk
+:imagesdir: /assets/images/posts/NYAISecSummit2026/
+:page-excerpt: A keynote at the New York AI Security and Data Protection Summit 2026 that follows three bad days at one fictional company. An AI agent leaks credentials and customer data, and changes behavior after approval, all without an attacker breaking in. The talk argues that the fix is to move the decision out of the model and into a fixed policy check before every tool call.
+:page-tags: [Talk, Keynote, NewYork, NYC, ClutchEvents, AIAgents, AISecurity, AgenticAI, DataProtection, PromptInjection, SupplyChain, DataLeakage]
+:revdate: 2026-11-19
+// :page-published: false
+
+== About the New York AI Security and Data Protection Summit 2026
+
+The https://clutchevents.co/events/new-york-data-protection-summit-2026[New York AI Security and Data Protection Summit 2026^], run by Clutch Events, is a one-day, closed-door, practitioner-led summit. It brings together 150+ privacy, security, governance, risk, legal, and data leaders in one room. The 2026 edition took place on November 19 at Ease 1345, 1345 6th Ave in Manhattan. The format mixes practitioner keynotes, peer roundtables, live scenarios, and interactive panels, and it's free to attend with no vendor pitching. Sessions run under the Chatham House Rule and aren't recorded.
+
+I was invited to deliver a keynote and spoke at 3:20 PM on "The Breach Without a Break-In: How AI Agents Leak Data Through the Access You Approved."
+
+image::title.png[The Breach Without a Break-In — NY AI Security & Data Protection Summit 2026 title slide,width=700]
+
+== Keynote: The Breach Without a Break-In
+
+=== Talk Overview
+
+Most AI agent incidents won't look like hacks. There's no exploit, no stolen password, and no one breaking in. The agent simply uses the access it was already approved to have.
+
+The keynote followed three bad days at one fictional company, AcmeCorp, using a live split-screen demo. The left side showed what the employee sees: a normal chat. The right side showed what the agent actually did, step by step, including the policy events.
+
+image::no_break_in.png[Nobody has to break in. The access was already approved. Three ways, over three days, at one fictional company.,width=700]
+
+=== Not the Model. Its Reach.
+
+The risk isn't the model itself but what the agent can reach:
+
+* what it **reads**: documents, wikis, tickets, and email
+* what it **calls**: tools, connectors, and plug-ins
+* where it **sends**: channels, inboxes, and APIs it can push data to
+
+Each of the three days exercised one of these.
+
+image::agent_reach.png[Not the model, its reach: what an agent reads, calls, and sends,width=700]
+
+=== Three Bad Days at AcmeCorp
+
+**Day 1: The onboarding question.** A new hire asks a normal question about infrastructure, and the agent posts cloud credentials to `#general`. There's no attacker, just a broad tool, a broad prompt, and an approved destination.
+
+**Day 3: The edited wiki page.** One edited page makes the agent post customer records to an external channel. The user never typed the malicious instruction; a page the agent trusts did. Whoever can edit the documents your agent trusts controls your agent. The real-world parallel is EchoLeak (CVE-2025-32711) in Microsoft 365 Copilot, where one crafted email exfiltrated data with zero clicks.
+
+**Day 14: The plug-in that changed.** A plug-in you approved once passes every check, then changes behavior two weeks later. I ran this live on my laptop, with no network and no API key. The manifest hash was byte-identical on Day 1 and Day 14, two open-source scanners passed it, and there was nothing to re-approve. Scanners check what a plug-in *declares*, not what it *does*. The real-world parallel is postmark-mcp (September 2025), where after a run of clean releases, v1.0.16 added one line that BCC'd every email to the author.
+
+image::declared_vs_does.png[What it declares is not what it does: identical manifest hash, two scanners passed it, and the postmark-mcp incident,width=700]
+
+This isn't hypothetical. Public research found that 17% of OpenClaw skills analyzed in the marketplace's first weeks carried malicious payloads, and 341 malicious skills were documented on ClawHub. Confirmed disclosures already include EchoLeak, Slack AI indirect injection, and the Salesloft/Drift connector breach.
+
+=== Nothing Was Hacked. Still a Breach.
+
+Under HIPAA and GDPR, a breach is defined by unauthorized disclosure, not by someone breaking in. All three days broke an assumption that most security programs still rely on:
+
+image::three_assumptions.png[Three assumptions, all false: a breach needs an attacker, instructions come from users, and what we approved is what runs,width=700]
+
+=== Move the Decision Out of the Model
+
+The fix isn't a smarter prompt. It's a fixed policy check that runs before every tool call: **the model proposes, the policy decides, the tool executes.** The model's intent isn't a control. When Replit's agent was told "code freeze," it deleted the production database anyway (July 2025).
+
+image::policy_gate.png[Move the decision out of the model: model proposes, policy decides, tool executes,width=700]
+
+In the demo, each day was replayed in **Defended** mode with a policy gate in place. The results were deliberately honest:
+
+* **Day 3: Blocked.** The external post is denied before it runs.
+* **Day 1: Still leaks.** `#general` is an approved destination, so you also have to scan what leaves.
+* **Day 14: Held.** The signed build is checked on every call.
+
+Re-verifying a tool after approval, stopping leaks through allowed channels, and approval fatigue all remain unsolved.
+
+image::honest_result.png[The honest result: Day 3 blocked, Day 1 still leaks, Day 14 held, with three problems still unsolved,width=700]
+
+=== Stop. Rebuild. Prioritise.
+
+* **Stop:** treating system prompts as a control, sharing agent service tokens, and approving a tool only once.
+* **Rebuild:** a policy check before every action, each user's own identity on every tool call, and output scanning before data leaves.
+* **Prioritise:** an inventory of agents and plug-ins, continuous re-verification, and logging every tool call.
+
+=== Five Questions for Any Agent in Your Org
+
+image::five_questions.png[Five questions for any agent in your org,width=700]
+
+The keynote closed on a trade-off for the room: every gate you add slows the agent, and every gate you remove makes its worst day your worst day. Which actions will you let an agent take without a human, and who in your organization signs that list?
+
+=== Key Takeaways
+
+* **A breach doesn't need a break-in.** Unauthorized disclosure through approved access is still a breach.
+* **Retrieved content is data, not authority.** Whoever can edit what your agent reads can steer it.
+* **Approval is a snapshot.** A plug-in you approved once can change; re-verify continuously.
+* **Move the decision out of the model.** Use a deterministic policy check before every tool call, per-user identity, and output scanning.
+
+Slides can be found here:
+
+* https://github.com/sheshakandula/slides/blob/main/The-Breach-Without-a-Break-In-NY-AI-Security-Summit-2026.pdf[View Slides (PDF)^]
